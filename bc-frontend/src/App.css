@@ -8,9 +8,27 @@ header {
   align-items: center;
 }
 
+.lr-cont {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 30px;
+}
+
+.right {
+  width: 500px;
+}
+
+.daily-horo {
+  margin-right: 50px;
+}
+
 .left {
-float: left;
-width: 600px;
+width: 800px;
+}
+
+.love-horo {
+  margin-left: 50px;
+  margin-right: 50px;
 }
 
 .daily-matches {

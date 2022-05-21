@@ -11,6 +11,8 @@ function App() {
     </header>
 
 <br></br>
+    <div className='lr-cont'>
+   
 
     <div className='left'>
     <div className='daily-matches'>
@@ -35,8 +37,19 @@ function App() {
 
     </div>
 
+    <div className='love-horo'>
+    <h4>Love Horoscope</h4>
+        <p>May 21, 2022 - Today's prospects should suit the dynamic, idealistic being that you are, especially right now. There will be some criticism in the air, and you won't miss an opportunity to punctuate your comments with your famous irony. Your viewpoints on corporate rigidity and conformist attitudes are well known, but today your sense of humor prevails and people listen to you with pleasure!</p>
+    </div>
 
+    </div>
 
+    <div className='right'>
+      <div className='daily-horo'>
+        <h4>Daily Horoscope</h4>
+        <p>May 21, 2022 - Today's prospects should suit the dynamic, idealistic being that you are, especially right now. There will be some criticism in the air, and you won't miss an opportunity to punctuate your comments with your famous irony. Your viewpoints on corporate rigidity and conformist attitudes are well known, but today your sense of humor prevails and people listen to you with pleasure!</p>
+      </div>
+    </div>
 
     </div>
     </>
