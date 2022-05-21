@@ -2,6 +2,11 @@
   text-align: center;
 }
 
+.body {
+  width: 90%;
+  margin: 0 auto;
+}
+
 header {
   display: flex;
   justify-content: space-around;
@@ -15,20 +20,20 @@ header {
 }
 
 .right {
-  width: 500px;
-}
-
-.daily-horo {
-  margin-right: 50px;
+  width: 40%;
 }
 
 .left {
-width: 800px;
+width: 60%;
+}
+
+.comp-title {
+  text-align: center;
 }
 
 .love-horo {
   margin-left: 50px;
-  margin-right: 50px;
+  margin-right: 30px;
 }
 
 .daily-matches {
@@ -44,10 +49,81 @@ justify-content: space-around;
 }
 
 .dm-img {
-  width: 100px;
+  width: 70%;
 }
 
 .dm-bio {
   text-align: center;
 }
 
+
+/* iPads (portrait) ----------- */
+@media only screen and (max-width : 1024px) {
+  .lr-cont {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-evenly;
+    gap: 20px;
+  }
+
+  .left {
+    width: 90%;
+  }
+
+  .right {
+    margin: 0 auto;
+    width: 90%;
+  }
+
+  .daily-horo {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .horo-title {
+    text-align: center;
+  }
+
+  .daily-matches {
+    width: 40%;
+  }
+
+  .love-title {
+    text-align: center;
+  }
+
+  .love-horo {
+    width: 100%;
+  }
+}
+
+
+/* Big smartphones (portrait) (ie: Galaxy 3 has 360)*/
+@media only screen and (max-width : 400px) {
+
+  .lr-cont {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-evenly;
+    gap: 0px;
+  }
+
+  .right {
+    margin: 0 auto;
+    width: 90%;
+  }
+
+  .daily-matches {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    }
+
+
+
+}
+
+/* Smartphones (portrait) (ie: Galaxy 1) */
+@media only screen and (max-width : 321px) {
+  
+}
