@@ -3,14 +3,19 @@ import './App.css';
 function App() {
   return (
     <div className='body'>
-    
-    <header>
+
+    <header className='notmobile'>
     <nav className='nav-left'>Home  Matches   Chart</nav>
       <h1 className='page-title'>Horoscope Dating</h1>
     <nav className='nav-right'>My Account   Sign Out</nav>
     </header>
 
-<br></br>
+    <header className='mobile'>
+    <h1 className='page-title'>Horoscope Dating</h1>
+   
+    <nav>Home  Matches   Chart My Account   Sign Out</nav>
+    </header>
+
     <div className='lr-cont'>
     <div className='left'>
     <h3 className='comp-title'>Today's Compatibility</h3>
