@@ -42,7 +42,7 @@ justify-content: space-around;
 }
 
 .daily-match {
-  width: 150px;
+  width: 30%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -63,11 +63,11 @@ justify-content: space-around;
     display: flex;
     flex-direction: column-reverse;
     justify-content: space-evenly;
-    gap: 20px;
+    gap: 10px;
   }
 
   .left {
-    width: 90%;
+    width: 100%;
   }
 
   .right {
@@ -82,24 +82,49 @@ justify-content: space-around;
 
   .horo-title {
     text-align: center;
+    font-size: 20px;
   }
 
   .daily-matches {
-    width: 40%;
+    width: 90%;
+    margin: 0 auto;
   }
 
   .love-title {
     text-align: center;
+    font-size: 20px;
   }
 
   .love-horo {
-    width: 100%;
+    width: 90%;
+    margin: 0 auto;
   }
 }
 
 
 /* Big smartphones (portrait) (ie: Galaxy 3 has 360)*/
 @media only screen and (max-width : 400px) {
+
+  header {
+    /* display: grid; */
+  }
+
+  .page-title {
+    text-align: center;
+    font-size: 30px;
+  }
+
+  nav {
+    font-size: 12px;
+  }
+
+  .daily-horo {
+    text-align: justify;
+  }
+
+  .love-horo {
+    text-align: justify;
+  }
 
   .lr-cont {
     display: flex;
@@ -114,12 +139,18 @@ justify-content: space-around;
   }
 
   .daily-matches {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    gap: 10px;
     }
 
 
+  .dm-img {
+    width: 100%;
+  }
+
+  .dm-bio {
+    width: 100%;
+    font-size: 10px;
+  }
 
 }
 

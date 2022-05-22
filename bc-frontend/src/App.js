@@ -5,9 +5,9 @@ function App() {
     <div className='body'>
     
     <header>
-    <nav>Home  Matches   Chart</nav>
-      <h1>Horoscope Dating</h1>
-    <nav>My Account   Sign Out</nav>
+    <nav className='nav-left'>Home  Matches   Chart</nav>
+      <h1 className='page-title'>Horoscope Dating</h1>
+    <nav className='nav-right'>My Account   Sign Out</nav>
     </header>
 
 <br></br>
