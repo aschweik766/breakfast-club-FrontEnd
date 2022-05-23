@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './MyAccount.css'
+import { Link } from 'react-router-dom'
+import SignUpForm from '../components/SignUpForm'
 
 
 
@@ -35,7 +37,7 @@ function MyAccount() {
         <div className='acct-header'>
           <div className='myacct-cont'>
             <h2>My Account</h2>
-            <button>Update Preferences</button>
+           <Link to='/edit/:id'> <button>Update Preferences</button> </Link>
           </div>
          <h3>{user.firstName}, {user.birthday} - {user.location}</h3>
          <h4>Sun: Leo - Moon: Virgo - Rising: Sagittarius</h4>
