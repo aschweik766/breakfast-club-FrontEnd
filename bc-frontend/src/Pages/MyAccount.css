@@ -17,6 +17,12 @@
     margin-top: 20px;
 }
 
+.myacct-cont {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .photos {
     display: flex;
     gap:10px;
