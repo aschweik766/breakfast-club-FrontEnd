@@ -2,12 +2,38 @@
   text-align: center;
 }
 
-header {
+.body {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.notmobile {
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
 
+.mobile {
+  display: none;
+}
+
+.page-title {
+  text-align: center;
+}
+
+nav { 
+  text-align: center;
+}
+
+.lr-cont {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  width: 90%;
+  margin: 0 auto;
+}
+
+/* 
 .lr-cont {
   display: flex;
   justify-content: space-evenly;
@@ -15,20 +41,20 @@ header {
 }
 
 .right {
-  width: 500px;
-}
-
-.daily-horo {
-  margin-right: 50px;
+  width: 40%;
 }
 
 .left {
-width: 800px;
+width: 60%;
+} */
+
+.comp-title, .love-title, .horo-title {
+  text-align: center;
 }
 
-.love-horo {
-  margin-left: 50px;
-  margin-right: 50px;
+.love-horo, .daily-horo {
+  width: 80%;
+  margin: 0 auto;
 }
 
 .daily-matches {
@@ -37,17 +63,139 @@ justify-content: space-around;
 }
 
 .daily-match {
-  width: 150px;
+  width: 30%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .dm-img {
-  width: 100px;
+  width: 70%;
 }
 
 .dm-bio {
   text-align: center;
 }
 
+
+/* iPads (portrait) ----------- */
+@media only screen and (max-width : 1024px) {
+  .lr-cont {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-evenly;
+    gap: 10px;
+  }
+
+  .left {
+    width: 100%;
+  }
+
+  .right {
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .daily-horo {
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+    width: 100%;
+  }
+
+  .horo-title, .love-title {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .daily-matches {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .love-horo {
+    width: 100%;
+    margin: 0 auto;
+    text-align: justify;
+  }
+}
+
+
+/* Big smartphones (portrait) (ie: Galaxy 3 has 360)*/
+@media only screen and (max-width : 450px) {
+
+  .mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .notmobile {
+    display: none;
+  }
+
+  .page-title {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  nav {
+    font-size: 15px;
+  }
+
+  .horo-title, .love-title {
+    margin-bottom: 5px;
+  }
+
+  .daily-horo, .love-horo {
+    text-align: justify;
+  }
+
+  .lr-cont {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-evenly;
+    gap: 0px;
+  }
+
+  .right {
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .daily-matches {
+    gap: 10px;
+    }
+
+
+  .dm-img {
+    width: 100%;
+  }
+
+  .dm-bio {
+    width: 100%;
+    font-size: 10px;
+  }
+
+}
+
+/* Smartphones (portrait) (ie: Galaxy 1) */
+@media only screen and (max-width : 300px) {
+  .page-title {
+    font-size: 25px;
+  }
+
+  nav {
+    font-size: 12px;
+}
+
+.horo-title, .love-title {
+  font-size: 15px;
+}
+
+.daily-horo, .love-horo {
+  font-size: 13px;
+}
+
+}
