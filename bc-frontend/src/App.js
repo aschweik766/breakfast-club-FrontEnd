@@ -1,4 +1,5 @@
 import './App.css';
+import SignUpForm from './components/SignUpForm';
 
 function App() {
   return (
@@ -51,6 +52,9 @@ function App() {
       </div>
     </div>
 
+    </div>
+    <div>
+      <SignUpForm />
     </div>
     </>
   );
