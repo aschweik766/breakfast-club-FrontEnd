@@ -2,8 +2,8 @@ import './App.css';
 import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom'
 import './App.css';
-import MyAccount from './components/MyAccount';
-import Home from './components/Home';
+import Home from './Pages/Home';
+import MyAccount from './Pages/MyAccount';
 
 function App() {
   return (
