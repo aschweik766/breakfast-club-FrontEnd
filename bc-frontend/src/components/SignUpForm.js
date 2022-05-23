@@ -12,14 +12,14 @@ function SignUpForm() {
         }
     )
 
-    changeLoginInfo(event) {
-        this.setLoginInfo({
-            fullName:event.target.value,
-            username:event.target.value,
-            email:event.target.value,
-            password:event.target.value,
-        })
-    }
+    // changeLoginInfo(event) {
+    //     this.setLoginInfo({
+    //         fullName:event.target.value,
+    //         username:event.target.value,
+    //         email:event.target.value,
+    //         password:event.target.value,
+    //     })
+    // }
 
     return (
         <div>
