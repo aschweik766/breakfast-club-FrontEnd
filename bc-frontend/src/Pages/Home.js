@@ -12,14 +12,12 @@ function Home() {
     <div className='daily-matches'>
      <div className='daily-match'>
        <img src="https://thispersondoesnotexist.com/image" alt="match1" className='dm-img'/>
-       <p className='dm-bio'>Bio: sldjald jldsajldjaljlwa dsljaj daiwjlaw jdklakld sjlkadiwam
-         jldjklslslia
+       <p className='dm-bio'>Michael, 35 - Aries<br/>Toronto, CA <br/>Likes: Hiking, Art, Dogs
        </p>
     </div>
     <div className='daily-match'>
        <img src="https://thispersondoesnotexist.com/image" alt="match2" className='dm-img' />
-       <p className='dm-bio'>Bio: sldjald jldsajldjaljlwa dsljaj daiwjlaw jdklakld sjlkadiwam
-         jldjklslslia
+       <p className='dm-bio'>Julia, 23 - Gemini<br/>Toronto, CA <br/>Likes: Hiking, Art, Dogs
        </p>
     </div>
     <div className='daily-match'>
