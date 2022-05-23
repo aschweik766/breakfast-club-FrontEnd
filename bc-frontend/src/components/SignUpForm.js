@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import "bootstrap/dist/css/bootstrap.min.css"
+// import "bootstrap/dist/css/bootstrap.min.css"
 
 function SignUpForm() {
 
@@ -40,13 +40,13 @@ function SignUpForm() {
 
                         <input type="text"
                             placeholder="Email"
-                            conChange={this.changeLoginInfo}
+                            onChange={this.changeLoginInfo}
                             value={this.state.email}
                             className="form-control form-group" />
 
                         <input type="password"
                             placeholder="Password"
-                            conChange={this.changeLoginInfo}
+                            onChange={this.changeLoginInfo}
                             value={this.state.password}
                             className="form-control form-group" />
 
