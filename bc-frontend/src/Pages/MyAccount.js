@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import './MyAccount.css'
 import { Link } from 'react-router-dom'
-import SignUpForm from '../components/SignUpForm'
-
-
+// import SignUpForm from '../components/SignUpForm'
+// import { Routes, Route } from 'react-router-dom'
+// import App from '../App'
+// import EditProfile from './EditProfile'
 
 
 function MyAccount() {
-  const [user, setUser] = useState(null)
 
+  const [user, setUser] = useState(null)
 
   function getUser () {
     const url = 'http://localhost:3001/myaccount'
@@ -17,7 +18,6 @@ function MyAccount() {
     .then((res) => setUser(res[0]))
     .catch(console.error) 
   }
-  
   useEffect(() => {
   getUser()
   }, [])
@@ -26,7 +26,8 @@ function MyAccount() {
     return(<h1>Loading...</h1>)
   }
 
-  console.log(user)
+  console.log(user) 
+
 
   return (
     <div className='body'>
@@ -37,7 +38,7 @@ function MyAccount() {
         <div className='acct-header'>
           <div className='myacct-cont'>
             <h2>My Account</h2>
-           <Link to='/edit/:id'> <button>Update Preferences</button> </Link>
+           <Link to='/edit/:id'> <button>Update Preferences </button> </Link>
           </div>
          <h3>{user.firstName}, {user.birthday} - {user.location}</h3>
          <h4>Sun: Leo - Moon: Virgo - Rising: Sagittarius</h4>
@@ -57,13 +58,9 @@ function MyAccount() {
          <div className='photo-cont'><img src="https://thispersondoesnotexist.com/image" alt="profile-img" className='profile-img'/></div>
          <div className='photo-cont'><img src="https://thispersondoesnotexist.com/image" alt="profile-img" className='profile-img'/></div>
          <div className='photo-cont'><img src="https://thispersondoesnotexist.com/image" alt="profile-img" className='profile-img'/></div>
-     
+  
          </div>
         </div>
-
-
-
-
         </div>
         
     </div>

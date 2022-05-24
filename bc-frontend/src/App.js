@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState, useEffect } from 'react';
+// import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom'
 import './App.css';
 import Home from './Pages/Home';
@@ -13,7 +13,7 @@ function App() {
     <Route path='/' element={<Home />} />
     <Route path='/myaccount' element={<MyAccount />} />
     <Route path='/signup' element={<SignUpForm />} />
-    <Route path='/edit/:id' element={<EditProfile />}/>
+    <Route path='/edit/:id' element={<EditProfile  />}/>
   </Routes>
   );
 }
