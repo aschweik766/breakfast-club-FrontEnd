@@ -1,10 +1,10 @@
-import React from 'react'
-import {useParams} from "react-router-dom"
+import React, { useState } from 'react'
+// import {useParams} from "react-router-dom"
 
 function EditProfile() {
-  const id = useParams().id
+//   const id = useParams().id
 
-  const [editProfile, setEditProfile] = usestate()
+//   const [editProfile, setEditProfile] = useState()
 
   return (
     <div></div>
