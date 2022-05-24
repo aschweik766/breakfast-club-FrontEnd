@@ -18,6 +18,7 @@ function MyAccount() {
     .then((res) => setUser(res[0]))
     .catch(console.error) 
   }
+
   useEffect(() => {
   getUser()
   }, [])
@@ -26,7 +27,7 @@ function MyAccount() {
     return(<h1>Loading...</h1>)
   }
 
-  console.log(user) 
+  console.log(user._id) 
 
 
   return (
@@ -38,7 +39,7 @@ function MyAccount() {
         <div className='acct-header'>
           <div className='myacct-cont'>
             <h2>My Account</h2>
-           <Link to='/edit/:id'> <button>Update Preferences </button> </Link>
+           <Link to={`/edit/${user._id}`} > <button>Update Preferences </button> </Link>
           </div>
          <h3>{user.firstName}, {user.birthday} - {user.location}</h3>
          <h4>Sun: Leo - Moon: Virgo - Rising: Sagittarius</h4>
