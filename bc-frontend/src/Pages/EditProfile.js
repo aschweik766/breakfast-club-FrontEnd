@@ -4,7 +4,7 @@ import {useParams} from "react-router-dom"
 function EditProfile() {
   const id = useParams().id
 
-  const [editProfile, setEditProfile] = usestate()
+  // const [editProfile, setEditProfile] = usestate()
 
   return (
     <div></div>

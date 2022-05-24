@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './MyAccount.css'
 import { Link } from 'react-router-dom'
-import SignUpForm from '../components/SignUpForm'
+import SignUpForm from './SignUp'
 
 
 
