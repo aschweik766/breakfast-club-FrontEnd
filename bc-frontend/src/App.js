@@ -1,10 +1,11 @@
 import './App.css';
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect} from 'react';
 import { Routes, Route } from 'react-router-dom'
 import Home from './Pages/Home';
 import MyAccount from './Pages/MyAccount';
-import SignUpForm from './components/SignUpForm'
+import SignUp from './Pages/SignUp'
 import EditProfile from './Pages/EditProfile';
+import Login from './Pages/Login';
 import StarChart from './Pages/StarChart';
 
 function App() {
@@ -55,8 +56,9 @@ function App() {
     <Route path='/' element={<Home />} />
     <Route path='/starchart' element={<StarChart user={user} />} />
     <Route path='/myaccount' element={<MyAccount user={user} />} />
-    <Route path='/signup' element={<SignUpForm user={user} />} />
+    <Route path='/signup' element={<SignUp user={user} />} />
     <Route path='/edit/:id' element={<EditProfile user={user} updateUser={updateUser()}/>}/>
+    <Route path='/login' element={<Login />} />
   </Routes>
   );
 }
