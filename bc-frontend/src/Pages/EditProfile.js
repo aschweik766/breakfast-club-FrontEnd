@@ -10,15 +10,16 @@ const EditProfile = ({user, updateUser}) => {
   console.log(editUser)
 
   // const [initialState, setInitialState] = useState(initialState)
-  const [editFormState, setEditFormState] = useState(null)
+  const [editFormState, setEditFormState] = useState(editUser)
 
   const handleChange = event => {
-    setEditFormState({ ...editFormState, [event.target.firstName]: event.target.value });
-  };
+    setEditFormState({ ...editFormState, [event.target.firstName]: event.target.value })
+  }
+
   const handleSubmit = event => {
     event.preventDefault();
     console.log(editFormState);
-    updateUser(editFormState, editUser)
+    updateUser(editFormState, id)
     history('/')
   }
 
