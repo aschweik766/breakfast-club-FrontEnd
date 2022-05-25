@@ -1,32 +1,35 @@
-import React, { useState, useEffect } from 'react'
+// import React, { useState, useEffect } from 'react'
 import './MyAccount.css'
 import { Link } from 'react-router-dom'
-import SignUpForm from './SignUp'
+// import SignUp from './SignUp'
+// import { Routes, Route } from 'react-router-dom'
+// import App from '../App'
+// import EditProfile from './EditProfile'
 
 
-
-
-function MyAccount() {
-  const [user, setUser] = useState(null)
-
-
-  function getUser () {
-    const url = 'http://localhost:3001/myaccount'
-    fetch(url)
-    .then((res) => res.json())
-    .then((res) => setUser(res[0]))
-    .catch(console.error) 
-  }
-  
-  useEffect(() => {
-  getUser()
-  }, [])
-  
-  if (!user) {
-    return(<h1>Loading...</h1>)
-  }
-
+function MyAccount({user}) {
   console.log(user)
+
+  // const [user, setUser] = useState(null)
+
+  // function getUser () {
+  //   const url = 'http://localhost:3001/myaccount'
+  //   fetch(url)
+  //   .then((res) => res.json())
+  //   .then((res) => setUser(res[0]))
+  //   .catch(console.error) 
+  // }
+
+  // useEffect(() => {
+  // getUser()
+  // }, [])
+  
+  // if (!user) {
+  //   return(<h1>Loading...</h1>)
+  // }
+
+  // console.log(user._id) 
+
 
   return (
     <div className='body'>
@@ -37,7 +40,7 @@ function MyAccount() {
         <div className='acct-header'>
           <div className='myacct-cont'>
             <h2>My Account</h2>
-           <Link to='/edit/:id'> <button>Update Preferences</button> </Link>
+           <Link to={`/edit/${user._id}`} > <button>Update Preferences </button> </Link>
           </div>
          <h3>{user.firstName}, {user.birthday} - {user.location}</h3>
          <h4>Sun: Leo - Moon: Virgo - Rising: Sagittarius</h4>
@@ -57,13 +60,9 @@ function MyAccount() {
          <div className='photo-cont'><img src="https://thispersondoesnotexist.com/image" alt="profile-img" className='profile-img'/></div>
          <div className='photo-cont'><img src="https://thispersondoesnotexist.com/image" alt="profile-img" className='profile-img'/></div>
          <div className='photo-cont'><img src="https://thispersondoesnotexist.com/image" alt="profile-img" className='profile-img'/></div>
-     
+  
          </div>
         </div>
-
-
-
-
         </div>
         
     </div>
