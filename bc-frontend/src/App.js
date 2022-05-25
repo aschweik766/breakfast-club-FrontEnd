@@ -21,14 +21,14 @@ function App() {
     .catch(console.error) 
   }
 
-  const updateUser = (id) => {
+  const updateUser = (a, id) => {
     const putURL = "http://localhost:3001/edit/"
     fetch (putURL + id, {
       method: 'PUT',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({firstName: ''})
     })
-    
+    getUser()
   }
 
   // const deleteUser = async id => {
