@@ -16,11 +16,11 @@ function App() {
     const url = 'http://localhost:3001/myaccount'
     fetch(url)
     .then((res) => res.json())
-    .then((res) => setUser(res[0]))
+    .then((res) => setUser(res))
     .catch(console.error) 
   }
 
-  const updateUser = (id) => {
+  const updateUser = (a, id) => {
     const putURL = "http://localhost:3001/edit/:id"
     fetch (putURL + id, {
       method: 'PUT',
