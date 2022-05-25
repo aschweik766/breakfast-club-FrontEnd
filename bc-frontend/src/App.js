@@ -6,6 +6,7 @@ import Home from './Pages/Home';
 import MyAccount from './Pages/MyAccount';
 import SignUp from './Pages/SignUp'
 import EditProfile from './Pages/EditProfile';
+import Login from './Pages/Login';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
     <Route path='/myaccount' element={<MyAccount />} />
     <Route path='/signup' element={<SignUp />} />
     <Route path='/edit/:id' element={<EditProfile />}/>
+  <Route path='/login' element={<Login />} />
   </Routes>
   );
 }
