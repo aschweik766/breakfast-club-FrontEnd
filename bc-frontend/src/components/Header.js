@@ -5,7 +5,7 @@ function Header() {
   return (
     <div className='body'>
         <header className='notmobile'>
-    <nav className='nav-left'><Link to='/'>Home</Link>  Matches   <Link to='/starchart'>Chart</Link></nav>
+    <nav className='nav-left'><Link to='/'>Home</Link>  Matches   <Link to='/horoscope'>Horoscope</Link></nav>
       <h1 className='page-title'>Horoscope Dating</h1>
     <nav className='nav-right'><Link to='/myaccount'>My Account</Link> Sign Out</nav>
     </header>
