@@ -1,14 +1,52 @@
 import React, { useState } from 'react'
-// import {useParams} from "react-router-dom"
+import { useParams, useNavigate } from 'react-router-dom'
 
-function EditProfile() {
-//   const id = useParams().id
 
-//   const [editProfile, setEditProfile] = useState()
+const EditProfile = ({user, updateUser}) => {
+  const history = useNavigate()
+  const id = useParams().id
+  console.log(id)
+  const editUser = user.find(e => e._id === id)
+  console.log(editUser)
 
-  return (
-    <div></div>
-  )
+  // const [initialState, setInitialState] = useState(initialState)
+  const [editFormState, setEditFormState] = useState(null)
+
+  const handleChange = event => {
+    setEditFormState({ ...editFormState, [event.target.firstName]: event.target.value });
+  };
+  const handleSubmit = event => {
+    event.preventDefault();
+    console.log(editFormState);
+    updateUser(editFormState, editUser)
+    history('/')
+  }
+
+  // const deleteUser = () => {
+  //   props.deleteUser(id)
+  //   history('/')
+  // }
+
+  return(
+   <div className='selectedUser'>
+     <h1>{editUser.firstName}</h1>
+     {/* <button id="delete" onClick={deleteUser}>
+            DELETE
+          </button> */}
+    <form onSubmit={handleSubmit}>
+      <label htmlFor='firstName'>firstName:</label>
+      <input value={editFormState.firstName}
+       type='text' 
+       placeholder='first name' 
+       onChange={handleChange} />
+      <button type='submit'>Edit Name</button>
+    </form>
+   </div>
+  );
 }
 
-export default EditProfile
+export default EditProfile  
+
+
+
+
