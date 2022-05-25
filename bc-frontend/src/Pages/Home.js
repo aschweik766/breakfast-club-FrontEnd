@@ -1,4 +1,5 @@
 import React from 'react'
+import DailyMatches from '../components/DailyMatches'
 // import { Link } from 'react-router-dom'
 
 function Home() {
@@ -8,26 +9,8 @@ function Home() {
 
     <div className='lr-cont'>
     <div className='left'>
-    <h3 className='comp-title'>Today's Compatibility</h3>
-    <div className='daily-matches'>
-     <div className='daily-match'>
-       <img src="https://thispersondoesnotexist.com/image" alt="match1" className='dm-img'/>
-       <p className='dm-bio'>Michael, 35 - Aries<br/>Toronto, CA <br/>Likes: Hiking, Art, Dogs
-       </p>
-    </div>
-    <div className='daily-match'>
-       <img src="https://thispersondoesnotexist.com/image" alt="match2" className='dm-img' />
-       <p className='dm-bio'>Julia, 23 - Gemini<br/>Toronto, CA <br/>Likes: Hiking, Art, Dogs
-       </p>
-    </div>
-    <div className='daily-match'>
-       <img src="https://thispersondoesnotexist.com/image" alt="match3" className='dm-img'/>
-       <p className='dm-bio'>Bio: sldjald jldsajldjaljlwa dsljaj daiwjlaw jdklakld sjlkadiwam
-         jldjklslslia
-       </p>
-    </div>
-
-    </div>
+    
+    <DailyMatches />
 
     <div className='love-horo'>
     <h4 className='love-title'>Love Horoscope</h4>
