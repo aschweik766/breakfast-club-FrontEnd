@@ -1,4 +1,4 @@
-// import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import './MyAccount.css'
 import { Link } from 'react-router-dom'
 // import SignUpForm from '../components/SignUpForm'
@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 // import EditProfile from './EditProfile'
 
 
-function MyAccount({user}) {
+function MyAccount({ user }) {
   console.log(user)
 
   // const [user, setUser] = useState(null)
