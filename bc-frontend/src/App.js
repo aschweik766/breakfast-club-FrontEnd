@@ -1,7 +1,6 @@
 import './App.css';
 import React, {useState, useEffect} from 'react';
 import { Routes, Route } from 'react-router-dom'
-import './App.css';
 import Home from './Pages/Home';
 import MyAccount from './Pages/MyAccount';
 import SignUp from './Pages/SignUp'
@@ -17,12 +16,12 @@ function App() {
     const url = 'http://localhost:3001/myaccount'
     fetch(url)
     .then((res) => res.json())
-    .then((res) => setUser(res[0]))
+    .then((res) => setUser(res))
     .catch(console.error) 
   }
 
-  const updateUser = (id) => {
-    const putURL = "http://localhost:3001/edit/"
+  const updateUser = (a, id) => {
+    const putURL = "http://localhost:3001/edit/:id"
     fetch (putURL + id, {
       method: 'PUT',
       headers: {'Content-Type': 'application/json'},
@@ -55,7 +54,7 @@ function App() {
   return (
   <Routes>
     <Route path='/' element={<Home />} />
-    <Route path='/starchart' element={<StarChart />}/>
+    <Route path='/starchart' element={<StarChart user={user} />} />
     <Route path='/myaccount' element={<MyAccount user={user} />} />
     <Route path='/signup' element={<SignUp user={user} />} />
     <Route path='/edit/:id' element={<EditProfile user={user} updateUser={updateUser()}/>}/>
