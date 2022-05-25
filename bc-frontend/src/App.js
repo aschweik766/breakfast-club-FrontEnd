@@ -36,7 +36,7 @@ function App() {
   //       method: "delete",
   //       })
   //   // update list of people
-  //   getUser()
+  //   getUser()––
   // }
   
   useEffect(() => {
