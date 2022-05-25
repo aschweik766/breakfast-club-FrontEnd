@@ -10,27 +10,6 @@ import { Link } from 'react-router-dom'
 function MyAccount({ user }) {
   console.log(user)
 
-  // const [user, setUser] = useState(null)
-
-  // function getUser () {
-  //   const url = 'http://localhost:3001/myaccount'
-  //   fetch(url)
-  //   .then((res) => res.json())
-  //   .then((res) => setUser(res[0]))
-  //   .catch(console.error) 
-  // }
-
-  // useEffect(() => {
-  // getUser()
-  // }, [])
-
-  // if (!user) {
-  //   return(<h1>Loading...</h1>)
-  // }
-
-  // console.log(user._id) 
-
-
   return (
     <div className='body'>
       <div className='page-cont'>
