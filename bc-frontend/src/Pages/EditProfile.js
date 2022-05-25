@@ -1,26 +1,34 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 
 
 const EditProfile = ({user, updateUser}) => {
   const history = useNavigate()
   const id = useParams().id
-  console.log(id)
+//   console.log(id)
   const editUser = user.find(e => e._id === id)
-  console.log(editUser)
+//   console.log(editUser)
 
-  const [initialState] = { firstName: '' }
+//   const [initialState] = {editUser}
   const [editFormState, setEditFormState] = useState(editUser)
 
   const handleChange = event => {
-    setEditFormState({ ...editFormState, [event.target.firstName]: event.target.value });
-  };
+    setEditFormState({ ...editFormState, id, [event.target.firstName]: event.target.value })
+    event.preventDefault()
+  }
+
   const handleSubmit = event => {
     event.preventDefault();
     console.log(editFormState);
     updateUser(editFormState, id)
     history('/')
   }
+
+
+// useEffect( () => {
+//     updateUser(editFormState, id)
+// }, [])
+
 
   // const deleteUser = () => {
   //   props.deleteUser(id)
@@ -34,10 +42,10 @@ const EditProfile = ({user, updateUser}) => {
             DELETE
           </button> */}
     <form onSubmit={handleSubmit}>
-      <label htmlFor='firstName'>firstName:</label>
-      <input value={editFormState.firstName}
+      <label htmlFor='firstName'>First Name:</label>
+      <input value={editFormState.firstName} 
        type='text' 
-       placeholder='first name' 
+       placeholder=""
        onChange={handleChange} />
       <button type='submit'>Edit Name</button>
     </form>
