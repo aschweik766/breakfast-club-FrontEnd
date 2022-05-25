@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+// import React, { useState, useEffect } from 'react'
 import './MyAccount.css'
 import { Link } from 'react-router-dom'
 // import SignUpForm from '../components/SignUpForm'
@@ -7,27 +7,28 @@ import { Link } from 'react-router-dom'
 // import EditProfile from './EditProfile'
 
 
-function MyAccount() {
+function MyAccount({user}) {
+  console.log(user)
 
-  const [user, setUser] = useState(null)
+  // const [user, setUser] = useState(null)
 
-  function getUser () {
-    const url = 'http://localhost:3001/myaccount'
-    fetch(url)
-    .then((res) => res.json())
-    .then((res) => setUser(res[0]))
-    .catch(console.error) 
-  }
+  // function getUser () {
+  //   const url = 'http://localhost:3001/myaccount'
+  //   fetch(url)
+  //   .then((res) => res.json())
+  //   .then((res) => setUser(res[0]))
+  //   .catch(console.error) 
+  // }
 
-  useEffect(() => {
-  getUser()
-  }, [])
+  // useEffect(() => {
+  // getUser()
+  // }, [])
   
-  if (!user) {
-    return(<h1>Loading...</h1>)
-  }
+  // if (!user) {
+  //   return(<h1>Loading...</h1>)
+  // }
 
-  console.log(user._id) 
+  // console.log(user._id) 
 
 
   return (
