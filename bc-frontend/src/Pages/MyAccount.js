@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+// import React, { useState, useEffect } from 'react'
 import './MyAccount.css'
 import { Link } from 'react-router-dom'
 // import SignUp from './SignUp'
@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 
 
 function MyAccount({ user }) {
-  console.log(user)
+  // console.log(user)
 
   return (
     <div className='body'>
@@ -19,7 +19,7 @@ function MyAccount({ user }) {
         <div className='acct-header'>
           <div className='myacct-cont'>
             <h2>My Account</h2>
-            <Link to={`/edit/${user._id}`} > <button>Update Preferences </button> </Link>
+            <Link to={`/myaccount/${user._id}`} > <button>Update Preferences </button> </Link>
           </div>
           <h3>{user.firstName}, {user.birthday} - {user.location}</h3>
           <h4>Sun: Leo - Moon: Virgo - Rising: Sagittarius</h4>
