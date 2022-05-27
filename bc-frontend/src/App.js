@@ -10,7 +10,7 @@ import Login from "./Pages/Login";
 import Header from "./components/Header";
 import Users from './Pages/Users'
 import Horoscope from "./Pages/Horoscope";
- 
+/* eslint-disable */
 
 //structure:
 //app
@@ -88,21 +88,9 @@ function App() {
       .catch((err) => console.error(err));
   }
 
-  //   const options = {
-  //     method: 'GET',
-  //     headers: {
-  //       'X-RapidAPI-Host': 'astro-daily-live-horoscope.p.rapidapi.com',
-  //       'X-RapidAPI-Key': 'edacaef342mshbdf5ee096e8dc49p13afddjsnc635d0c652c1'
-  //     }
-  //   };
-
-  //   fetch('https://astro-daily-live-horoscope.p.rapidapi.com/horoscope/aries/today', options)
-  //     .then(response => response.json())
-  //     .then(response => setHoroscope(response))
-  //     .catch(err => console.error(err))
-  // }
-
-  
+  useEffect(() => {
+getHoroscope()
+  }, [])
 
   return (
     <div className="App">
