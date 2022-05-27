@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
-import Users from '../Pages/Users'
-import EditProfile from '../Pages/EditProfile'
+import Users from './Pages/Users'
+import EditProfile from './Pages/EditProfile'
 
 const Main = () => {
     const [users, setUsers] = useState([])
