@@ -83,13 +83,17 @@ function App() {
     return(<h1>Loading...</h1>)
   }
 
-  console.log(user._id) 
-console.log(horoscope)
+// console.log(user) 
+// console.log(horoscope)
+
+
+
 
 
   return (
   <Routes>
     <Route path='/' element={<Home />} />
+    <Route path='/app' element={<App />} />
     <Route path='/starchart' element={<StarChart user={user} />} />
     <Route path='/myaccount' element={<MyAccount user={user} />} />
     <Route path='/signup' element={<SignUp user={user} />} />
