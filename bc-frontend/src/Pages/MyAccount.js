@@ -9,7 +9,6 @@ import { Link } from 'react-router-dom'
 
 function MyAccount({ users }) {
   // console.log(user)
-
   return (
     <div className='body'>
       <div className='page-cont'>
@@ -39,13 +38,10 @@ function MyAccount({ users }) {
             <div className='photo-cont'><img src="https://thispersondoesnotexist.com/image" alt="profile-img" className='profile-img' /></div>
             <div className='photo-cont'><img src="https://thispersondoesnotexist.com/image" alt="profile-img" className='profile-img' /></div>
             <div className='photo-cont'><img src="https://thispersondoesnotexist.com/image" alt="profile-img" className='profile-img' /></div>
-
           </div>
         </div>
       </div>
-
     </div>
   )
 }
-
 export default MyAccount

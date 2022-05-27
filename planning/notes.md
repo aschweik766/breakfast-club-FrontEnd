@@ -22,6 +22,7 @@ StarChart (route tertiary)
     Big 3: moon/sun/rising
     (clickthrough, more info)
     Venus
+    --Might need to hardcode in a few major cities since we need latitude and longitude - or --- scrap the star chart idea completely and just do basic horoscope??
 
 Dating/friendship preferences
     --Render personal username
