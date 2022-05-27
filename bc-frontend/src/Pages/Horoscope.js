@@ -1,24 +1,11 @@
 import React from 'react'
 
-function Horoscope({horoscope}) {
-
-
-    
-if(!horoscope) {
-   <>
-   <h1>Loading...</h1>
-   </> 
-}
-
-console.log(horoscope)
+function Horoscope(props) {
 
   return (
 <div>
-    Horoscope
-   
-{/* <h2>{horoscope}</h2> */}
 
-
+{props.horoscope}
 </div>
   )
 }

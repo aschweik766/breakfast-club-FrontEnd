@@ -32,22 +32,36 @@ function App() {
     getUser()
   }
 
+  // function getHoroscope () {
+  //   const options = {
+  //     method: 'GET',
+  //     headers: {
+  //       'X-RapidAPI-Host': 'daily-horoscopes1.p.rapidapi.com',
+  //       'X-RapidAPI-Key': 'edacaef342mshbdf5ee096e8dc49p13afddjsnc635d0c652c1'
+  //     }
+  //   };
+    
+  //   fetch('https://daily-horoscopes1.p.rapidapi.com/', options)
+  //     .then(response => response.json())
+  //     .then(response => setHoroscope(response))
+  //     .catch(err => console.error(err));
+
+  // }
+
   function getHoroscope () {
     const options = {
       method: 'GET',
       headers: {
-        'X-RapidAPI-Host': 'daily-horoscopes1.p.rapidapi.com',
-        'X-RapidAPI-Key': 'edacaef342mshbdf5ee096e8dc49p13afddjsnc635d0c652c1'
+        'X-RapidAPI-Host': 'devbrewer-horoscope.p.rapidapi.com',
+        'X-RapidAPI-Key': 'e5003d0b92msha0898f0c18e9287p1c5a94jsn9e9de59e6eb3'
       }
     };
     
-    fetch('https://daily-horoscopes1.p.rapidapi.com/', options)
+    fetch('https://devbrewer-horoscope.p.rapidapi.com/today/long/Aries', options)
       .then(response => response.json())
       .then(response => setHoroscope(response))
       .catch(err => console.error(err));
-
   }
-
 
 
 
@@ -84,8 +98,6 @@ function App() {
   }
 
   console.log(user._id) 
-console.log(horoscope)
-
 
   return (
   <Routes>
