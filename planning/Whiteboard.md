@@ -6,3 +6,9 @@ Setup backend routes, model, deploy
         add, remove, edit profile
     
     --based on user-->data will filter and pull from horoscope API for personalized horoscope on profile
+
+
+    LOGIN USER
+
+        - Form 
+        - username = {  }
