@@ -13,7 +13,7 @@ function Header() {
     <header className='mobile'>
     <h1 className='page-title'>Horoscope Dating</h1>
    
-    <nav><Link to='/'>Home</Link> Matches Chart <Link to='/myaccount'>My Account</Link> Sign Out</nav>
+    <nav><Link to='/'>Home</Link> <Link to='/users'>Display Users</Link> Matches Chart <Link to='/myaccount'>My Account</Link> Sign Out</nav>
     </header>
     </div>
   )
