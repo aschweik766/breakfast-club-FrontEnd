@@ -1,36 +1,83 @@
 import './App.css';
-import React, {useState, useEffect} from 'react';
+import React, { useEffect, useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Home from './Pages/Home';
 import MyAccount from './Pages/MyAccount';
 import SignUp from './Pages/SignUp'
 import EditProfile from './Pages/EditProfile';
 import Login from './Pages/Login';
-import StarChart from './Pages/StarChart';
-import Horoscope from './Pages/Horoscope';
+// import Main from './components/Main';
+import Header from './components/Header';
+// import StarChart from './Pages/StarChart';
+import Users from './Pages/Users'
+import Horoscope from './Pages/Horoscope'
+
+
+
+//structure:
+//app
+//head
+//main state: users
+//routes
+//route path: / <User props: user, createUser>
+//route path: /user/:id <Show props: user, updateuser, deleteUser>
+
 
 function App() {
 
-  const [user, setUser] = useState(null)
+  const [users, setUsers] = useState([])
+  const url = 'http://localhost:3001/users'
+
   const [horoscope, setHoroscope] = useState(null)
 
-  function getUser () {
-    const url = 'http://localhost:3001/myaccount'
+  function getUsers() {
     fetch(url)
-    .then((res) => res.json())
-    .then((res) => setUser(res))
-    .catch(console.error) 
+      .then((res) => res.json())
+      .then((res) => setUsers(res))
+      .catch(console.error)
   }
 
-  const updateUser = (a, id) => {
-    const putURL = "http://localhost:3001/edit/:id"
-    fetch (putURL + id, {
-      method: 'PUT',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({firstName: ''})
+  const createUsers = async (user) => {
+    // make post request to create people
+    await fetch(url, {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user),
+    });
+    // update list of users
+    getUsers();
+  };
+
+  const updateUsers = async (user, id) => {
+    await fetch(url + id, {
+      method: "put",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user),
     })
-    getUser()
+    getUsers()
   }
+
+  const deleteUsers = async id => {
+    await fetch(url + id, {
+      method: "delete",
+    })
+    getUsers()
+  }
+
+
+  useEffect(() => getUsers(), []);
+
+
+  if (!users) {
+
+    return (<h1>....loading</h1>)
+  }
+  console.log(`these are the users: ${users}`)
+
 
   // function getHoroscope () {
   //   const options = {
@@ -40,7 +87,7 @@ function App() {
   //       'X-RapidAPI-Key': 'edacaef342mshbdf5ee096e8dc49p13afddjsnc635d0c652c1'
   //     }
   //   };
-    
+
   //   fetch('https://daily-horoscopes1.p.rapidapi.com/', options)
   //     .then(response => response.json())
   //     .then(response => setHoroscope(response))
@@ -48,7 +95,7 @@ function App() {
 
   // }
 
-  function getHoroscope () {
+  function getHoroscope() {
     const options = {
       method: 'GET',
       headers: {
@@ -56,7 +103,7 @@ function App() {
         'X-RapidAPI-Key': 'e5003d0b92msha0898f0c18e9287p1c5a94jsn9e9de59e6eb3'
       }
     };
-    
+
     fetch('https://devbrewer-horoscope.p.rapidapi.com/today/long/Aries', options)
       .then(response => response.json())
       .then(response => setHoroscope(response))
@@ -72,43 +119,35 @@ function App() {
   //       'X-RapidAPI-Key': 'edacaef342mshbdf5ee096e8dc49p13afddjsnc635d0c652c1'
   //     }
   //   };
-    
+
   //   fetch('https://astro-daily-live-horoscope.p.rapidapi.com/horoscope/aries/today', options)
   //     .then(response => response.json())
   //     .then(response => setHoroscope(response))
   //     .catch(err => console.error(err))
   // }
 
-  // const deleteUser = async id => {
-  //   // make delete request to create people
-  //   await fetch(deleteURL + id, {
-  //       method: "delete",
-  //       })
-  //   // update list of people
-  //   getUser()––
-  // }
-  
-  useEffect(() => {
-  getUser()
-  getHoroscope()
-  }, [])
-  
-  if (!user) {
-    return(<h1>Loading...</h1>)
-  }
-
-  console.log(user._id) 
 
   return (
-  <Routes>
-    <Route path='/' element={<Home />} />
-    <Route path='/starchart' element={<StarChart user={user} />} />
-    <Route path='/myaccount' element={<MyAccount user={user} />} />
-    <Route path='/signup' element={<SignUp user={user} />} />
-    <Route path='/edit/:id' element={<EditProfile user={user} updateUser={updateUser()}/>}/>
-    <Route path='/login' element={<Login />} />
-    <Route path='/horoscope' element={<Horoscope horoscope={horoscope} /> } />
-  </Routes>
+    <div className='App'>
+      <Header />
+      {/* <Main /> */}
+      <Routes>
+        <Route path='/' element={<Home />} />
+        {/* <Route path='/starchart' element={<StarChart />}/> */}
+        <Route path='/myaccount' element={<MyAccount users={users} />} />
+        <Route path='/signup' element={<SignUp users={users} />} />
+        <Route path='/users/:id'
+          element={<EditProfile
+
+            updateUsers={updateUsers}
+            deleteUsers={deleteUsers} />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/users' element={<Users
+          users={users}
+          createUsers={createUsers} />} />
+        <Route path='/horoscope' element={<Horoscope horoscope={horoscope} />} />
+      </Routes>
+    </div>
   );
 }
 
