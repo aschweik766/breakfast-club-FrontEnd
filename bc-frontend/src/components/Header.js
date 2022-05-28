@@ -4,8 +4,8 @@ function Header() {
   return (
     <div className='body'>
       <header className='notmobile'>
-        <nav className='nav-left'><Link to='/'>Home</Link>  Matches   <Link to='/horoscope'>Horoscope</Link>   <Link to='/users'>Display Users</Link></nav>
-        <h1 className='page-title'>Horoscope Dating</h1>
+        <nav className='nav-left'>  Matches   <Link to='/horoscope'>Horoscope</Link>   <Link to='/users'>Display Users</Link></nav>
+        <Link to='/' className='homeLink'><h1 className='page-title'>Horoscope Dating</h1></Link>
         <nav className='nav-right'><Link to='/myaccount'>My Account</Link> <Link to='/signup'>Sign Up</Link> Sign Out</nav>
       </header>
       <header className='mobile'>

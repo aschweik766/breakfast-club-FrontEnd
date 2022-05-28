@@ -96,7 +96,7 @@ getHoroscope()
     <div className="App">
       <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home horoscope={horoscope}/>} />
         {/* <Route path='/starchart' element={<StarChart />}/> */}
         <Route path="/myaccount" element={<MyAccount users={users} />} />
         <Route path="/signup" element={<SignUp users={users} />} />
