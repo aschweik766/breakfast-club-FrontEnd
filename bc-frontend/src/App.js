@@ -26,7 +26,9 @@ function App() {
 
   const [dailyHoro, setDailyHoro] = useState(null)
   const [dailyLove, setDailyLove] = useState(null)
-
+  const [weeklyHoro, setWeeklyHoro] = useState(null)
+  const [weeklyLove, setWeeklyLove] = useState(null)
+  
   function getUsers() {
     fetch(url)
       .then((res) => res.json())
@@ -99,9 +101,42 @@ function dailyLoveHoro(userSign) {
     .catch(err => console.error(err));
 }
 
+function weeklyHoroscope(userSign) {
+  const options = {
+    method: 'GET',
+    headers: {
+      'X-RapidAPI-Host': 'astro-daily-live-horoscope.p.rapidapi.com',
+      'X-RapidAPI-Key': 'edacaef342mshbdf5ee096e8dc49p13afddjsnc635d0c652c1'
+    }
+  };
+  
+  fetch(`https://astro-daily-live-horoscope.p.rapidapi.com/horoscope-weekly/${userSign}`, options)
+    .then(response => response.json())
+    .then(response => setWeeklyHoro(response))
+    .catch(err => console.error(err));
+}
+
+function weeklyLoveHoro(userSign) {
+  const options = {
+    method: 'GET',
+    headers: {
+      'X-RapidAPI-Host': 'astro-daily-live-horoscope.p.rapidapi.com',
+      'X-RapidAPI-Key': 'edacaef342mshbdf5ee096e8dc49p13afddjsnc635d0c652c1'
+    }
+  };
+  
+  fetch(`https://astro-daily-live-horoscope.p.rapidapi.com/horoscope-love-weekly/${userSign}/single`, options)
+    .then(response => response.json())
+    .then(response => setWeeklyLove(response))
+    .catch(err => console.error(err));
+}
+
+
   useEffect(() => {
     dailyHoroscope()
     dailyLoveHoro("aries")
+    weeklyHoroscope("aries")
+    weeklyLoveHoro("aries")
     getUsers()
   }, [])
 
@@ -122,7 +157,7 @@ function dailyLoveHoro(userSign) {
         <Route path="/users/:id" element={<EditProfile updateUsers={updateUsers} deleteUsers={deleteUsers} /> } />
         <Route path="/login" element={<Login />} />
         <Route path="/users" element={<Users users={users} createUsers={createUsers} />} />
-        <Route path='/horoscope' element={<Horoscope dailyHoro={dailyHoro} dailyLove={dailyLove} /> } />
+        <Route path='/horoscope' element={<Horoscope dailyHoro={dailyHoro} dailyLove={dailyLove} weeklyHoro={weeklyHoro} weeklyLove={weeklyLove} /> } />
       </Routes>
     </div>
   );
