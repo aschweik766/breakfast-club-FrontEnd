@@ -85,7 +85,11 @@ justify-content: space-around;
 .horonav {
   display: flex;
   justify-content: space-evenly;
-  
+
+}
+
+.horolink {
+  cursor: pointer;
 }
 
 

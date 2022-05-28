@@ -30,6 +30,9 @@ function App() {
   const [weeklyLove, setWeeklyLove] = useState(null)
   const [monthlyHoro, setMonthlyHoro] = useState(null)
   const [monthlyLove, setMonthlyLove] = useState(null)
+  const [dailyCareer, setDailyCareer] = useState(null)
+  const [weeklyCareer, setWeeklyCareer] = useState(null)
+  const [monthlyCareer, setMonthlyCareer] = useState(null)
   
   function getUsers() {
     fetch(url)
@@ -163,6 +166,51 @@ function monthlyLoveHoro(userSign) {
     .catch(err => console.error(err));
 }
 
+function dailyCareerHoro(userSign) {
+  const options = {
+    method: 'GET',
+    headers: {
+      'X-RapidAPI-Host': 'astro-daily-live-horoscope.p.rapidapi.com',
+      'X-RapidAPI-Key': 'edacaef342mshbdf5ee096e8dc49p13afddjsnc635d0c652c1'
+    }
+  };
+  
+  fetch(`https://astro-daily-live-horoscope.p.rapidapi.com/horoscope-career/${userSign}/today`, options)
+    .then(response => response.json())
+    .then(response => setDailyCareer(response))
+    .catch(err => console.error(err));
+}
+
+function weeklyCareerHoro(userSign) {
+  const options = {
+    method: 'GET',
+    headers: {
+      'X-RapidAPI-Host': 'astro-daily-live-horoscope.p.rapidapi.com',
+      'X-RapidAPI-Key': 'edacaef342mshbdf5ee096e8dc49p13afddjsnc635d0c652c1'
+    }
+  };
+  
+  fetch(`https://astro-daily-live-horoscope.p.rapidapi.com/horoscope-career-weekly/${userSign}`, options)
+    .then(response => response.json())
+    .then(response => setWeeklyCareer(response))
+    .catch(err => console.error(err));
+}
+
+function monthlyCareerHoro(userSign) {
+  const options = {
+    method: 'GET',
+    headers: {
+      'X-RapidAPI-Host': 'astro-daily-live-horoscope.p.rapidapi.com',
+      'X-RapidAPI-Key': 'edacaef342mshbdf5ee096e8dc49p13afddjsnc635d0c652c1'
+    }
+  };
+  
+  fetch(`https://astro-daily-live-horoscope.p.rapidapi.com/horoscope-career-monthly/${userSign}`, options)
+    .then(response => response.json())
+    .then(response => setMonthlyCareer(response))
+    .catch(err => console.error(err));
+}
+
 
 
   useEffect(() => {
@@ -172,13 +220,16 @@ function monthlyLoveHoro(userSign) {
     weeklyLoveHoro("aries")
     monthlyHoroscope("aries")
     monthlyLoveHoro("aries")
+    dailyCareerHoro("aries")
+    weeklyCareerHoro("aries")
+    monthlyCareerHoro("aries")
     getUsers()
   }, [])
 
   if (!users) {
     return <h1></h1>;
   }
-  console.log('these are the users:', users);
+  // console.log('these are the users:', users);
 
   // console.log(dailyLove)
 
@@ -192,7 +243,7 @@ function monthlyLoveHoro(userSign) {
         <Route path="/users/:id" element={<EditProfile updateUsers={updateUsers} deleteUsers={deleteUsers} /> } />
         <Route path="/login" element={<Login />} />
         <Route path="/users" element={<Users users={users} createUsers={createUsers} />} />
-        <Route path='/horoscope' element={<Horoscope dailyHoro={dailyHoro} dailyLove={dailyLove} weeklyHoro={weeklyHoro} weeklyLove={weeklyLove} monthlyHoro={monthlyHoro} monthlyLove={monthlyLove} /> } />
+        <Route path='/horoscope' element={<Horoscope dailyHoro={dailyHoro} dailyLove={dailyLove} weeklyHoro={weeklyHoro} weeklyLove={weeklyLove} monthlyHoro={monthlyHoro} monthlyLove={monthlyLove} dailyCareer={dailyCareer} weeklyCareer={weeklyCareer} monthlyCareer={monthlyCareer}/> } />
       </Routes>
     </div>
   );
