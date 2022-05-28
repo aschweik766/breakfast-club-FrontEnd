@@ -7,7 +7,7 @@ if (!monthlyHoro) {
     <h4 className='horo-title'>Horoscope for the Month of May</h4>
     <p>Just a moment for your monthly horoscope...</p></div>)
 }
-console.log(monthlyHoro)
+// console.log(monthlyHoro)
 
   return (
     <div className='daily-horo'>

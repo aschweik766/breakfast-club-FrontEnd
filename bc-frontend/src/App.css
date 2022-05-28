@@ -82,6 +82,12 @@ justify-content: space-around;
   text-align: center;
 }
 
+.horonav {
+  display: flex;
+  justify-content: space-evenly;
+  
+}
+
 
 /* iPads (portrait) ----------- */
 @media only screen and (max-width : 1024px) {

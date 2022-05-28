@@ -6,7 +6,7 @@ function MonthlyLove({ monthlyLove }) {
         <h4 className='love-title'>Love Horoscope for the Month of May</h4>
         <p>Just a moment for your monthly love horoscope...</p></div>)
     }
-    console.log(monthlyLove)
+    // console.log(monthlyLove)
     
       return (
         <div className='love-horo'>
