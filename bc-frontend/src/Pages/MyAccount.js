@@ -24,7 +24,7 @@ function MyAccount({ users }) {
         <div className='acct-header'>
           <div className='myacct-cont'>
             <h2>My Account</h2>
-            <Link to={`/myaccount/${user._id}`} > <button>Update Preferences </button> </Link>
+            <Link to={`/users/${user._id}`} > <button>Update Preferences </button> </Link>
           </div>
           <h3>{user.firstName}, {user.birthday} - {user.location}</h3>
           <h4>Sun: Leo - Moon: Virgo - Rising: Sagittarius</h4>

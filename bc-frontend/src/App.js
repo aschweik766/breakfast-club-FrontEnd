@@ -101,7 +101,7 @@ function dailyLoveHoro(userSign) {
 
   useEffect(() => {
     dailyHoroscope()
-    dailyLoveHoro("leo")
+    dailyLoveHoro("aries")
     getUsers()
   }, [])
 
@@ -110,7 +110,7 @@ function dailyLoveHoro(userSign) {
   }
   console.log('these are the users:', users);
 
-  console.log(dailyLove)
+  // console.log(dailyLove)
 
   return (
     <div className="App">
@@ -119,7 +119,7 @@ function dailyLoveHoro(userSign) {
         <Route path="/" element={<Home dailyHoro={dailyHoro} dailyLove={dailyLove}/>} />
         <Route path="/myaccount" element={<MyAccount users={users} />} />
         <Route path="/signup" element={<SignUp users={users} />} />
-        <Route path="/myaccount/:id" element={<EditProfile updateUsers={updateUsers} deleteUsers={deleteUsers} /> } />
+        <Route path="/users/:id" element={<EditProfile updateUsers={updateUsers} deleteUsers={deleteUsers} /> } />
         <Route path="/login" element={<Login />} />
         <Route path="/users" element={<Users users={users} createUsers={createUsers} />} />
         <Route path='/horoscope' element={<Horoscope dailyHoro={dailyHoro} dailyLove={dailyLove} /> } />
