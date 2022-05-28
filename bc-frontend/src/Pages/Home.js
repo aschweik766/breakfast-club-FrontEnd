@@ -1,10 +1,10 @@
 import React from 'react'
 import DailyMatches from '../components/DailyMatches'
 import DailyHoroscope from '../components/DailyHoroscope'
-import LoveHoroscope from '../components/LoveHoroscope'
+import DailyLove from '../components/DailyLove'
 // import { Link } from 'react-router-dom'
 
-function Home({ horoscope }) {
+function Home({ dailyHoro, dailyLove }) {
   return (
     
     <div className='body'>
@@ -14,12 +14,12 @@ function Home({ horoscope }) {
     
     <DailyMatches />
 
-    <LoveHoroscope horoscope={horoscope}/>
+    <DailyLove dailyLove={dailyLove}/>
 
     </div>
 
     <div className='right'>
-      <DailyHoroscope horoscope={horoscope}/>
+      <DailyHoroscope dailyHoro={dailyHoro}/>
     </div>
 
     </div>

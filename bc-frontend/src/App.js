@@ -24,7 +24,8 @@ function App() {
   const [users, setUsers] = useState(null);
   const url = "http://localhost:3001/users";
 
-  const [horoscope, setHoroscope] = useState(null)
+  const [dailyHoro, setDailyHoro] = useState(null)
+  const [dailyLove, setDailyLove] = useState(null)
 
   function getUsers() {
     fetch(url)
@@ -67,7 +68,7 @@ function App() {
 
 
 
-  function getHoroscope() {
+  function dailyHoroscope() {
     const options = {
       method: "GET",
       headers: {
@@ -78,12 +79,29 @@ function App() {
 
     fetch("https://daily-horoscopes1.p.rapidapi.com/", options)
       .then((response) => response.json())
-      .then((response) => setHoroscope(response))
+      .then((response) => setDailyHoro(response))
       .catch((err) => console.error(err));
   }
 
+
+function dailyLoveHoro(userSign) {
+  const options = {
+    method: 'GET',
+    headers: {
+      'X-RapidAPI-Host': 'astro-daily-live-horoscope.p.rapidapi.com',
+      'X-RapidAPI-Key': 'edacaef342mshbdf5ee096e8dc49p13afddjsnc635d0c652c1'
+    }
+  };
+
+  fetch(`https://astro-daily-live-horoscope.p.rapidapi.com/horoscope-love/${userSign}/today`, options)
+    .then(response => response.json())
+    .then(response => setDailyLove(response))
+    .catch(err => console.error(err));
+}
+
   useEffect(() => {
-    getHoroscope()
+    dailyHoroscope()
+    dailyLoveHoro("leo")
     getUsers()
   }, [])
 
@@ -92,27 +110,19 @@ function App() {
   }
   console.log('these are the users:', users);
 
-  console.log(users[0])
+  console.log(dailyLove)
 
   return (
     <div className="App">
       <Header />
       <Routes>
-        <Route path="/" element={<Home horoscope={horoscope}/>} />
-        {/* <Route path='/starchart' element={<StarChart />}/> */}
+        <Route path="/" element={<Home dailyHoro={dailyHoro} dailyLove={dailyLove}/>} />
         <Route path="/myaccount" element={<MyAccount users={users} />} />
         <Route path="/signup" element={<SignUp users={users} />} />
-        <Route
-          path="/users/:id"
-          element={
-            <EditProfile updateUsers={updateUsers} deleteUsers={deleteUsers} />
-          }
-        />
+        <Route path="/myaccount/:id" element={<EditProfile updateUsers={updateUsers} deleteUsers={deleteUsers} /> } />
         <Route path="/login" element={<Login />} />
-        <Route
-          path="/users"
-          element={<Users users={users} createUsers={createUsers} />} />
-         <Route path='/horoscope' element={<Horoscope horoscope={horoscope} /> } />
+        <Route path="/users" element={<Users users={users} createUsers={createUsers} />} />
+        <Route path='/horoscope' element={<Horoscope dailyHoro={dailyHoro} dailyLove={dailyLove} /> } />
       </Routes>
     </div>
   );

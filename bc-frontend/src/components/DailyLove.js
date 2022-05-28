@@ -1,8 +1,8 @@
 import React from 'react'
 
-function LoveHoroscope( { horoscope }) {
+function DailyLove( { dailyLove }) {
  
-if (!horoscope) {
+if (!dailyLove) {
     return( <div className='love-horo'>
     <h4 className='love-title'>Love Horoscope</h4><p>Just a moment for your love horoscope...</p></div>)
 }
@@ -10,20 +10,12 @@ if (!horoscope) {
   return (
     <div className='love-horo'>
     <h4 className='love-title'>Love Horoscope</h4>
-    {horoscope.map((oneHoro, i) => {
-        // console.log(oneHoro.horoscope)
-        if (oneHoro.horoscope === "Aries")
-        { return (
            
-            <p key='i'> {oneHoro.prediction} </p>
+            <p key='i'> {Object.values(dailyLove)} </p>
           
-        )}
-      })
-      
-      }
 
       </div>
   )
 }
 
-export default LoveHoroscope
+export default DailyLove
