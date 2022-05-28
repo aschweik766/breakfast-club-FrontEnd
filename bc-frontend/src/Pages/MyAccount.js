@@ -5,8 +5,16 @@ import { Link } from 'react-router-dom'
 // import { Routes, Route } from 'react-router-dom'
 // import App from '../App'
 // import EditProfile from './EditProfile'
+
+
+
 function MyAccount({ users }) {
-  // console.log(user)
+  console.log(users[0])
+  let user = users[0]
+  console.log(user.firstName)
+  if (!users) {
+    return(<></>)
+  }
   return (
     <div className='body'>
       <div className='page-cont'>

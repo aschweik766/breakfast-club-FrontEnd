@@ -11,7 +11,7 @@ if (!horoscope) {
     <div className='love-horo'>
     <h4 className='love-title'>Love Horoscope</h4>
     {horoscope.map((oneHoro, i) => {
-        console.log(oneHoro.horoscope)
+        // console.log(oneHoro.horoscope)
         if (oneHoro.horoscope === "Aries")
         { return (
            

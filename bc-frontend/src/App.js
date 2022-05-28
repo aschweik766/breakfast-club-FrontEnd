@@ -21,7 +21,7 @@ import Horoscope from "./Pages/Horoscope";
 //route path: /user/:id <Show props: user, updateuser, deleteUser>
 
 function App() {
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState(null);
   const url = "http://localhost:3001/users";
 
   const [horoscope, setHoroscope] = useState(null)
@@ -64,12 +64,6 @@ function App() {
     getUsers();
   };
 
-  useEffect(() => getUsers(), []);
-
-  if (!users) {
-    return <h1>....loading</h1>;
-  }
-  console.log(`these are the users: ${users}`);
 
 
 
@@ -89,8 +83,16 @@ function App() {
   }
 
   useEffect(() => {
-getHoroscope()
+    getHoroscope()
+    getUsers()
   }, [])
+
+  if (!users) {
+    return <h1>....loading</h1>;
+  }
+  console.log('these are the users:', users);
+
+  console.log(users[0])
 
   return (
     <div className="App">
