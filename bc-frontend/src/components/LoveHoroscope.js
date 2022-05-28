@@ -20,7 +20,7 @@ function LoveHoroscope({ dailyLove, weeklyLove, monthlyLove }) {
 
       <p> {Object.values(weeklyLove)} </p>
 
-      <h4 className="love-title">Love Horoscope for the Month of May</h4>
+      <h4 className="love-title">Love Horoscope for the Month</h4>
 
       <p> {Object.values(monthlyLove)} </p>
     </div>

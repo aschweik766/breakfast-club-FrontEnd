@@ -10,6 +10,7 @@ import Login from "./Pages/Login";
 import Header from "./components/Header";
 import Users from './Pages/Users'
 import Horoscope from "./Pages/Horoscope";
+import Footer from "./components/Footer";
 /* eslint-disable */
 
 //structure:
@@ -245,6 +246,7 @@ function monthlyCareerHoro(userSign) {
         <Route path="/users" element={<Users users={users} createUsers={createUsers} />} />
         <Route path='/horoscope' element={<Horoscope dailyHoro={dailyHoro} dailyLove={dailyLove} weeklyHoro={weeklyHoro} weeklyLove={weeklyLove} monthlyHoro={monthlyHoro} monthlyLove={monthlyLove} dailyCareer={dailyCareer} weeklyCareer={weeklyCareer} monthlyCareer={monthlyCareer}/> } />
       </Routes>
+      <Footer />
     </div>
   );
 }

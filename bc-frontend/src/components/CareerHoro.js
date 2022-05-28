@@ -21,7 +21,7 @@ function CareerHoro( { dailyCareer, weeklyCareer, monthlyCareer }) {
     
           <p> {Object.values(weeklyCareer)} </p>
     
-          <h4 className="love-title">Career Horoscope for the Month of May</h4>
+          <h4 className="love-title">Career Horoscope for the Month</h4>
     
           <p> {Object.values(monthlyCareer)} </p>
         </div>

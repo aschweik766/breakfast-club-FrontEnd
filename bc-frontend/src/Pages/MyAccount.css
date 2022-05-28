@@ -1,26 +1,22 @@
 .page-cont {
     display: flex;
     gap: 30px;
+    width: 80%;
+    margin: 0 auto;
 }
 
-.sidebar {
-    width: 200px;
-    height:800px;
-    /* border: 2px solid black; */
-    display: grid;
-    justify-content: center;
-}
 
 .default-img {
     width: 150px;
-    border-radius: 20%;
+    border-radius: 50%;
     margin-top: 20px;
 }
 
 .myacct-cont {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    gap: 10%;
 }
 
 .photos {
@@ -30,4 +26,15 @@
 
 .profile-img {
     width: 90%;
+}
+
+.bioprefCont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.acctBio {
+    margin: 0 auto;
+    width: 60%;
 }

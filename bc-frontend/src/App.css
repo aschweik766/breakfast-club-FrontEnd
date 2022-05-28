@@ -92,6 +92,10 @@ justify-content: space-around;
   cursor: pointer;
 }
 
+.footer {
+  height: 100px;
+}
+
 
 /* iPads (portrait) ----------- */
 @media only screen and (max-width : 1024px) {
