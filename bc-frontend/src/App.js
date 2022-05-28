@@ -28,6 +28,8 @@ function App() {
   const [dailyLove, setDailyLove] = useState(null)
   const [weeklyHoro, setWeeklyHoro] = useState(null)
   const [weeklyLove, setWeeklyLove] = useState(null)
+  const [monthlyHoro, setMonthlyHoro] = useState(null)
+  const [monthlyLove, setMonthlyLove] = useState(null)
   
   function getUsers() {
     fetch(url)
@@ -131,17 +133,50 @@ function weeklyLoveHoro(userSign) {
     .catch(err => console.error(err));
 }
 
+function monthlyHoroscope(userSign) {
+  const options = {
+    method: 'GET',
+    headers: {
+      'X-RapidAPI-Host': 'astro-daily-live-horoscope.p.rapidapi.com',
+      'X-RapidAPI-Key': 'edacaef342mshbdf5ee096e8dc49p13afddjsnc635d0c652c1'
+    }
+  };
+  
+  fetch(`https://astro-daily-live-horoscope.p.rapidapi.com/horoscope-monthly/${userSign}`, options)
+    .then(response => response.json())
+    .then(response => setMonthlyHoro(response))
+    .catch(err => console.error(err));
+}
+
+function monthlyLoveHoro(userSign) {
+  const options = {
+    method: 'GET',
+    headers: {
+      'X-RapidAPI-Host': 'astro-daily-live-horoscope.p.rapidapi.com',
+      'X-RapidAPI-Key': 'edacaef342mshbdf5ee096e8dc49p13afddjsnc635d0c652c1'
+    }
+  };
+  
+  fetch(`https://astro-daily-live-horoscope.p.rapidapi.com/horoscope-love-monthly/${userSign}/single`, options)
+    .then(response => response.json())
+    .then(response => setMonthlyLove(response))
+    .catch(err => console.error(err));
+}
+
+
 
   useEffect(() => {
     dailyHoroscope()
     dailyLoveHoro("aries")
     weeklyHoroscope("aries")
     weeklyLoveHoro("aries")
+    monthlyHoroscope("aries")
+    monthlyLoveHoro("aries")
     getUsers()
   }, [])
 
   if (!users) {
-    return <h1>....loading</h1>;
+    return <h1></h1>;
   }
   console.log('these are the users:', users);
 
@@ -157,7 +192,7 @@ function weeklyLoveHoro(userSign) {
         <Route path="/users/:id" element={<EditProfile updateUsers={updateUsers} deleteUsers={deleteUsers} /> } />
         <Route path="/login" element={<Login />} />
         <Route path="/users" element={<Users users={users} createUsers={createUsers} />} />
-        <Route path='/horoscope' element={<Horoscope dailyHoro={dailyHoro} dailyLove={dailyLove} weeklyHoro={weeklyHoro} weeklyLove={weeklyLove} /> } />
+        <Route path='/horoscope' element={<Horoscope dailyHoro={dailyHoro} dailyLove={dailyLove} weeklyHoro={weeklyHoro} weeklyLove={weeklyLove} monthlyHoro={monthlyHoro} monthlyLove={monthlyLove} /> } />
       </Routes>
     </div>
   );
