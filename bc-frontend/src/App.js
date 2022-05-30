@@ -61,6 +61,7 @@ function App() {
     return <h1>....loading</h1>;
   }
   console.log(`these are the users: ${users}`);
+  
   function getHoroscope() {
     const options = {
       method: "GET",
