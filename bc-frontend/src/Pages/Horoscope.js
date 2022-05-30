@@ -1,28 +1,19 @@
 import React from 'react'
+import DailyHoroscope from '../components/DailyHoroscope'
+import LoveHoroscope from '../components/DailyLove'
 /* eslint-disable */
 
-function Horoscope({ horoscope }) {
+function Horoscope({ dailyHoro, dailyLove }) {
 
-
-
-  if (!horoscope) {
-    return (<h1>Loading...</h1>)
-
-
-  }
-
-  console.log(horoscope.map((key, i) => {
-    return (key)
-  }))
-
+if(!dailyHoro) {
+   return(<h1>Loading...</h1>)
+}
   return (
-    <div>
-      Horoscope
-
-      {/* <h2>{horoscope.map((key, i) => {
-        return (key)
-      })}</h2> */}
-    </div>
+<div className='body'> 
+<h2>Horoscopes</h2>
+  <DailyHoroscope dailyHoro={dailyHoro} />
+  <LoveHoroscope dailyLove={dailyLove}/>
+</div>
   )
 }
 

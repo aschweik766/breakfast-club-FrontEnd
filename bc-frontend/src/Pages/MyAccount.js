@@ -8,7 +8,12 @@ import { Link } from 'react-router-dom'
 
 
 function MyAccount({ users }) {
-  // console.log(user)
+  console.log(users[0])
+  let user = users[0]
+  console.log(user.firstName)
+  if (!users) {
+    return(<></>)
+  }
   return (
     <div className='body'>
       <div className='page-cont'>
@@ -18,9 +23,9 @@ function MyAccount({ users }) {
         <div className='acct-header'>
           <div className='myacct-cont'>
             <h2>My Account</h2>
-            <Link to={`/myaccount/${users._id}`} > <button>Update Preferences </button> </Link>
+            <Link to={`/users/${user._id}`} > <button>Update Preferences </button> </Link>
           </div>
-          <h3>{users.firstName}, {users.birthday} - {users.location}</h3>
+          <h3>{user.firstName}, {user.birthday} - {user.location}</h3>
           <h4>Sun: Leo - Moon: Virgo - Rising: Sagittarius</h4>
           <h4>Bio</h4>
           <p>Human-focused programmer with a desire to produce compassionate, engaging, and empowering work that brings users closer to themselves and builds community. Skilled creative with experience in a variety of mediums, giving them a singular approach to work, life, and communication.</p>
