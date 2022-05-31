@@ -14,7 +14,18 @@ const EditProfile = (props) => {
   function getUser () {
       fetch(url)
       .then((res) => res.json())
-      .then((res) => setUser({firstName: res.firstName}))
+      .then((res) => setUser(
+        {
+          firstName: res.firstName,
+          email: res.email,
+          username: res.username,
+          password: res.password,
+          lastName: res.lastName,
+          bio: res.bio,
+          datingPreferences: res.datingPreferences,
+          zodiacSign: res.zodiacSign,
+          interests: res.interests
+      }))
       .catch(console.error) 
   }
 
@@ -45,7 +56,7 @@ useEffect(() => getUser(),[])
   return (
     <div className='user'>
       <h1>Display and Edit User</h1>
-      <h2>{user.firstName}</h2>
+      <h2>Editing Profile Information for {user.firstName} {user.lastName}</h2>
       <form onSubmit={handleSubmit}>
         <input
             type='text'
@@ -54,8 +65,86 @@ useEffect(() => getUser(),[])
             placeholder='name'
             onChange={handleChange}
             />
+          <br></br>
+          <input
+            type='text'
+            value={setUser.lastName}
+            name='lastName'
+            placeholder='last name'
+            onChange={handleChange}
+            />
+          <br></br>
+        <input
+            type='text'
+            value={setUser.zodiacSign}
+            name='zodiacSign'
+            placeholder='Edit Zodiac Sign'
+            onChange={handleChange}
+            />
+          <br></br>
+          <input
+            type='text'
+            value={setUser.username}
+            name='username'
+            placeholder='edit username'
+            onChange={handleChange}
+            />
+          <br></br>
+        <input
+            type='text'
+            value={setUser.email}
+            name='email'
+            placeholder='edit email'
+            onChange={handleChange}
+            />
+            <br></br>
+        <input
+            type='text'
+            value={setUser.password}
+            name='password'
+            placeholder='edit password'
+            onChange={handleChange}
+            />
+          <br></br>
+        <input
+          type='text'
+          value={setUser.datingPreferences}
+          name='datingPreferences'
+          placeholder='edit dating preferences'
+          onChange={handleChange}
+          />
+          <br></br>
+        <input
+          type='text'
+          value={setUser.bio}
+          name='bio'
+          placeholder='edit bio'
+          onChange={handleChange}
+          />
+        {/* <input
+          type='text'
+          value={setUser.interests.first}
+          name='interests.first'
+          placeholder='edit first interest'
+          onChange={handleChange}
+          />
+        <input
+          type='text'
+          value={setUser.interests.second}
+          name='interests.second'
+          placeholder='edit second interest'
+          onChange={handleChange}
+          />
+        <input
+          type='text'
+          value={setUser.interests.third}
+          name='interests.third'
+          placeholder='edit third interest'
+          onChange={handleChange}
+          /> */}
        
       </form>
+      <button onClick={handleSubmit}>Submit</button>
     </div>
   )
 }

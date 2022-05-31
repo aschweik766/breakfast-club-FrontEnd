@@ -23,8 +23,10 @@ function MyAccount({ users }) {
         </div>
         <div className='acct-header'>
           <div className='myacct-cont'>
-            <h2>My Account</h2>
+            <h2>My Account Dashboard</h2>
+            <br></br>
             <Link to={`/users/${user._id}`} > <button>Update Preferences </button> </Link>
+           
           </div>
           <h3>{user.firstName}, {user.birthday} - {user.location}</h3>
           <h4>Sun: Leo - Moon: Virgo - Rising: Sagittarius</h4>
@@ -34,7 +36,7 @@ function MyAccount({ users }) {
           <p>
             Age:<br />
             Location:<br />
-            Sign:<br />
+            Sign: {user.zodiacSign}<br />
             Interests:<br />
           </p>
           <h4>Photos</h4>
