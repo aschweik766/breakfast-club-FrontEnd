@@ -2,7 +2,7 @@ import React from 'react'
 import DailyMatches from '../components/DailyMatches'
 import DailyHoroscope from '../components/DailyHoroscope'
 import DailyLove from '../components/DailyLove'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 function Home({ dailyHoro, dailyLove }) {
   return (

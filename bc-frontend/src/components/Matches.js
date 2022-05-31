@@ -32,11 +32,30 @@ import TinderCard from 'react-tinder-card'
 
 const Matches = ({users}) => {
 
-const cardMatches = users
+    const [user, setUser] = useState(null)
+    const [genderedUsers, setGenderedUsers] = useState(null)
+    const [lastSwipePath, setLastSwipePath] = useState()
+    // const [cookies, setCookie, removeCookie] = useCookies(['user'])--cookies? why?
+
+    //will need to pull users from userModel.js backend
+
+    const getUser = asysnc () => {
+        try {
+            const response = await 
+        }
+    }
+
+
+    //swipe function
+
+    //updateMatches function
 
 
   return (
-    <div className='matches-container'>Matches</div>
+    <div className='matches-container'>Matches
+     /tinder card
+    
+    </div>
   )
 }
 

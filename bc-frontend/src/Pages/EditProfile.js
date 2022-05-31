@@ -17,12 +17,15 @@ const EditProfile = (props) => {
       .then((res) => setUser(
         {
           firstName: res.firstName,
+          lastName: res.lastName,
           email: res.email,
           username: res.username,
           password: res.password,
-          lastName: res.lastName,
+          location: res.location,
+          image: res.image,
           bio: res.bio,
-          datingPreferences: res.datingPreferences,
+          interestedIn: res.interestedIn,
+          lookingFor: res.lookingFor,
           zodiacSign: res.zodiacSign,
           interests: res.interests
       }))
@@ -108,9 +111,9 @@ useEffect(() => getUser(),[])
           <br></br>
         <input
           type='text'
-          value={setUser.datingPreferences}
-          name='datingPreferences'
-          placeholder='edit dating preferences'
+          value={setUser.interestedIn}
+          name='interestedIn'
+          placeholder='edit dating interests'
           onChange={handleChange}
           />
           <br></br>
@@ -121,27 +124,20 @@ useEffect(() => getUser(),[])
           placeholder='edit bio'
           onChange={handleChange}
           />
-        {/* <input
+        <input
           type='text'
-          value={setUser.interests.first}
-          name='interests.first'
-          placeholder='edit first interest'
+          value={setUser.image}
+          name='image'
+          placeholder='edit profile picture'
           onChange={handleChange}
           />
         <input
           type='text'
-          value={setUser.interests.second}
-          name='interests.second'
-          placeholder='edit second interest'
+          value={setUser.interests}
+          name='interests'
+          placeholder='edit interest'
           onChange={handleChange}
           />
-        <input
-          type='text'
-          value={setUser.interests.third}
-          name='interests.third'
-          placeholder='edit third interest'
-          onChange={handleChange}
-          /> */}
        
       </form>
       <button onClick={handleSubmit}>Submit</button>
@@ -226,7 +222,6 @@ export default EditProfile
 //   );
 // }
 
-// export default EditProfile  
 
 
 
