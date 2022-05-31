@@ -227,9 +227,9 @@ function monthlyCareerHoro(userSign) {
     getUsers()
   }, [])
 
-  if (!users) {
-    return <h1></h1>;
-  }
+  // if (!users) {
+  //   return <h1></h1>;
+  // }
   // console.log('these are the users:', users);
 
   // console.log(dailyLove)
