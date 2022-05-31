@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom'
 // import EditProfile from './EditProfile'
 
 
-
 function MyAccount({ users }) {
   console.log(users[0])
   let user = users[0]
