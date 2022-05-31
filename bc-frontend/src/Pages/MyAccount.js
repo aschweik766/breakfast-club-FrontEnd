@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom'
 // import EditProfile from './EditProfile'
 
 
-
 function MyAccount({ users }) {
   console.log(users[0])
   let user = users[0]
@@ -18,28 +17,26 @@ function MyAccount({ users }) {
   return (
     <div className='body'>
       <div className='page-cont'>
-        <div className='sidebar'>
-          <img src="https://thispersondoesnotexist.com/image" alt="profile-img" className='default-img' />
-        </div>
         <div className='acct-header'>
+        <h2>My Account</h2>
+        
           <div className='myacct-cont'>
-            <h2>My Account Dashboard</h2>
-            <br></br>
-            <Link to={`/users/${user._id}`} > <button>Update Preferences </button> </Link>
-           
+          <img src="https://thispersondoesnotexist.com/image" alt="profile-img" className='default-img' />
+          <div> <h3>{user.firstName}, {user.birthday} - {user.location}</h3>
+          <h4>Zodiac Sign: Leo</h4>
+          <h4>Likes: Painting, going to the beach, cooking</h4>
           </div>
-          <h3>{user.firstName}, {user.birthday} - {user.location}</h3>
-          <h4>Sun: Leo - Moon: Virgo - Rising: Sagittarius</h4>
-          <h4>Bio</h4>
+          </div>
+         <div className='acctBio'>
+           <h3>About Me</h3>
           <p>Human-focused programmer with a desire to produce compassionate, engaging, and empowering work that brings users closer to themselves and builds community. Skilled creative with experience in a variety of mediums, giving them a singular approach to work, life, and communication.</p>
-          <h4>Dating Prefs</h4>
-          <p>
-            Age:<br />
-            Location:<br />
-            Sign: {user.zodiacSign}<br />
-            Interests:<br />
-          </p>
-          <h4>Photos</h4>
+          </div>
+       
+          
+        
+        
+          
+          <h3>Photos</h3>
           <div className='photos'>
             <div className='photo-cont'><img src="https://thispersondoesnotexist.com/image" alt="profile-img" className='profile-img' /></div>
             <div className='photo-cont'><img src="https://thispersondoesnotexist.com/image" alt="profile-img" className='profile-img' /></div>
@@ -49,6 +46,8 @@ function MyAccount({ users }) {
           </div>
         </div>
       </div>
+      <br/><br/><br/>
+      <Link to={`/users/${user._id}`} > <button>Update Preferences </button> </Link>
     </div>
   )
 }
