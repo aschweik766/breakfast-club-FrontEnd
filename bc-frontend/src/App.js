@@ -24,6 +24,8 @@ import Footer from "./components/Footer";
 function App() {
   const [users, setUsers] = useState(null);
   const url = "http://localhost:3001/users";
+  const createUrl = `http://localhost:3001/signup`
+
 
   const [dailyHoro, setDailyHoro] = useState(null)
   const [dailyLove, setDailyLove] = useState(null)
@@ -43,18 +45,31 @@ function App() {
       .catch(console.error);
   }
 
+  // const createUsers = async (user) => {
+  //   // make post request to create people
+  //   await fetch(url, {
+  //     method: "post",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(user),
+  //   });
+  //   // update list of users
+  //   getUsers();
+  // };
+
   const createUsers = async (user) => {
     // make post request to create people
-    await fetch(url, {
-      method: "post",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(user),
+    await fetch(createUrl, {
+        method: "post",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(user),
     });
     // update list of users
     getUsers();
-  };
+};
 
   const updateUsers = async (user, id) => {
     await fetch(url + id, {
@@ -252,10 +267,10 @@ function monthlyCareerHoro(userSign) {
       <Routes>
         <Route path="/" element={<Home dailyHoro={dailyHoro} dailyLove={dailyLove}/>} />
         <Route path="/myaccount" element={<MyAccount users={users} />} />
-        <Route path="/signup" element={<SignUp users={users} createUsers={createUsers} />} />
-        <Route path="/users/:id" element={<EditProfile updateUsers={updateUsers} deleteUsers={deleteUsers} /> } />
+        <Route path="/signup" element={<SignUp users={users} />} createUsers={createUsers}/>
+        <Route path="/users/:id" element={<EditProfile updeteUsers={deleteUsers} /> } />
         <Route path="/login" element={<Login />} />
-        <Route path="/users" element={<Users users={users} createUsers={createUsers} />} />
+        <Route path="/users" element={<Users users={users} />} />
         <Route path='/horoscope' element={<Horoscope dailyHoro={dailyHoro} dailyLove={dailyLove} weeklyHoro={weeklyHoro} weeklyLove={weeklyLove} monthlyHoro={monthlyHoro} monthlyLove={monthlyLove} dailyCareer={dailyCareer} weeklyCareer={weeklyCareer} monthlyCareer={monthlyCareer}/> } />
       </Routes>
       <Footer />
