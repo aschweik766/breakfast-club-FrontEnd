@@ -14,7 +14,21 @@ const EditProfile = (props) => {
   function getUser () {
       fetch(url)
       .then((res) => res.json())
-      .then((res) => setUser({firstName: res.firstName}))
+      .then((res) => setUser(
+        {
+          firstName: res.firstName,
+          lastName: res.lastName,
+          email: res.email,
+          username: res.username,
+          password: res.password,
+          location: res.location,
+          image: res.image,
+          bio: res.bio,
+          interestedIn: res.interestedIn,
+          lookingFor: res.lookingFor,
+          zodiacSign: res.zodiacSign,
+          interests: res.interests
+      }))
       .catch(console.error) 
   }
 
@@ -45,7 +59,7 @@ useEffect(() => getUser(),[])
   return (
     <div className='user'>
       <h1>Display and Edit User</h1>
-      <h2>{user.firstName}</h2>
+      <h2>Editing Profile Information for {user.firstName} {user.lastName}</h2>
       <form onSubmit={handleSubmit}>
         <input
             type='text'
@@ -54,8 +68,79 @@ useEffect(() => getUser(),[])
             placeholder='name'
             onChange={handleChange}
             />
+          <br></br>
+          <input
+            type='text'
+            value={setUser.lastName}
+            name='lastName'
+            placeholder='last name'
+            onChange={handleChange}
+            />
+          <br></br>
+        <input
+            type='text'
+            value={setUser.zodiacSign}
+            name='zodiacSign'
+            placeholder='Edit Zodiac Sign'
+            onChange={handleChange}
+            />
+          <br></br>
+          <input
+            type='text'
+            value={setUser.username}
+            name='username'
+            placeholder='edit username'
+            onChange={handleChange}
+            />
+          <br></br>
+        <input
+            type='text'
+            value={setUser.email}
+            name='email'
+            placeholder='edit email'
+            onChange={handleChange}
+            />
+            <br></br>
+        <input
+            type='text'
+            value={setUser.password}
+            name='password'
+            placeholder='edit password'
+            onChange={handleChange}
+            />
+          <br></br>
+        <input
+          type='text'
+          value={setUser.interestedIn}
+          name='interestedIn'
+          placeholder='edit dating interests'
+          onChange={handleChange}
+          />
+          <br></br>
+        <input
+          type='text'
+          value={setUser.bio}
+          name='bio'
+          placeholder='edit bio'
+          onChange={handleChange}
+          />
+        <input
+          type='text'
+          value={setUser.image}
+          name='image'
+          placeholder='edit profile picture'
+          onChange={handleChange}
+          />
+        <input
+          type='text'
+          value={setUser.interests}
+          name='interests'
+          placeholder='edit interest'
+          onChange={handleChange}
+          />
        
       </form>
+      <button onClick={handleSubmit}>Submit</button>
     </div>
   )
 }
@@ -137,7 +222,6 @@ export default EditProfile
 //   );
 // }
 
-// export default EditProfile  
 
 
 
