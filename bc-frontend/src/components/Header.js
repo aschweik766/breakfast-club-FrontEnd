@@ -27,11 +27,11 @@ function Header() {
           </div>
         </Link>
 
-        <nav>
-          {" "}
-          <Link to="/horoscope">Horoscopes</Link>{" "}
-          <Link to="/users">Display Users</Link> Matches Chart{" "}
-          <Link to="/myaccount">My Account</Link>Sign Out
+        <nav> 
+          <div className="nav-cont">   <p>Matches</p> <Link to="/horoscope"><p>Horoscopes</p></Link>
+          <Link to="/users"><p>Display Users</p></Link>
+          <Link to="/myaccount"><p>My Account</p></Link>
+          <Link to="/signup"><p>Sign Up</p></Link> <Link to="/"><p>Log In</p></Link> </div>
         </nav>
       </header>
     </div>
