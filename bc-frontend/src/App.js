@@ -23,7 +23,7 @@ import Footer from "./components/Footer";
 
 function App() {
   const [users, setUsers] = useState(null);
-  const url = "http://localhost:3001/users";
+  const url = "http://localhost:3001/users/";
   const createUrl = `http://localhost:3001/signup`
 
 
@@ -298,8 +298,8 @@ const handleSubmit = (event) => {
         <Route path="/home" element={<Home dailyHoro={dailyHoro} dailyLove={dailyLove} login={login}/>} />
         <Route path="/myaccount" element={<MyAccount users={users} login={login}/>} />
         <Route path="/signup" element={<SignUp users={users} />} createUsers={createUsers}/>
-        <Route path="/users/:id" element={<EditProfile updeteUsers={deleteUsers} login={login} /> } />
-        <Route path="/" element={<Login users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login}/>} />
+        <Route path="/users/:id" element={<EditProfile updateUsers={updateUsers} deleteUsers={deleteUsers} login={login} /> } />
+        <Route path="/login" element={<Login users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login}/>} />
         <Route path="/users" element={<Users users={users} />} />
         <Route path="/horoscope" element={<Horoscope dailyHoro={dailyHoro} dailyLove={dailyLove} weeklyHoro={weeklyHoro} weeklyLove={weeklyLove} monthlyHoro={monthlyHoro} monthlyLove={monthlyLove} dailyCareer={dailyCareer} weeklyCareer={weeklyCareer} monthlyCareer={monthlyCareer}/> } />
       </Routes>
@@ -308,3 +308,4 @@ const handleSubmit = (event) => {
   );
 }
 export default App;
+

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams, useNavigate} from 'react-router-dom'
+import './SignUp.css'
 
 const EditProfile = (props) => {
 
@@ -14,7 +15,20 @@ const EditProfile = (props) => {
   function getUser () {
       fetch(url)
       .then((res) => res.json())
-      .then((res) => setUser({firstName: res.firstName}))
+      .then((res) => setUser(
+        {
+          firstName: res.firstName,
+          lastName: res.lastName,
+          email: res.email,
+          username: res.username,
+          password: res.password,
+          location: res.location,
+          image: res.image,
+          bio: res.bio,
+          interestedIn: res.interestedIn,
+          lookingFor: res.lookingFor,
+          interests: res.interests
+      }))
       .catch(console.error) 
   }
 
@@ -45,7 +59,7 @@ useEffect(() => getUser(),[])
   return (
     <div className='user'>
       <h1>Display and Edit User</h1>
-      <h2>{user.firstName}</h2>
+      <h2>Editing Profile Information for {user.firstName} {user.lastName}</h2>
       <form onSubmit={handleSubmit}>
         <input
             type='text'
@@ -54,8 +68,75 @@ useEffect(() => getUser(),[])
             placeholder='name'
             onChange={handleChange}
             />
-       
+          <br></br>
+          <input
+            type='text'
+            value={setUser.lastName}
+            name='lastName'
+            placeholder='last name'
+            onChange={handleChange}
+            />
+          <br></br>
+        
+          <input
+            type='text'
+            value={setUser.username}
+            name='username'
+            placeholder='edit username'
+            onChange={handleChange}
+            />
+          <br></br>
+        <input
+            type='text'
+            value={setUser.email}
+            name='email'
+            placeholder='edit email'
+            onChange={handleChange}
+            />
+            <br></br>
+        <input
+            type='text'
+            value={setUser.password}
+            name='password'
+            placeholder='edit password'
+            onChange={handleChange}
+            />
+          <br></br>
+        <input
+          type='text'
+          value={setUser.interestedIn}
+          name='interestedIn'
+          placeholder='edit dating interests'
+          onChange={handleChange}
+          />
+          <br></br>
+        <input
+          type='text'
+          value={setUser.bio}
+          name='bio'
+          placeholder='edit bio'
+          onChange={handleChange}
+          />
+          <br></br>
+        <input
+          type='text'
+          value={setUser.image}
+          name='image'
+          placeholder='edit profile picture'
+          onChange={handleChange}
+          />
+          <br></br>
+        <input
+          type='text'
+          value={setUser.interests}
+          name='interests'
+          placeholder='edit interest'
+          onChange={handleChange}
+          />
+          <br></br>
+        <button onClick={handleSubmit}>Submit</button>
       </form>
+       {/* <button id="delete" onClick={props.deleteUser}> Delete </button> */}
     </div>
   )
 }
@@ -122,9 +203,7 @@ export default EditProfile
 //   return(
 //    <div className='selectedUser'>
 //      <h1>{editUser.firstName}</h1>
-//      {/* <button id="delete" onClick={deleteUser}>
-//             DELETE
-//           </button> */}
+//     
 //     <form onSubmit={handleSubmit}>
 //       <label htmlFor='firstName'>First Name:</label>
 //       <input value={editFormState.firstName} 
@@ -137,7 +216,6 @@ export default EditProfile
 //   );
 // }
 
-// export default EditProfile  
 
 
 
