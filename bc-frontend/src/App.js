@@ -269,9 +269,9 @@ function monthlyCareerHoro(userSign) {
         <Route path="/myaccount" element={<MyAccount users={users} />} />
         <Route path="/signup" element={<SignUp users={users} />} createUsers={createUsers}/>
         <Route path="/users/:id" element={<EditProfile updeteUsers={deleteUsers} /> } />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Login users={users}/>} />
         <Route path="/users" element={<Users users={users} />} />
-        <Route path='/horoscope' element={<Horoscope dailyHoro={dailyHoro} dailyLove={dailyLove} weeklyHoro={weeklyHoro} weeklyLove={weeklyLove} monthlyHoro={monthlyHoro} monthlyLove={monthlyLove} dailyCareer={dailyCareer} weeklyCareer={weeklyCareer} monthlyCareer={monthlyCareer}/> } />
+        <Route path="/horoscope" element={<Horoscope dailyHoro={dailyHoro} dailyLove={dailyLove} weeklyHoro={weeklyHoro} weeklyLove={weeklyLove} monthlyHoro={monthlyHoro} monthlyLove={monthlyLove} dailyCareer={dailyCareer} weeklyCareer={weeklyCareer} monthlyCareer={monthlyCareer}/> } />
       </Routes>
       <Footer />
     </div>

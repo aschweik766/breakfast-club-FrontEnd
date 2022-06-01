@@ -1,11 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import './MyAccount.css'
 import { Link } from 'react-router-dom'
-// import SignUp from './SignUp'
-// import { Routes, Route } from 'react-router-dom'
-// import App from '../App'
-// import EditProfile from './EditProfile'
-
 
 function MyAccount({ users }) {
   console.log(users[0])

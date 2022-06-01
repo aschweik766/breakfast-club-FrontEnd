@@ -1,24 +1,48 @@
 import React, { useState } from 'react'
 import './SignUp.css'
 
-function Login() {
+function Login({ users }) {
+if (!users) {
+    return( <h1>No Users</h1>)
+}
 
     const loginInitialState = {
         username: '',
-        password: ''
+        password: '',
     }
 
-    const [login, setLogin] = useState(loginInitialState)
+    const [login, setLogin] = useState(loginInitialState);
 
     const handleChange = (event) => {
         setLogin({ ...login, [event.target.id]: event.target.value });
     };
 
-    const handleSubmit = (event) => {
+    const handleSubmit = (event) => { 
         event.preventDefault();
-        console.log(setLogin);
-        setLogin(loginInitialState);
-    };
+        // console.log(setLogin);
+        users.map((user) => {
+            if ((login.username === user.username) && (login.password === user.password)) {
+                // console.log(user)
+                setLogin(user);
+                // setUser(oneUser);
+            }
+            return(null)
+        })
+    }
+
+    console.log(login.zodiacSign)
+
+//     function findUser (x) { 
+//         users.map((oneUser) => {
+//         if ((login.username === oneUser.username) && (login.password === oneUser.password)) {
+//             // console.log(user)
+//             setUser(oneUser);
+//             console.log(user)
+//         }
+//         return(null)
+//     })
+// }
+
 
     return (
         <div>
