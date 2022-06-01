@@ -1,5 +1,52 @@
-import React, { useState } from 'react'
-import TinderCard from 'react-tinder-card'
+// import React, { useState } from 'react'
+// import { useEffect, useState } from "react";
+
+// // import { useCookies } from "react-cookie";
+
+// const Matches = ({ matches, setClickedUser }) => {
+//   const [matchedAccounts, setMatchedAccounts] = useState(null);
+// //   const [cookies, setCookie, removeCookie] = useCookies(null);
+
+//   const userMatchedId = matches.map(({ user_id }) => user_id);
+//   const userId = cookies.UserId;
+
+//   const showMatches =  () => {
+//       fetch('http://localhost:3001/users/', {
+//         params: { userIds: JSON.stringify(userMatchedId)}
+//       )}
+//     setMatchedAccounts(res.data);
+//   }  
+
+//   useEffect(() => {
+//     showMatches();
+//   }, [matches]);
+
+
+//     const filterMatchedAccounts = matchedAccounts?.filter(
+//         (matchedAccount) =>
+//           matchedAccount.matches.filter((account) => account.user_id == userId)
+//             .length > 0
+//       );
+
+//     return (
+//         <div className="show-matches">
+//         {filterMatchedAccounts?.map((match, _index) => (
+//         <div
+//             key={_index}
+//             className="match-card"
+//             onClick={() => setClickedUser(match)}
+//         >
+//             <div className="image-container">
+//             <img src={match?.url} alt={match?.first_name + " profile"} />
+//             </div>
+//             <h3>{match?.first_name}</h3>
+//         </div>
+//         ))}
+//     </div>
+//     )  
+// };
+  
+// export default Matches
 
 
 //will have to define how users/signup and dating preferences link; preferrably one DB or decide so I can update backend with that collection
@@ -30,33 +77,7 @@ import TinderCard from 'react-tinder-card'
         //{from user_id to a user_id}
     //router.post(user/:send-message)
 
-const Matches = ({users}) => {
-
-    const [user, setUser] = useState(null)
-    const [genderedUsers, setGenderedUsers] = useState(null)
-    const [lastSwipePath, setLastSwipePath] = useState()
-    // const [cookies, setCookie, removeCookie] = useCookies(['user'])--cookies? why?
-
-    //will need to pull users from userModel.js backend
-
-    const getUser = asysnc () => {
-        try {
-            const response = await 
-        }
-    }
-
 
     //swipe function
 
     //updateMatches function
-
-
-  return (
-    <div className='matches-container'>Matches
-     /tinder card
-    
-    </div>
-  )
-}
-
-export default Matches
