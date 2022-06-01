@@ -23,7 +23,7 @@ import Footer from "./components/Footer";
 
 function App() {
   const [users, setUsers] = useState(null);
-  const url = "http://localhost:3001/users";
+  const url = "http://localhost:3001/users/";
   const createUrl = `http://localhost:3001/signup`
 
 
@@ -268,7 +268,7 @@ function monthlyCareerHoro(userSign) {
         <Route path="/" element={<Home dailyHoro={dailyHoro} dailyLove={dailyLove}/>} />
         <Route path="/myaccount" element={<MyAccount users={users} />} />
         <Route path="/signup" element={<SignUp users={users} />} createUsers={createUsers}/>
-        <Route path="/users/:id" element={<EditProfile updeteUsers={deleteUsers} /> } />
+        <Route path="/users/:id" element={<EditProfile updateUsers={updateUsers} deleteUsers={deleteUsers} /> } />
         <Route path="/login" element={<Login />} />
         <Route path="/users" element={<Users users={users} />} />
         <Route path='/horoscope' element={<Horoscope dailyHoro={dailyHoro} dailyLove={dailyLove} weeklyHoro={weeklyHoro} weeklyLove={weeklyLove} monthlyHoro={monthlyHoro} monthlyLove={monthlyLove} dailyCareer={dailyCareer} weeklyCareer={weeklyCareer} monthlyCareer={monthlyCareer}/> } />
@@ -278,3 +278,4 @@ function monthlyCareerHoro(userSign) {
   );
 }
 export default App;
+

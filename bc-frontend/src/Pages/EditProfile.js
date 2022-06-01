@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams, useNavigate} from 'react-router-dom'
+import './SignUp.css'
 
 const EditProfile = (props) => {
 
@@ -26,7 +27,6 @@ const EditProfile = (props) => {
           bio: res.bio,
           interestedIn: res.interestedIn,
           lookingFor: res.lookingFor,
-          zodiacSign: res.zodiacSign,
           interests: res.interests
       }))
       .catch(console.error) 
@@ -77,14 +77,7 @@ useEffect(() => getUser(),[])
             onChange={handleChange}
             />
           <br></br>
-        <input
-            type='text'
-            value={setUser.zodiacSign}
-            name='zodiacSign'
-            placeholder='Edit Zodiac Sign'
-            onChange={handleChange}
-            />
-          <br></br>
+        
           <input
             type='text'
             value={setUser.username}
@@ -124,6 +117,7 @@ useEffect(() => getUser(),[])
           placeholder='edit bio'
           onChange={handleChange}
           />
+          <br></br>
         <input
           type='text'
           value={setUser.image}
@@ -131,6 +125,7 @@ useEffect(() => getUser(),[])
           placeholder='edit profile picture'
           onChange={handleChange}
           />
+          <br></br>
         <input
           type='text'
           value={setUser.interests}
@@ -138,9 +133,10 @@ useEffect(() => getUser(),[])
           placeholder='edit interest'
           onChange={handleChange}
           />
-       
+          <br></br>
+        <button onClick={handleSubmit}>Submit</button>
       </form>
-      <button onClick={handleSubmit}>Submit</button>
+       {/* <button id="delete" onClick={props.deleteUser}> Delete </button> */}
     </div>
   )
 }
@@ -207,9 +203,7 @@ export default EditProfile
 //   return(
 //    <div className='selectedUser'>
 //      <h1>{editUser.firstName}</h1>
-//      {/* <button id="delete" onClick={deleteUser}>
-//             DELETE
-//           </button> */}
+//     
 //     <form onSubmit={handleSubmit}>
 //       <label htmlFor='firstName'>First Name:</label>
 //       <input value={editFormState.firstName} 
