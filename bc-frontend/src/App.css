@@ -1,9 +1,13 @@
+body {
+  background-color: rgb(250, 246, 255);
+}
+
 .App {
   text-align: center;
 }
 
 .body {
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -11,18 +15,55 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  margin-top: -40px;
+  background-color: lavenderblush;
+  border-bottom: 3px solid white;
 }
 
 .mobile {
   display: none;
 }
 
-.page-title {
-  text-align: center;
+.logo-cont {
+  display: flex;
+  flex-direction: column;
 }
 
-nav { 
+.page-title {
   text-align: center;
+font-family: 'Rubik Moonrocks', cursive;
+font-size: 90px;
+/* margin-bottom: -40px; */
+}
+
+.subtitle {
+  margin-top: -60px;
+  font-family: 'Averia Serif Libre', cursive;
+  /* font-family: 'Montserrat', sans-serif; */
+  font-size: 20px;
+}
+
+nav {
+  width: 40%;
+  font-family: 'Averia Serif Libre', cursive;
+  /* font-family: 'Montserrat', sans-serif; */
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.nav-cont { 
+  /* text-align: center; */
+  display: flex;
+  justify-content: space-between;
+}
+
+p {
+ 
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+ font-family: 'Averia Serif Libre', cursive;
 }
 
 .homeLink {
@@ -34,7 +75,7 @@ nav {
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -55,16 +96,27 @@ width: 60%;
 
 .comp-title, .love-title, .horo-title {
   text-align: center;
+  font-size: 20px;
 }
 
 .love-horo, .daily-horo {
   width: 80%;
   margin: 0 auto;
+  padding-bottom: 20px;
+}
+
+.dm-body {
+  background-color: white;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  width: 100%;
 }
 
 .daily-matches {
 display: flex;
 justify-content: space-around;
+width: 80%;
+margin: 0 auto;
 }
 
 .daily-match {
@@ -85,7 +137,7 @@ justify-content: space-around;
 .horonav {
   display: flex;
   justify-content: space-evenly;
-
+  background-color: white;
 }
 
 .horolink {
@@ -130,7 +182,7 @@ justify-content: space-around;
   }
 
   .daily-matches {
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
   }
 
@@ -187,7 +239,8 @@ justify-content: space-around;
   }
 
   .daily-matches {
-    gap: 10px;
+    gap: 20px;
+    /* width: 120%; */
     }
 
 

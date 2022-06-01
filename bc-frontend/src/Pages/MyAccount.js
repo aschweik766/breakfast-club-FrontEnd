@@ -10,7 +10,7 @@ function MyAccount({ users, login }) {
     return(<>nothing</>)
   }
   return (
-    <div className='body'>
+    <div className=''>
       <div className='page-cont'>
         <div className='acct-header'>
         <h2>My Account</h2>
