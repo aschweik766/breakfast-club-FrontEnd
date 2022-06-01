@@ -265,6 +265,7 @@ const handleSubmit = (event) => {
   )
   // useNavigate('/')
 }
+console.log(login)
 
 //END LOGIN STUFF
 
