@@ -8,7 +8,7 @@ function Home({ dailyHoro, dailyLove }) {
   return (
     
     <div className='body'>
-
+      
     <div className='lr-cont'>
     <div className='left'>
     

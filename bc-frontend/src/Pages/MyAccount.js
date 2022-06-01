@@ -2,12 +2,12 @@ import React from 'react'
 import './MyAccount.css'
 import { Link } from 'react-router-dom'
 
-function MyAccount({ users }) {
-  console.log(users[0])
+function MyAccount({ users, login }) {
+  console.log(login)
   let user = users[0]
-  console.log(user.firstName)
-  if (!users) {
-    return(<></>)
+  console.log(login.firstName)
+  if (!(users && login)) {
+    return(<>nothing</>)
   }
   return (
     <div className='body'>
@@ -17,8 +17,8 @@ function MyAccount({ users }) {
         
           <div className='myacct-cont'>
           <img src="https://thispersondoesnotexist.com/image" alt="profile-img" className='default-img' />
-          <div> <h3>{user.firstName}, {user.birthday} - {user.location}</h3>
-          <h4>Zodiac Sign: Leo</h4>
+          <div> <h3>{login.firstName}, {login.DOBmonth}/{login.DOBday}/{login.DOByear} - {login.location}</h3>
+          <h4>Zodiac Sign: {login.zodiacSign}</h4>
           <h4>Likes: Painting, going to the beach, cooking</h4>
           </div>
           </div>
