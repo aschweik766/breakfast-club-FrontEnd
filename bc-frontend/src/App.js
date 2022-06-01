@@ -11,6 +11,7 @@ import Header from "./components/Header";
 import Users from './Pages/Users'
 import Horoscope from "./Pages/Horoscope";
 import Footer from "./components/Footer";
+import DailyMatchesDash from "./Pages/DisplayMatchesDash";
 /* eslint-disable */
 
 //structure:
@@ -271,6 +272,7 @@ function monthlyCareerHoro(userSign) {
         <Route path="/users/:id" element={<EditProfile updateUsers={updateUsers} deleteUsers={deleteUsers} /> } />
         <Route path="/login" element={<Login />} />
         <Route path="/users" element={<Users users={users} />} />
+        <Route path="/matches" element={<DailyMatchesDash users={users}/>}/>
         <Route path='/horoscope' element={<Horoscope dailyHoro={dailyHoro} dailyLove={dailyLove} weeklyHoro={weeklyHoro} weeklyLove={weeklyLove} monthlyHoro={monthlyHoro} monthlyLove={monthlyLove} dailyCareer={dailyCareer} weeklyCareer={weeklyCareer} monthlyCareer={monthlyCareer}/> } />
       </Routes>
       <Footer />

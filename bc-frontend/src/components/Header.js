@@ -6,8 +6,11 @@ function Header() {
       <header className="notmobile">
         <nav className="nav-left">
           {" "}
-          Matches <Link to="/horoscope">Horoscopes</Link>{" "}
-          <Link to="/users">Display Users</Link>
+        <Link to={'/'}> Home</Link>{" "}
+        <Link to={'/matches'}> Matches</Link>{" "}
+        <Link to={'/messages'}>Messages</Link>{" "}
+        <Link to="/horoscope">Horoscopes</Link>{" "}
+        <Link to="/users">Display Users</Link>
         </nav>
         <Link to="/" className="homeLink">
           <h1 className="page-title">Horoscope Dating</h1>
