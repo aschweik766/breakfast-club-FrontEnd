@@ -17,7 +17,7 @@ if (!dailyHoro) {
            
             <p key='i'> {oneHoro.prediction} </p>
           
-        )}
+        )} return (null)
       })
       
       }

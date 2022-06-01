@@ -240,6 +240,33 @@ function monthlyCareerHoro(userSign) {
 }
 
 
+//LOGIN STUFF
+
+const loginInitialState = {
+  username: '',
+  password: '',
+}
+
+const [login, setLogin] = useState(loginInitialState);
+
+const handleChange = (event) => {
+  setLogin({ ...login, [event.target.id]: event.target.value });
+};
+
+const handleSubmit = (event) => { 
+  event.preventDefault();
+  // console.log(setLogin);
+  users.map((user) => {
+      if ((login.username === user.username) && (login.password === user.password)) {
+          setLogin(user);
+      }
+      return(null)
+  } 
+  )
+  // useNavigate('/')
+}
+
+//END LOGIN STUFF
 
   useEffect(() => {
     dailyHoroscope()
@@ -254,6 +281,7 @@ function monthlyCareerHoro(userSign) {
     getUsers()
   }, [])
 
+
   // if (!users) {
   //   return <h1></h1>;
   // }
@@ -263,15 +291,17 @@ function monthlyCareerHoro(userSign) {
 
   return (
     <div className="App">
+      
       <Header />
       <Routes>
-        <Route path="/" element={<Home dailyHoro={dailyHoro} dailyLove={dailyLove}/>} />
-        <Route path="/myaccount" element={<MyAccount users={users} />} />
+        {/* <Route path='/app' element={<App users={users}/>} /> */}
+        <Route path="/home" element={<Home dailyHoro={dailyHoro} dailyLove={dailyLove} login={login}/>} />
+        <Route path="/myaccount" element={<MyAccount users={users} login={login}/>} />
         <Route path="/signup" element={<SignUp users={users} />} createUsers={createUsers}/>
-        <Route path="/users/:id" element={<EditProfile updateUsers={updateUsers} deleteUsers={deleteUsers} /> } />
-        <Route path="/login" element={<Login />} />
+        <Route path="/users/:id" element={<EditProfile updateUsers={updateUsers} deleteUsers={deleteUsers} login={login} /> } />
+        <Route path="/login" element={<Login users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login}/>} />
         <Route path="/users" element={<Users users={users} />} />
-        <Route path='/horoscope' element={<Horoscope dailyHoro={dailyHoro} dailyLove={dailyLove} weeklyHoro={weeklyHoro} weeklyLove={weeklyLove} monthlyHoro={monthlyHoro} monthlyLove={monthlyLove} dailyCareer={dailyCareer} weeklyCareer={weeklyCareer} monthlyCareer={monthlyCareer}/> } />
+        <Route path="/horoscope" element={<Horoscope dailyHoro={dailyHoro} dailyLove={dailyLove} weeklyHoro={weeklyHoro} weeklyLove={weeklyLove} monthlyHoro={monthlyHoro} monthlyLove={monthlyLove} dailyCareer={dailyCareer} weeklyCareer={weeklyCareer} monthlyCareer={monthlyCareer}/> } />
       </Routes>
       <Footer />
     </div>

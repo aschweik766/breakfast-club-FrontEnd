@@ -1,3 +1,5 @@
+https://trello.com/b/H0mg7sKT/horoscope-dating-app
+
 MVP
 Models:
 User SignUp Login (Route/main)

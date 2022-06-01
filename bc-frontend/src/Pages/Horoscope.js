@@ -33,14 +33,14 @@ function Horoscope({
 
   if (!dailyHoro) {
     return (
-      <div className="body">
+      <div className="">
         <h2>Horoscopes</h2>
         <div className="horonav">
           <h3
             className="horolink"
             onClick={handleClick}
             style={{
-              borderBottom: isActive === "Daily" ? "3px solid black" : "none",
+              borderBottom: isActive === "Daily" ? "2px solid black" : "none",
             }}
           >
             Daily
@@ -49,7 +49,7 @@ function Horoscope({
             className="horolink"
             onClick={handleClick}
             style={{
-              borderBottom: isActive === "Weekly" ? "3px solid black" : "none",
+              borderBottom: isActive === "Weekly" ? "2px solid black" : "none",
             }}
           >
             Weekly
@@ -58,7 +58,7 @@ function Horoscope({
             className="horolink"
             onClick={handleClick}
             style={{
-              borderBottom: isActive === "Monthly" ? "3px solid black" : "none",
+              borderBottom: isActive === "Monthly" ? "2px solid black" : "none",
             }}
           >
             Monthly
@@ -67,7 +67,7 @@ function Horoscope({
             className="horolink"
             onClick={handleClick}
             style={{
-              borderBottom: isActive === "Love" ? "3px solid black" : "none",
+              borderBottom: isActive === "Love" ? "2px solid black" : "none",
             }}
           >
             Love
@@ -76,24 +76,26 @@ function Horoscope({
             className="horolink"
             onClick={handleClick}
             style={{
-              borderBottom: isActive === "Career" ? "3px solid black" : "none",
+              borderBottom: isActive === "Career" ? "2px solid black" : "none",
             }}
           >
             Career
           </h3>
         </div>
+        <br/><br/>
+        <p>Just a moment for your horoscopes...</p>
       </div>
     );
   }
   return (
-    <div className="body">
+    <div className="">
       <h2>Horoscopes</h2>
       <div className="horonav">
         <h3
           className="horolink"
           onClick={handleClick}
           style={{
-            borderBottom: isActive === "Daily" ? "3px solid black" : "none",
+            borderBottom: isActive === "Daily" ? "2px solid black" : "none",
           }}
         >
           Daily
@@ -102,7 +104,7 @@ function Horoscope({
           className="horolink"
           onClick={handleClick}
           style={{
-            borderBottom: isActive === "Weekly" ? "3px solid black" : "none",
+            borderBottom: isActive === "Weekly" ? "2px solid black" : "none",
           }}
         >
           Weekly
@@ -111,7 +113,7 @@ function Horoscope({
           className="horolink"
           onClick={handleClick}
           style={{
-            borderBottom: isActive === "Monthly" ? "3px solid black" : "none",
+            borderBottom: isActive === "Monthly" ? "2px solid black" : "none",
           }}
         >
           Monthly
@@ -120,7 +122,7 @@ function Horoscope({
           className="horolink"
           onClick={handleClick}
           style={{
-            borderBottom: isActive === "Love" ? "3px solid black" : "none",
+            borderBottom: isActive === "Love" ? "2px solid black" : "none",
           }}
         >
           Love
@@ -129,7 +131,7 @@ function Horoscope({
           className="horolink"
           onClick={handleClick}
           style={{
-            borderBottom: isActive === "Career" ? "3px solid black" : "none",
+            borderBottom: isActive === "Career" ? "2px solid black" : "none",
           }}
         >
           Career
