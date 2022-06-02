@@ -275,9 +275,11 @@ const handleSubmit = (event) => {
   )
   // useNavigate('/')
 }
-console.log(login)
-console.log(logData)
-console.log(noMatch)
+
+const zodiac = login.zodiacSign
+console.log(zodiac)
+// console.log(logData)
+// console.log(noMatch)
 
 //END LOGIN STUFF
 

@@ -16,7 +16,7 @@ function MyAccount({ users, login }) {
         
           <div className='myacct-cont'>
           <img src="https://thispersondoesnotexist.com/image" alt="profile-img" className='default-img' />
-          <div> <h3>{login.firstName}, {login.DOBmonth}/{login.DOBday}/{login.DOByear} - {login.location}</h3>
+          <div className='acctInfo'> <h3>{login.firstName}, {login.DOBmonth}/{login.DOBday}/{login.DOByear} - {login.location}</h3>
           <h4>Zodiac Sign: {login.zodiacSign}</h4>
           <h4>Likes: {login.interests.map((interest) => {
             return(interest+" ")
