@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 
 function MyAccount({ users, login }) {
   console.log(login)
-  let user = users[0]
   console.log(login.firstName)
   if (!(users && login)) {
     return(<>nothing</>)
@@ -17,14 +16,16 @@ function MyAccount({ users, login }) {
         
           <div className='myacct-cont'>
           <img src="https://thispersondoesnotexist.com/image" alt="profile-img" className='default-img' />
-          <div> <h3>{login.firstName}, {login.DOBmonth}/{login.DOBday}/{login.DOByear} - {login.location}</h3>
+          <div className='acctInfo'> <h3>{login.firstName}, {login.DOBmonth}/{login.DOBday}/{login.DOByear} - {login.location}</h3>
           <h4>Zodiac Sign: {login.zodiacSign}</h4>
-          <h4>Likes: Painting, going to the beach, cooking</h4>
+          <h4>Likes: {login.interests.map((interest) => {
+            return(interest+" ")
+          })}</h4>
           </div>
           </div>
          <div className='acctBio'>
            <h3>About Me</h3>
-          <p>Human-focused programmer with a desire to produce compassionate, engaging, and empowering work that brings users closer to themselves and builds community. Skilled creative with experience in a variety of mediums, giving them a singular approach to work, life, and communication.</p>
+          <p>{login.bio}</p>
           </div>
        
           
@@ -42,7 +43,7 @@ function MyAccount({ users, login }) {
         </div>
       </div>
       <br/><br/><br/>
-      <Link to={`/users/${user._id}`} > <button>Update Preferences </button> </Link>
+      <Link to={`/users/${login._id}`} > <button>Update Preferences </button> </Link>
     </div>
   )
 }

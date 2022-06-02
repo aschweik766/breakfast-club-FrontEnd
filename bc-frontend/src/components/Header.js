@@ -1,8 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-function Header() {
+
+
+function Header({ loggedIn }) {
   return (
     <div className="">
+      <div className="border"></div>
       <header className="notmobile">
         
       <Link to="/home" className="homeLink">
@@ -11,30 +14,32 @@ function Header() {
           <h4 className="subtitle">connect with astrology</h4>
           </div>
         </Link>
-        <nav> 
-          <div className="nav-cont">    <Link to={'/matches'}><p>Matches</p></Link> <Link to="/horoscope"><p>Horoscopes</p></Link>
+        <nav style={loggedIn === false ? {display: "none"} : null}> 
+          <div className="nav-cont">   <Link to={'/matches'}><p>Matches</p></Link>  <Link to="/horoscope"><p>Check Your Horoscope</p></Link>
           <Link to="/users"><p>Display Users</p></Link>
           <Link to="/myaccount"><p>My Account</p></Link>
-          <Link to="/signup"><p>Sign Up</p></Link> <Link to="/"><p>Log In</p></Link> </div>
+         </div>
        
         </nav>
       </header>
 
       <header className="mobile">
-        <Link to="/" className="homeLink">
+        <Link to="/home" className="homeLink">
         <div className="logo-cont">
           <h1 className="page-title">ALIGN</h1>
           <h4 className="subtitle">connect with astrology</h4>
           </div>
         </Link>
 
-        <nav> 
-          <div className="nav-cont">   <p>Matches</p> <Link to="/horoscope"><p>Horoscopes</p></Link>
-          <Link to="/users"><p>Display Users</p></Link>
+        <nav style={loggedIn === false ? {display: "none"} : null}> 
+          <div className="nav-cont">   <p>Matches</p> <Link to="/horoscope"><p>Check Your Horoscope</p></Link>
+          {/* <Link to="/users"><p>Display Users</p></Link> */}
           <Link to="/myaccount"><p>My Account</p></Link>
-          <Link to="/signup"><p>Sign Up</p></Link> <Link to="/"><p>Log In</p></Link> </div>
+          </div>
         </nav>
+
       </header>
+      <div className="border"></div>
     </div>
   );
 }

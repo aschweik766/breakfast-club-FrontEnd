@@ -197,10 +197,14 @@ function SignUp({ users, getUsers, createUsers }) {
                     <option value="Non-binary">Non-binary</option>
                 </select>
                 <br></br>
+                
+                {/* <label htmlFor="interestedIn">Interested In: </label>
 
-                <label htmlFor="interestedIn">Interested In: </label>
+                <input type="checkbox" id="interestedIn" onChange={handleChange} value={userSignUp.interestedIn}>Men</input> */}
+
+                
                 <select multiple id="interestedIn" onChange={handleChange} value={userSignUp.interestedIn}>
-                    {/* <option disabled selected>To select multiple, hold down Shift and click on options</option> */}
+                    <option disabled selected>To select multiple, hold down Shift and click on options</option>
                     <option value="Men">Men</option>
                     <option value="Women">Women</option>
                     <option value="Non-binary">Non-binary</option>
