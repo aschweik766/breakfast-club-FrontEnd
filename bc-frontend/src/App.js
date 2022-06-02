@@ -254,7 +254,6 @@ const [loggedIn, setLoggedIn] = useState(false)
 const [logData, setLogData] = useState(loginInitialState)
 
 const handleChange = (event) => {
-  setLogData({ ...login, [event.target.id]: event.target.value });
   setLogin({ ...login, [event.target.id]: event.target.value });
   console.log("handle change fired")
 };
@@ -265,7 +264,9 @@ const handleSubmit = (event) => {
   users.map((user) => {
       if ((login.username === user.username) && (login.password === user.password)) {
           setLogin(user);
-          setLoggedIn(true)
+          setLoggedIn(true);
+          localStorage.setItem("username", login.username)
+          localStorage.setItem("password", login.password)
       }
       return(null)
   } 
@@ -300,10 +301,6 @@ console.log(logData)
     <div className="App">
       
       <Header />
-      {/* <ModalLogin users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login} /> */}
-
-      {/* element={ cartItems.length < 1 ? <Navigate to="/products" /> : <Checkout /> } */}
-
       <Routes>
         {/* <Route path='/app' element={<App users={users}/>} /> */}
         <Route path="/" element={ loggedIn === false ? <Splash users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login} loggedIn={loggedIn} /> : <Navigate to='/home' />} />
