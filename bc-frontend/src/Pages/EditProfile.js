@@ -55,7 +55,7 @@ const EditProfile = (props) => {
       history('/users')
   }
 
-useEffect(() => getUser(),[])
+useEffect(() => getUser(),)
 
   if(!user) {
     return (
