@@ -1,14 +1,15 @@
 import React from 'react'
 // import { useState } from 'react'
-// import { useNavigate, Routes, Route } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import './SignUp.css'
 // import App from '../App';
 /* eslint-disable */
 
-function Login({ users, handleChange, handleSubmit, login }) {
+function Login({ users, handleChange, handleSubmit, login, loggedIn }) {
 if (!users) {
     return( <h1>No Users</h1>)
 }
+
 
     return (
          
@@ -35,7 +36,7 @@ if (!users) {
 
         </div>
     )
-    
+
 }
 
 export default Login
