@@ -1,15 +1,6 @@
 body {
-  /* background-color: rgb(250, 246, 255); */
-  background-color: rgb(244, 241, 252);
-}
-
-.mist {
-  border: 10px solid black;
-  height: 100%;
-  width:100vw;
-  position: fixed;
-  background-color: black;
-  opacity: .5;
+  background-color: rgb(250, 246, 255);
+  /* background-color: rgb(244, 241, 252); */
 }
 
 .App {
@@ -35,8 +26,6 @@ body {
 }
 
 .border {
-  /* background-image: url("https://www.innovationnewsnetwork.com/wp-content/uploads/2021/02/Primordial-galaxy.jpg"); */
-  /* background-image: url("https://d2r55xnwy6nx47.cloudfront.net/uploads/2022/01/One_galaxy_1920x1080_STILL_Lede.jpg"); */
   background-image: url("https://images.theconversation.com/files/233003/original/file-20180822-149484-cs44to.jpg?ixlib=rb-1.1.0&rect=0%2C587%2C3600%2C1800&q=45&auto=format&w=1356&h=668&fit=crop");
   height: 40px;
   width: 100%;

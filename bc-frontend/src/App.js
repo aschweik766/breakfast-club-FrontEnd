@@ -13,6 +13,7 @@ import Users from './Pages/Users'
 import Horoscope from "./Pages/Horoscope";
 import Footer from "./components/Footer";
 import Splash from "./Pages/Splash";
+import { use } from "express/lib/application";
 /* eslint-disable */
 
 //structure:
@@ -252,6 +253,7 @@ const loginInitialState = {
 const [login, setLogin] = useState(loginInitialState);
 const [loggedIn, setLoggedIn] = useState(false)
 const [logData, setLogData] = useState(loginInitialState)
+const [noMatch, setNoMatch] = useState(false)
 
 const handleChange = (event) => {
   setLogin({ ...login, [event.target.id]: event.target.value });
@@ -268,13 +270,14 @@ const handleSubmit = (event) => {
           localStorage.setItem("username", login.username)
           localStorage.setItem("password", login.password)
       }
-      return(null)
+    setNoMatch(true)
   } 
   )
   // useNavigate('/')
 }
 console.log(login)
 console.log(logData)
+console.log(noMatch)
 
 //END LOGIN STUFF
 
@@ -300,17 +303,17 @@ console.log(logData)
   return (
     <div className="App">
       
-      <Header />
+      <Header loggedIn={loggedIn}/>
       <Routes>
         {/* <Route path='/app' element={<App users={users}/>} /> */}
-        <Route path="/" element={ loggedIn === false ? <Splash users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login} loggedIn={loggedIn} /> : <Navigate to='/home' />} />
-        <Route path="/home" element={<Home dailyHoro={dailyHoro} dailyLove={dailyLove} login={login}/>} />
-        <Route path="/myaccount" element={<MyAccount users={users} login={login}/>} />
+        <Route path="/" element={ loggedIn === false ? <Splash users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login} loggedIn={loggedIn} noMatch={noMatch} /> : <Navigate to='/home' />} />
+        <Route path="/home" element={loggedIn === false ? <Splash users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login} loggedIn={loggedIn} noMatch={noMatch} /> : <Home dailyHoro={dailyHoro} dailyLove={dailyLove} login={login}/>} />
+        <Route path="/myaccount" element={loggedIn === false ? <Splash users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login} loggedIn={loggedIn} noMatch={noMatch} /> : <MyAccount users={users} login={login}/>} />
         <Route path="/signup" element={<SignUp users={users} />} createUsers={createUsers}/>
-        <Route path="/users/:id" element={<EditProfile updateUsers={updateUsers} deleteUsers={deleteUsers} login={login}  /> } />
-        <Route path="/login" element={<Login users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login} loggedIn={loggedIn}/>} />
+        <Route path="/users/:id" element={<EditProfile updateUsers={updateUsers} deleteUsers={deleteUsers} login={login} /> } />
+        <Route path="/login" element={<Login users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login} loggedIn={loggedIn} noMatch={noMatch}/>} />
         <Route path="/users" element={<Users users={users} />} />
-        <Route path="/horoscope" element={<Horoscope dailyHoro={dailyHoro} dailyLove={dailyLove} weeklyHoro={weeklyHoro} weeklyLove={weeklyLove} monthlyHoro={monthlyHoro} monthlyLove={monthlyLove} dailyCareer={dailyCareer} weeklyCareer={weeklyCareer} monthlyCareer={monthlyCareer}/> } />
+        <Route path="/horoscope" element={loggedIn === false ? <Splash users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login} loggedIn={loggedIn} noMatch={noMatch} /> : <Horoscope dailyHoro={dailyHoro} dailyLove={dailyLove} weeklyHoro={weeklyHoro} weeklyLove={weeklyLove} monthlyHoro={monthlyHoro} monthlyLove={monthlyLove} dailyCareer={dailyCareer} weeklyCareer={weeklyCareer} monthlyCareer={monthlyCareer}/> } />
       </Routes>
       <Footer />
     </div>

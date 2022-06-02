@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-function Header() {
+
+
+function Header({ loggedIn }) {
   return (
     <div className="">
       <div className="border"></div>
@@ -11,9 +13,9 @@ function Header() {
           <h4 className="subtitle">connect with astrology</h4>
           </div>
         </Link>
-        <nav> 
-          <div className="nav-cont">   <p>Matches</p> <Link to="/horoscope"><p>Horoscopes</p></Link>
-          <Link to="/users"><p>Display Users</p></Link>
+        <nav style={loggedIn === false ? {display: "none"} : null}> 
+          <div className="nav-cont">   <p>Matches</p> <Link to="/horoscope"><p>Check Your Horoscope</p></Link>
+          {/* <Link to="/users"><p>Display Users</p></Link> */}
           <Link to="/myaccount"><p>My Account</p></Link>
          </div>
        
@@ -28,9 +30,9 @@ function Header() {
           </div>
         </Link>
 
-        <nav> 
-          <div className="nav-cont">   <p>Matches</p> <Link to="/horoscope"><p>Horoscopes</p></Link>
-          <Link to="/users"><p>Display Users</p></Link>
+        <nav style={loggedIn === false ? {display: "none"} : null}> 
+          <div className="nav-cont">   <p>Matches</p> <Link to="/horoscope"><p>Check Your Horoscope</p></Link>
+          {/* <Link to="/users"><p>Display Users</p></Link> */}
           <Link to="/myaccount"><p>My Account</p></Link>
           </div>
         </nav>

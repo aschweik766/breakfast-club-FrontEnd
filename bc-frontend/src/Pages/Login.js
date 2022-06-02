@@ -4,7 +4,7 @@ import './SignUp.css'
 // import App from '../App';
 /* eslint-disable */
 
-function Login({ users, handleChange, handleSubmit, login, loggedIn }) {
+function Login({ users, handleChange, handleSubmit, login, noMatch }) {
 if (!users) {
     return( <h1>No Users</h1>)
 }
@@ -31,7 +31,8 @@ if (!users) {
                 <button className='submitButton' type='submit'>Log In</button>
 
             </form>
-        
+            <br/>
+            <div style={noMatch === true ? {display:"block"} : {display: "none"}}><p style={{color: "darkred", fontSize: '15px'}}>Incorrect username or password. Please try again.</p></div>
 
         </div>
     )
