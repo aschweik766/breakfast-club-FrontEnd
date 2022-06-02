@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react'
 import './SignUp.css'
 function SignUp() {
 
-    //Step 1. Start with an Object in State: When working with forms, it's helpful to have all of the values in a single object.
-
     const userInitialState = {
 
         firstName: '',
@@ -51,7 +49,6 @@ function SignUp() {
             },
             body: JSON.stringify(user),
         });
-        // update list of users
         getUsers();
     };
 
@@ -59,16 +56,10 @@ function SignUp() {
         setUserSignUp({ ...userSignUp, [event.target.id]: event.target.value });
     };
 
-    // Event Handler: a callback function to
-    // be run when the event is observed
+ 
     const handleSubmit = (event) => {
-        // we always need to stop the browser
-        // from submitting the form or the page
-        // will be refreshed.
         event.preventDefault();
-        // do something with the data in the component state
         createUsers(userSignUp);
-        // clear the form
         setUserSignUp(userInitialState)
     };
 
@@ -78,7 +69,7 @@ function SignUp() {
     }, [])
 
     console.log(userSignUp)
-
+    console.log(setUserSignUp)
 
     if (!user) {
         return <h1>....Hard at work to sign you up</h1>;
@@ -94,29 +85,6 @@ function SignUp() {
 
             <br></br>
             <form className='signUpForm' onSubmit={handleSubmit}>
-
-                {/* {
-
-        firstName: '',
-        lastName: '',
-        DOBmonth: '', 
-        DOBday: '', 
-        DOByear: '',        
-        location: '',
-        email: '',
-        username:   '',
-        password: '',
-        image: '',
-        zodiacSign: '',
-        genderIdentity: '',
-        interestedIn: [''],
-        relationshipStatus: '',
-        lookingFor: '',
-        bio: '',
-        height: '',
-        weight: '',
-        interests: ['']
-    } */}
 
                 {/* <select id="dropdown">
                     <option value="N/A">N/A</option>
@@ -138,7 +106,7 @@ function SignUp() {
 
                 <label htmlFor="DOBmonth">Month of Birth: </label>
                 <select id="DOBmonth" onChange={handleChange} value={userSignUp.DOBmonth}>
-                    <option>1</option>
+                    <option value="1">1</option>
                     <option>2</option>
                     <option>3</option>
                     <option>4</option>
@@ -221,7 +189,7 @@ function SignUp() {
                     <option>Taurus</option>
                     <option>Gemini</option>
                     <option>Cancer</option>
-                    <option>Leo</option> 
+                    <option>Leo</option>
                     <option>Virgo</option>
                     <option>Libra</option>
                     <option>Scorpio</option>
@@ -244,11 +212,12 @@ function SignUp() {
   <option value="Britain">Britain</option>
 </select> */}
                 <label htmlFor="interestedIn">Interested In: </label>
-                <select multiple id="interestedIn" onChange={handleChange} value={userSignUp.interestedIn}>
+                <select id="interestedIn" onChange={handleChange} value={userSignUp.interestedIn} multiple>
+                <option value="" disabled selected>To select multiple, hold down Shift and click on options</option>
                 <option>Men</option>
-                    <option>Women</option>
-                    <option>Non-binary</option>
-                    
+                <option>Women</option>
+                <option>Non-binary</option>
+
                 </select>
                 <br></br>
 
@@ -262,20 +231,20 @@ function SignUp() {
 
                 <label htmlFor="lookingFor"> Looking For: </label>
                 <select id="lookingFor" onChange={handleChange} value={userSignUp.lookingFor}>
-                <option>Dating</option>
+                    <option>Fun</option>
                     <option>Relationship</option>
                     <option>Not sure</option>
                 </select>
                 <br></br>
 
                 <label htmlFor="bio"> About Me: </label>
-                <textarea id="bio" rows="10" cols="30" onChange={handleChange} value={userSignUp.bio} ></textarea>
+                <textarea id="bio" rows="5" cols="20" onChange={handleChange} value={userSignUp.bio} ></textarea>
                 <br></br>
 
 
                 <label htmlFor="height"> height: </label>
                 <select id="height" onChange={handleChange} value={userSignUp.height}>
-                <option>Short</option>
+                    <option>Short</option>
                     <option>Average</option>
                     <option>Tall</option>
                 </select>
@@ -289,7 +258,7 @@ function SignUp() {
                     <option>Fit</option>
                     <option>Curvy</option>
                     <option>Plus Size</option>
-                    </select>
+                </select>
                 <br></br>
 
 
@@ -319,17 +288,17 @@ function SignUp() {
                     <option>Cars</option>
                     <option>Sewing</option>
                     <option>Building/Carpentry/Engineering</option>
-                    <options>Skating</options>
-                    <options>Outdoor Sports</options>
-                   
+                    <option>Skating</option>
+                    <option>Outdoor Sports</option>
 
-                    
-                    
+
+
+
                 </select>
                 <br></br>
 
 
-                <button action="http://localhost:3001/users">Submit </button>
+                <button onClick={handleSubmit}>Submit </button>
                 {/* this button aciton isnt working i'm trying to figure out how to redirect once the button is clicked i can go back to /users */}
             </form>
         </div>

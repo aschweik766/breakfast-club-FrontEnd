@@ -25,7 +25,7 @@ const Users = (props) => {
             <div key={user._id} className='user'>
                 <Link to={`/users/${user._id}`}>
                     <h1>{user.firstName}</h1>
-                    <img src={user.image} height='100' width='100'/>
+                    <img src={user.image} alt="user pic" height='100' width='100'/>
                 </Link>
             </div>
             )

@@ -1,4 +1,4 @@
-.signUpForm {
+.editForm {
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -10,9 +10,6 @@
 }
 h3 {
     font-weight:bolder; 
-}
-#password {
-    text-align: center;
 }
 option {
     text-align: center;
