@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import './SignUp.css'
-function SignUp() {
+// import { useCookies } from 'react-cookie'
 
+
+function SignUp() {
+//   const [cookies, setCookie, removieCookie] = useCookes(null)
     //Step 1. Start with an Object in State: When working with forms, it's helpful to have all of the values in a single object.
 
     const userInitialState = {
@@ -24,13 +27,15 @@ function SignUp() {
         bio: '',
         height: '',
         weight: '',
-        interests: ['']
+        interests: [''],
+        // user_id: cookies.UserId
     }
 
     const [user, setUser] = useState(null)
 
 
     const [userSignUp, setUserSignUp] = useState(userInitialState)
+  
 
     const url = "http://localhost:3001/users";
 
@@ -70,6 +75,8 @@ function SignUp() {
         createUsers(userSignUp);
         // clear the form
         setUserSignUp(userInitialState)
+
+        // setCookie('UserId', response.data.userId)
     };
 
     useEffect(() => {
