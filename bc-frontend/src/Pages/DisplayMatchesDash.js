@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react'
 import TinderCard from 'react-tinder-card';
 import { useState } from 'react';
-import MatchContainer from '../components/MatchContainer';
+// import MatchContainer from '../components/MatchContainer';
 // import { useCookies } from 'react-cookie'
 
 
 
 const genderURL = 'http://localhost:3001/users-gender-identity'
 const userURL = 'http://localhost:3001/users/'
-const addMatchUrl = 'http://localhost:3001/update-matches'
+// const addMatchUrl = 'http://localhost:3001/update-matches'
 
 const DisplayMatchesDash = (props) => {
   // console.log('passed the props as', props)
@@ -119,14 +119,14 @@ export default DisplayMatchesDash
     //return
     //// <div>
       //     <h2>Welcome to your Match Dash</h2>
-          {/* <h4>{displayMatchUsers()}</h4> */}
+          /* <h4>{displayMatchUsers()}</h4> */
           
           // <div className='dashboard'>
-            {/* <MatchContiner users={users}/> */}
-            {/* <div className='swipe-container'> */}
+            /* <MatchContiner users={users}/> */
+            /* <div className='swipe-container'> */
               // <div className='card-container'> 
                
-                {/* {filterUserGender?.map((user)=>
+                /* {filterUserGender?.map((user)=>
                   <TinderCard 
                       className='swipe'
                       key={user._id}
@@ -137,7 +137,7 @@ export default DisplayMatchesDash
                         </div>
                   </TinderCard>
                 )}
-                <div className='swipe-info'>{lastDirection ? <p>You swiped {lastDirection}</p> : <p/>}</div> */}
+                <div className='swipe-info'>{lastDirection ? <p>You swiped {lastDirection}</p> : <p/>}</div> */
             //   </div>
             // </div>
 
