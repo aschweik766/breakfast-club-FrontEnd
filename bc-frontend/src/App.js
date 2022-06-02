@@ -26,8 +26,8 @@ import DailyMatchesDash from "./Pages/DisplayMatchesDash";
 
 function App() {
   const [users, setUsers] = useState(null);
-  const url = "http://localhost:3001/users/";
-  const createUrl = `http://localhost:3001/signup`
+  const url = "https://horoscopedatingapp-backend.herokuapp.com/users";
+  const createUrl = `https://horoscopedatingapp-backend.herokuapp.com/signup`
 
   const [dailyHoro, setDailyHoro] = useState(null)
   const [dailyLove, setDailyLove] = useState(null)
