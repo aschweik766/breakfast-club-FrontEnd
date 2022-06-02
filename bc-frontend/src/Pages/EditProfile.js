@@ -38,6 +38,15 @@ const EditProfile = (props) => {
       
   }
 
+  // const handleChange = (event) => {
+  //   const name = event.target.name;
+  //   const value = event.target.value;
+  //   setUser(values => ({...values, [name]: value}))
+  // }
+
+
+
+
   // handlesubmit for form
   const handleSubmit = (event) => {
       event.preventDefault()
@@ -172,7 +181,7 @@ useEffect(() => getUser(),[])
           <br></br>
     
           <label htmlFor="interests">Update Interests: </label>
-        <select
+        <select>
           multiple
           size="6"
           value={setUser.interests}
@@ -206,11 +215,12 @@ useEffect(() => getUser(),[])
             <option>Cars</option>
             <option>Sewing</option>
             <option>Building/Carpentry/Engineering</option>
-            <options>Skating</options>
-            <options>Outdoor Sports</options>
+            <option>Skating</option>
+            <option>Outdoor Sports</option>
             </select>
           <br></br>
         <button onClick={handleSubmit}>Submit</button>
+        <input type="submit"/>
       </form>
        {/* <button id="delete" onClick={props.deleteUser}> Delete </button> */}
     </div>

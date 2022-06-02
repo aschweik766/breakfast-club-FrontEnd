@@ -11,6 +11,7 @@ import Header from "./components/Header";
 import Users from './Pages/Users'
 import Horoscope from "./Pages/Horoscope";
 import Footer from "./components/Footer";
+import DailyMatchesDash from "./Pages/DisplayMatchesDash";
 /* eslint-disable */
 
 //structure:
@@ -301,7 +302,9 @@ const handleSubmit = (event) => {
         <Route path="/users/:id" element={<EditProfile updateUsers={updateUsers} deleteUsers={deleteUsers} login={login} /> } />
         <Route path="/login" element={<Login users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login}/>} />
         <Route path="/users" element={<Users users={users} />} />
-        <Route path="/horoscope" element={<Horoscope dailyHoro={dailyHoro} dailyLove={dailyLove} weeklyHoro={weeklyHoro} weeklyLove={weeklyLove} monthlyHoro={monthlyHoro} monthlyLove={monthlyLove} dailyCareer={dailyCareer} weeklyCareer={weeklyCareer} monthlyCareer={monthlyCareer}/> } />
+        <Route path="/matches" element={<DailyMatchesDash users={users}/>}/>
+        <Route path='/horoscope' element={<Horoscope dailyHoro={dailyHoro} dailyLove={dailyLove} weeklyHoro={weeklyHoro} weeklyLove={weeklyLove} monthlyHoro={monthlyHoro} monthlyLove={monthlyLove} dailyCareer={dailyCareer} weeklyCareer={weeklyCareer} monthlyCareer={monthlyCareer}/> } />
+
       </Routes>
       <Footer />
     </div>

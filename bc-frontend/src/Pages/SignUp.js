@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './SignUp.css'
+
+
 function SignUp() {
 
     const userInitialState = {
@@ -22,13 +24,15 @@ function SignUp() {
         bio: '',
         height: '',
         weight: '',
-        interests: ['']
+        interests: [''],
+        // user_id: cookies.UserId
     }
 
     const [user, setUser] = useState(null)
 
 
     const [userSignUp, setUserSignUp] = useState(userInitialState)
+  
 
     const url = "http://localhost:3001/users";
 
@@ -61,6 +65,8 @@ function SignUp() {
         event.preventDefault();
         createUsers(userSignUp);
         setUserSignUp(userInitialState)
+
+        // setCookie('UserId', response.data.userId)
     };
 
     useEffect(() => {
