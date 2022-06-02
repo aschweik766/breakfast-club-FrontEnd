@@ -19,12 +19,6 @@ const handleSubmit = (event) => {
 }
 
 
-
-
-
-
-
-
     // console.log(props)
 
     const showingUsers = () => {
@@ -32,6 +26,7 @@ const handleSubmit = (event) => {
             <div key={user._id} className='user'>
                 <Link to={`/users/${user._id}`}>
                     <h1>{user.firstName}</h1>
+                    <h4>{user._id}</h4>
                     <img src={user.image} alt='Users profile headshot' height='100' width='100'/>
                 </Link>
             </div>
