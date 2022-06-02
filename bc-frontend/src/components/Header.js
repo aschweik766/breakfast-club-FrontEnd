@@ -7,6 +7,7 @@ function Header({ loggedIn }) {
     <div className="">
       <div className="border"></div>
       <header className="notmobile">
+        
       <Link to="/home" className="homeLink">
         <div className="logo-cont">
           <h1 className="page-title">ALIGN</h1>
@@ -14,8 +15,8 @@ function Header({ loggedIn }) {
           </div>
         </Link>
         <nav style={loggedIn === false ? {display: "none"} : null}> 
-          <div className="nav-cont">   <p>Matches</p> <Link to="/horoscope"><p>Check Your Horoscope</p></Link>
-          {/* <Link to="/users"><p>Display Users</p></Link> */}
+          <div className="nav-cont">   <Link to={'/matches'}><p>Matches</p></Link>  <Link to="/horoscope"><p>Check Your Horoscope</p></Link>
+          <Link to="/users"><p>Display Users</p></Link>
           <Link to="/myaccount"><p>My Account</p></Link>
          </div>
        

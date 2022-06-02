@@ -14,6 +14,7 @@ import Horoscope from "./Pages/Horoscope";
 import Footer from "./components/Footer";
 import Splash from "./Pages/Splash";
 import { use } from "express/lib/application";
+import DailyMatchesDash from "./Pages/DisplayMatchesDash";
 /* eslint-disable */
 
 //structure:
@@ -316,6 +317,9 @@ console.log(zodiac)
         <Route path="/login" element={<Login users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login} loggedIn={loggedIn} noMatch={noMatch}/>} />
         <Route path="/users" element={<Users users={users} />} />
         <Route path="/horoscope" element={loggedIn === false ? <Splash users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login} loggedIn={loggedIn} noMatch={noMatch} /> : <Horoscope dailyHoro={dailyHoro} dailyLove={dailyLove} weeklyHoro={weeklyHoro} weeklyLove={weeklyLove} monthlyHoro={monthlyHoro} monthlyLove={monthlyLove} dailyCareer={dailyCareer} weeklyCareer={weeklyCareer} monthlyCareer={monthlyCareer}/> } />
+        <Route path="/matches" element={<DailyMatchesDash users={users} setUsers={setUsers} getUsers={getUsers} />}/>
+        <Route path='/horoscope' element={<Horoscope dailyHoro={dailyHoro} dailyLove={dailyLove} weeklyHoro={weeklyHoro} weeklyLove={weeklyLove} monthlyHoro={monthlyHoro} monthlyLove={monthlyLove} dailyCareer={dailyCareer} weeklyCareer={weeklyCareer} monthlyCareer={monthlyCareer}/> } />
+
       </Routes>
       <Footer />
     </div>

@@ -38,6 +38,15 @@ const EditProfile = (props) => {
       
   }
 
+  // const handleChange = (event) => {
+  //   const name = event.target.name;
+  //   const value = event.target.value;
+  //   setUser(values => ({...values, [name]: value}))
+  // }
+
+
+
+
   // handlesubmit for form
   const handleSubmit = (event) => {
       event.preventDefault()
@@ -46,7 +55,7 @@ const EditProfile = (props) => {
       history('/users')
   }
 
-useEffect(() => getUser(),[])
+useEffect(() => getUser(),)
 
   if(!user) {
     return (
@@ -134,7 +143,7 @@ useEffect(() => getUser(),[])
           onChange={handleChange}
           />
           <br></br>
-        <button onClick={handleSubmit}>Submit</button>
+        <input type="submit"/>
       </form>
        {/* <button id="delete" onClick={props.deleteUser}> Delete </button> */}
     </div>
