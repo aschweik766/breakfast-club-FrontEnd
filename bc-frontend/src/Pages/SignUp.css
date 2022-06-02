@@ -3,14 +3,21 @@
     flex-direction: column;
     text-align: center;
     align-content: space-between;
-    padding: 20px;
-    border:2px black solid;
+    font-family: 'Averia Serif Libre', cursive;
+    width: 200px;
+    margin: 0 auto;
+}
 
 
-}
-h3 {
-    font-weight:bolder; 
-}
-#password {
+#password, #username {
     text-align: center;
+    font-family: 'Montserrat', sans-serif;
 }
+
+.submitButton {
+    width: 100px;
+    margin: 0 auto;
+    font-family: 'Montserrat', sans-serif;
+}
+
+

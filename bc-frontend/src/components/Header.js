@@ -15,7 +15,7 @@ function Header() {
           <div className="nav-cont">   <p>Matches</p> <Link to="/horoscope"><p>Horoscopes</p></Link>
           <Link to="/users"><p>Display Users</p></Link>
           <Link to="/myaccount"><p>My Account</p></Link>
-          <Link to="/signup"><p>Sign Up</p></Link> <Link to="/login"><p>Log In</p></Link> </div>
+         </div>
        
         </nav>
       </header>
@@ -32,7 +32,7 @@ function Header() {
           <div className="nav-cont">   <p>Matches</p> <Link to="/horoscope"><p>Horoscopes</p></Link>
           <Link to="/users"><p>Display Users</p></Link>
           <Link to="/myaccount"><p>My Account</p></Link>
-          <Link to="/signup"><p>Sign Up</p></Link> <Link to="/login"><p>Log In</p></Link> </div>
+          </div>
         </nav>
 
       </header>

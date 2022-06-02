@@ -11,6 +11,7 @@ import Header from "./components/Header";
 import Users from './Pages/Users'
 import Horoscope from "./Pages/Horoscope";
 import Footer from "./components/Footer";
+import Splash from "./Pages/Splash";
 /* eslint-disable */
 
 //structure:
@@ -25,7 +26,6 @@ function App() {
   const [users, setUsers] = useState(null);
   const url = "http://localhost:3001/users/";
   const createUrl = `http://localhost:3001/signup`
-
 
   const [dailyHoro, setDailyHoro] = useState(null)
   const [dailyLove, setDailyLove] = useState(null)
@@ -251,6 +251,7 @@ const [login, setLogin] = useState(loginInitialState);
 
 const handleChange = (event) => {
   setLogin({ ...login, [event.target.id]: event.target.value });
+  console.log("handle change fired")
 };
 
 const handleSubmit = (event) => { 
@@ -286,16 +287,17 @@ console.log(login)
   // if (!users) {
   //   return <h1></h1>;
   // }
-  // console.log('these are the users:', users);
-
-  // console.log(dailyLove)
+  console.log('these are the users:', users);
 
   return (
     <div className="App">
       
       <Header />
+      {/* <ModalLogin users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login} /> */}
+
       <Routes>
         {/* <Route path='/app' element={<App users={users}/>} /> */}
+        <Route path="/" element={<Splash users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login}/>} />
         <Route path="/home" element={<Home dailyHoro={dailyHoro} dailyLove={dailyLove} login={login}/>} />
         <Route path="/myaccount" element={<MyAccount users={users} login={login}/>} />
         <Route path="/signup" element={<SignUp users={users} />} createUsers={createUsers}/>
