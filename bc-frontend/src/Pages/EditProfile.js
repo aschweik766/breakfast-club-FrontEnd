@@ -157,16 +157,14 @@ useEffect(() => getUser(),)
           <br></br>
           
           <label htmlFor="lookingFor"> Update what you're Looking For: </label>
-        <select 
-        multiple 
+        <select  
         value={setUser.lookingFor} 
         name='lookingFor' 
         onChange={handleChange}
         >
-          <option value="" disabled selected>To select multiple, hold down Shift and click on options</option>
-          <option>Fun</option>
-          <option>Relationship</option>
-          <option>Not sure</option>
+          <option value="Fun">Fun</option>
+                    <option value="Relationship">Relationship</option>
+                    <option value="Not sure">Not sure</option>
         </select>
           <br></br>
 
@@ -181,7 +179,7 @@ useEffect(() => getUser(),)
           <br></br>
     
           <label htmlFor="interests">Update Interests: </label>
-        <select>
+        <select
           multiple
           size="6"
           value={setUser.interests}
@@ -189,34 +187,39 @@ useEffect(() => getUser(),)
           // placeholder='edit interest'
           onChange={handleChange}
           >
-            <option value="" disabled selected>To select multiple, hold down Shift and click on options</option>
-
-            <option>Cooking</option>
-            <option>TV</option>
-            <option>Film</option>
-            <option>Photography</option>
-            <option>Anime</option>
-             <option>Baking</option>
-            <option>Dining</option>
-            <option>Sports</option>
-            <option>Hiking</option>
-            <option>Music</option>
-            <option>Cycling</option>
-            <option>Gaming</option>
-            <option>Shopping</option>
-            <option>Reading</option>
-            <option>Art/Design</option>
-            <option>Hunting/Fishing</option>
-            <option>Breweries/Bars</option>
-            <option>Drag</option>
-            <option>Modeling</option>
-            <option>Dancing</option>
-            <option>Singing</option>
-            <option>Cars</option>
-            <option>Sewing</option>
-            <option>Building/Carpentry/Engineering</option>
-            <option>Skating</option>
-            <option>Outdoor Sports</option>
+            {/* <option disabled selected>To select multiple, hold down Shift and click on options</option> */}
+            <option value="Cooking">Cooking</option>
+                    <option value="Gardening">Gardening</option>
+                    <option value="TV">TV</option>
+                    <option value="Film">Film</option>
+                    <option value="Photography">Photography</option>
+                    <option value="Baking">Baking</option>
+                    <option value="Dining">Dining</option>
+                    <option value="Sports">Sports</option>
+                    <option value="Hiking/Camping">Hiking/Camping</option>
+                    <option value="Traveling">Traveling</option>
+                    <option value="Music">Music</option>
+                    <option value="Cycling">Cycling</option>
+                    <option value="Gaming">Gaming</option>
+                    <option value="Anime">Anime</option>
+                    <option value="Shopping">Shopping</option>
+                    <option value="Reading">Reading</option>
+                    <option value="Writing">Writing</option>
+                    <option value="Art/Design">Art/Design</option>
+                    <option value="Hunting/Fishing">Hunting/Fishing</option>
+                    <option value="Museums/Galleries">Museums/Galleries</option>
+                    <option value="Breweries/Bars">Breweries/Bars</option>
+                    <option value="Clubs">Clubs</option>
+                    <option value="Concerts/Festivals">Concerts/Festivals</option>
+                    <option value="Theater">Theater</option>
+                    <option value="Drag">Drag</option>
+                    <option value="Modeling">Modeling</option>
+                    <option value="Dancing">Dancing</option>
+                    <option value="Singing">Singing</option>
+                    <option value="Cars">Cars</option>
+                    <option value="Sewing">Sewing</option>
+                    <option value="Carpentry">/Carpentry/</option>
+                    <option value="Skating">Skating</option>
             </select>
           <br></br>
         <button onClick={handleSubmit}>Submit</button>

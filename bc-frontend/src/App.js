@@ -298,7 +298,7 @@ const handleSubmit = (event) => {
         {/* <Route path='/app' element={<App users={users}/>} /> */}
         <Route path="/home" element={<Home dailyHoro={dailyHoro} dailyLove={dailyLove} login={login}/>} />
         <Route path="/myaccount" element={<MyAccount users={users} login={login}/>} />
-        <Route path="/signup" element={<SignUp users={users} />} createUsers={createUsers}/>
+        <Route path="/signup" element={<SignUp users={users} getUsers={getUsers} createUsers={createUsers}/>} />
         <Route path="/users/:id" element={<EditProfile updateUsers={updateUsers} deleteUsers={deleteUsers} login={login} /> } />
         <Route path="/login" element={<Login users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login}/>} />
         <Route path="/users" element={<Users users={users} />} />
