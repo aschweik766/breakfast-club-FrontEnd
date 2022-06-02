@@ -2,7 +2,7 @@ import React from 'react'
 
 function DailyMatches() {
   return (
-    <div className='body'>
+    <div className='dm-body'>
         <h3 className='comp-title'>Today's Compatibility</h3>
     <div className='daily-matches'>
      <div className='daily-match'>
