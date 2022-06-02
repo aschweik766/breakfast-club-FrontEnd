@@ -1,5 +1,7 @@
 body {
-  background-color: rgb(250, 246, 255);
+  /* background-color: rgb(250, 246, 255); */
+  /* background-color: rgb(244, 241, 252); */
+  background-color: rgb(241, 244, 252);
 }
 
 .App {
@@ -16,12 +18,18 @@ body {
   justify-content: space-around;
   align-items: center;
   margin-top: -40px;
-  background-color: lavenderblush;
-  border-bottom: 3px solid white;
+  /* background-color: rgb(213, 201, 238); */
+  /* border-bottom: 3px solid white; */
 }
 
 .mobile {
   display: none;
+}
+
+.border {
+  background-image: url("https://images.theconversation.com/files/233003/original/file-20180822-149484-cs44to.jpg?ixlib=rb-1.1.0&rect=0%2C587%2C3600%2C1800&q=45&auto=format&w=1356&h=668&fit=crop");
+  height: 40px;
+  width: 100%;
 }
 
 .logo-cont {
@@ -43,12 +51,15 @@ font-size: 90px;
   font-size: 20px;
 }
 
+p {
+  font-family: 'Montserrat', sans-serif;
+}
+
 nav {
   width: 40%;
-  font-family: 'Averia Serif Libre', cursive;
-  /* font-family: 'Montserrat', sans-serif; */
   font-size: 16px;
-  margin-top: 20px;
+  margin-top: 33px;
+  font-weight: 600;
 }
 
 .nav-cont { 
@@ -57,10 +68,7 @@ nav {
   justify-content: space-between;
 }
 
-p {
- 
-    font-family: 'Montserrat', sans-serif;
-}
+
 
 h1, h2, h3, h4, h5, h6 {
  font-family: 'Averia Serif Libre', cursive;
@@ -148,7 +156,7 @@ margin: 0 auto;
   height: 100px;
 }
 
-@media only screen and (max-width : 1024px) {
+@media only screen and (max-width : 1350px) {
 
   .nav-cont { 
    flex-wrap: wrap;
@@ -164,20 +172,15 @@ margin: 0 auto;
 /* iPads (portrait) ----------- */
 @media only screen and (max-width : 1024px) {
   
+  .border {
+    height: 40px;
+  }
+
   .lr-cont {
     display: flex;
     flex-direction: column-reverse;
     justify-content: space-evenly;
     gap: 10px;
-  }
-
-  .left {
-    /* width: 100%; */
-  }
-
-  .right {
-    /* margin: 0 auto; */
-    /* width: 100%; */
   }
 
   .daily-horo {

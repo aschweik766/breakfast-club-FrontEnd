@@ -1,4 +1,5 @@
 import "./App.css";
+import { Navigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home";
@@ -11,6 +12,8 @@ import Header from "./components/Header";
 import Users from './Pages/Users'
 import Horoscope from "./Pages/Horoscope";
 import Footer from "./components/Footer";
+import Splash from "./Pages/Splash";
+import { use } from "express/lib/application";
 import DailyMatchesDash from "./Pages/DisplayMatchesDash";
 /* eslint-disable */
 
@@ -27,7 +30,6 @@ function App() {
   const url = "http://localhost:3001/users/";
   const createUrl = `http://localhost:3001/signup`
 
-
   const [dailyHoro, setDailyHoro] = useState(null)
   const [dailyLove, setDailyLove] = useState(null)
   const [compatibility, setCompatibility] =useState(null)
@@ -38,6 +40,7 @@ function App() {
   const [dailyCareer, setDailyCareer] = useState(null)
   const [weeklyCareer, setWeeklyCareer] = useState(null)
   const [monthlyCareer, setMonthlyCareer] = useState(null)
+  
   
   function getUsers() {
     fetch(url)
@@ -249,9 +252,13 @@ const loginInitialState = {
 }
 
 const [login, setLogin] = useState(loginInitialState);
+const [loggedIn, setLoggedIn] = useState(false)
+const [logData, setLogData] = useState(loginInitialState)
+const [noMatch, setNoMatch] = useState(false)
 
 const handleChange = (event) => {
   setLogin({ ...login, [event.target.id]: event.target.value });
+  console.log("handle change fired")
 };
 
 const handleSubmit = (event) => { 
@@ -260,12 +267,20 @@ const handleSubmit = (event) => {
   users.map((user) => {
       if ((login.username === user.username) && (login.password === user.password)) {
           setLogin(user);
+          setLoggedIn(true);
+          localStorage.setItem("username", login.username)
+          localStorage.setItem("password", login.password)
       }
-      return(null)
+    setNoMatch(true)
   } 
   )
   // useNavigate('/')
 }
+
+const zodiac = login.zodiacSign
+console.log(zodiac)
+// console.log(logData)
+// console.log(noMatch)
 
 //END LOGIN STUFF
 
@@ -288,20 +303,20 @@ const handleSubmit = (event) => {
   // }
   // console.log('these are the users:', users);
 
-  // console.log(dailyLove)
-
   return (
     <div className="App">
       
-      <Header />
+      <Header loggedIn={loggedIn}/>
       <Routes>
         {/* <Route path='/app' element={<App users={users}/>} /> */}
-        <Route path="/home" element={<Home dailyHoro={dailyHoro} dailyLove={dailyLove} login={login}/>} />
-        <Route path="/myaccount" element={<MyAccount users={users} login={login}/>} />
+        <Route path="/" element={ loggedIn === false ? <Splash users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login} loggedIn={loggedIn} noMatch={noMatch} /> : <Navigate to='/home' />} />
+        <Route path="/home" element={loggedIn === false ? <Splash users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login} loggedIn={loggedIn} noMatch={noMatch} /> : <Home dailyHoro={dailyHoro} dailyLove={dailyLove} login={login}/>} />
+        <Route path="/myaccount" element={loggedIn === false ? <Splash users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login} loggedIn={loggedIn} noMatch={noMatch} /> : <MyAccount users={users} login={login}/>} />
         <Route path="/signup" element={<SignUp users={users} />} createUsers={createUsers}/>
         <Route path="/users/:id" element={<EditProfile updateUsers={updateUsers} deleteUsers={deleteUsers} login={login} /> } />
-        <Route path="/login" element={<Login users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login}/>} />
+        <Route path="/login" element={<Login users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login} loggedIn={loggedIn} noMatch={noMatch}/>} />
         <Route path="/users" element={<Users users={users} />} />
+        <Route path="/horoscope" element={loggedIn === false ? <Splash users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login} loggedIn={loggedIn} noMatch={noMatch} /> : <Horoscope dailyHoro={dailyHoro} dailyLove={dailyLove} weeklyHoro={weeklyHoro} weeklyLove={weeklyLove} monthlyHoro={monthlyHoro} monthlyLove={monthlyLove} dailyCareer={dailyCareer} weeklyCareer={weeklyCareer} monthlyCareer={monthlyCareer}/> } />
         <Route path="/matches" element={<DailyMatchesDash users={users} setUsers={setUsers} getUsers={getUsers} />}/>
         <Route path='/horoscope' element={<Horoscope dailyHoro={dailyHoro} dailyLove={dailyLove} weeklyHoro={weeklyHoro} weeklyLove={weeklyLove} monthlyHoro={monthlyHoro} monthlyLove={monthlyLove} dailyCareer={dailyCareer} weeklyCareer={weeklyCareer} monthlyCareer={monthlyCareer}/> } />
 
