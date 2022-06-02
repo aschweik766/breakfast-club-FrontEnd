@@ -13,7 +13,6 @@ import Users from './Pages/Users'
 import Horoscope from "./Pages/Horoscope";
 import Footer from "./components/Footer";
 import Splash from "./Pages/Splash";
-import { use } from "express/lib/application";
 import DailyMatchesDash from "./Pages/DisplayMatchesDash";
 /* eslint-disable */
 
@@ -106,7 +105,6 @@ function App() {
       .then((response) => setDailyHoro(response))
       .catch((err) => console.error(err));
   }
-
 
 function dailyLoveHoro(userSign) {
   const options = {
@@ -312,7 +310,7 @@ console.log(zodiac)
         <Route path="/" element={ loggedIn === false ? <Splash users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login} loggedIn={loggedIn} noMatch={noMatch} /> : <Navigate to='/home' />} />
         <Route path="/home" element={loggedIn === false ? <Splash users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login} loggedIn={loggedIn} noMatch={noMatch} /> : <Home dailyHoro={dailyHoro} dailyLove={dailyLove} login={login}/>} />
         <Route path="/myaccount" element={loggedIn === false ? <Splash users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login} loggedIn={loggedIn} noMatch={noMatch} /> : <MyAccount users={users} login={login}/>} />
-        <Route path="/signup" element={<SignUp users={users} />} createUsers={createUsers}/>
+        <Route path="/signup" element={<SignUp users={users} getUsers={getUsers} createUsers={createUsers}/>} />
         <Route path="/users/:id" element={<EditProfile updateUsers={updateUsers} deleteUsers={deleteUsers} login={login} /> } />
         <Route path="/login" element={<Login users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login} loggedIn={loggedIn} noMatch={noMatch}/>} />
         <Route path="/users" element={<Users users={users} />} />

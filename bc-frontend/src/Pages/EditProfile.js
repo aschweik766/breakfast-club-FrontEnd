@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams, useNavigate} from 'react-router-dom'
-import './SignUp.css'
+import './EditProfile.css'
 
 const EditProfile = (props) => {
 
@@ -19,14 +19,14 @@ const EditProfile = (props) => {
         {
           firstName: res.firstName,
           lastName: res.lastName,
+          location: res.location,
           email: res.email,
           username: res.username,
           password: res.password,
-          location: res.location,
           image: res.image,
-          bio: res.bio,
           interestedIn: res.interestedIn,
           lookingFor: res.lookingFor,
+          bio: res.bio,
           interests: res.interests
       }))
       .catch(console.error) 
@@ -62,87 +62,167 @@ useEffect(() => getUser(),)
       <h1>Loading...</h1>
     )
   }
-  console.log(setUser)
+  // console.log(setUser)
   console.log(user)
   // console.log(user.firstName)
   return (
-    <div className='user'>
+    <div>
       <h1>Display and Edit User</h1>
-      <h2>Editing Profile Information for {user.firstName} {user.lastName}</h2>
-      <form onSubmit={handleSubmit}>
+      <h3>Editing Profile Information for {user.firstName} {user.lastName}</h3>
+      <form onSubmit={handleSubmit} className="editForm">
+      
+      <label htmlFor="firstName">Edit First Name: </label>
         <input
             type='text'
             value={setUser.firstName}
             name='firstName'
-            placeholder='name'
+            // placeholder='name'
             onChange={handleChange}
             />
           <br></br>
+
+          <label htmlFor="lastName">Edit Last Name: </label>
           <input
             type='text'
             value={setUser.lastName}
             name='lastName'
-            placeholder='last name'
+            // placeholder='last name'
             onChange={handleChange}
             />
           <br></br>
+
+          <label htmlFor="location">Edit Location: </label>
+          <input
+            type='text'
+            value={setUser.location}
+            name='location'
+            // placeholder='location'
+            onChange={handleChange}
+            />
+          <br></br>
+
+          <label htmlFor="email">Change Email: </label>
+          <input
+            type='text'
+            value={setUser.email}
+            name='email'
+            // placeholder='edit email'
+            onChange={handleChange}
+            />
+            <br></br>
+
         
+          <label htmlFor="username">Change Username: </label>
           <input
             type='text'
             value={setUser.username}
             name='username'
-            placeholder='edit username'
+            // placeholder='edit username'
             onChange={handleChange}
             />
           <br></br>
-        <input
-            type='text'
-            value={setUser.email}
-            name='email'
-            placeholder='edit email'
-            onChange={handleChange}
-            />
-            <br></br>
+          
+        <label htmlFor="password"> Reset Password: </label>
         <input
             type='text'
             value={setUser.password}
             name='password'
-            placeholder='edit password'
+            // placeholder='Reset password'
             onChange={handleChange}
             />
           <br></br>
-        <input
-          type='text'
-          value={setUser.interestedIn}
-          name='interestedIn'
-          placeholder='edit dating interests'
-          onChange={handleChange}
-          />
-          <br></br>
-        <input
-          type='text'
-          value={setUser.bio}
-          name='bio'
-          placeholder='edit bio'
-          onChange={handleChange}
-          />
-          <br></br>
-        <input
+
+          <label htmlFor="image"> Update Profile Picture: </label>
+          <input
           type='text'
           value={setUser.image}
           name='image'
-          placeholder='edit profile picture'
+          // placeholder='Update profile picture'
           onChange={handleChange}
           />
           <br></br>
-        <input
-          type='text'
+
+        <label htmlFor="interestedIn">Update what you're Interested In:  </label>
+        <select 
+        multiple 
+        value={setUser.interestedIn} 
+        name='interestedIn' 
+        onChange={handleChange}
+        >
+          <option value="" disabled selected>To select multiple, hold down Shift and click on options</option>
+          <option>Men</option>
+          <option>Women</option>
+          <option>Non-binary</option>
+        </select>
+          <br></br>
+          
+          <label htmlFor="lookingFor"> Update what you're Looking For: </label>
+        <select  
+        value={setUser.lookingFor} 
+        name='lookingFor' 
+        onChange={handleChange}
+        >
+          <option value="Fun">Fun</option>
+                    <option value="Relationship">Relationship</option>
+                    <option value="Not sure">Not sure</option>
+        </select>
+          <br></br>
+
+          <label htmlFor="bio"> Update Bio: </label>
+        <textarea
+        rows="5" cols="20"
+          value={setUser.bio}
+          name='bio'
+          // placeholder='edit bio'
+          onChange={handleChange}
+          />
+          <br></br>
+    
+          <label htmlFor="interests">Update Interests: </label>
+        <select
+          multiple
+          size="6"
           value={setUser.interests}
           name='interests'
-          placeholder='edit interest'
+          // placeholder='edit interest'
           onChange={handleChange}
-          />
+          >
+            {/* <option disabled selected>To select multiple, hold down Shift and click on options</option> */}
+            <option value="Cooking">Cooking</option>
+                    <option value="Gardening">Gardening</option>
+                    <option value="TV">TV</option>
+                    <option value="Film">Film</option>
+                    <option value="Photography">Photography</option>
+                    <option value="Baking">Baking</option>
+                    <option value="Dining">Dining</option>
+                    <option value="Sports">Sports</option>
+                    <option value="Hiking/Camping">Hiking/Camping</option>
+                    <option value="Traveling">Traveling</option>
+                    <option value="Music">Music</option>
+                    <option value="Cycling">Cycling</option>
+                    <option value="Gaming">Gaming</option>
+                    <option value="Anime">Anime</option>
+                    <option value="Shopping">Shopping</option>
+                    <option value="Reading">Reading</option>
+                    <option value="Writing">Writing</option>
+                    <option value="Art/Design">Art/Design</option>
+                    <option value="Hunting/Fishing">Hunting/Fishing</option>
+                    <option value="Museums/Galleries">Museums/Galleries</option>
+                    <option value="Breweries/Bars">Breweries/Bars</option>
+                    <option value="Clubs">Clubs</option>
+                    <option value="Concerts/Festivals">Concerts/Festivals</option>
+                    <option value="Theater">Theater</option>
+                    <option value="Drag">Drag</option>
+                    <option value="Modeling">Modeling</option>
+                    <option value="Dancing">Dancing</option>
+                    <option value="Singing">Singing</option>
+                    <option value="Cars">Cars</option>
+                    <option value="Sewing">Sewing</option>
+                    <option value="Carpentry">/Carpentry/</option>
+                    <option value="Skating">Skating</option>
+            </select>
           <br></br>
+        <button onClick={handleSubmit}>Submit</button>
         <input type="submit"/>
       </form>
        {/* <button id="delete" onClick={props.deleteUser}> Delete </button> */}

@@ -19,13 +19,6 @@ Horoscope (Route secondary)
     (click-through)
 
 
-StarChart (route tertiary)
-    --Render personal data--charts
-    Big 3: moon/sun/rising
-    (clickthrough, more info)
-    Venus
-    --Might need to hardcode in a few major cities since we need latitude and longitude - or --- scrap the star chart idea completely and just do basic horoscope??
-
 Dating/friendship preferences
     --Render personal username
         -name
@@ -42,3 +35,10 @@ Stretch Goals: Models/additional functionality
     friends, etc. like bumble
     Dating Preferences (Secondary Route)
     location/bio keywords/googlemaps/sign info/recommended date meetup/cafe, etc.
+    
+    StarChart (route tertiary)
+    --Render personal data--charts
+    Big 3: moon/sun/rising
+    (clickthrough, more info)
+    Venus
+    --Might need to hardcode in a few major cities since we need latitude and longitude - or --- scrap the star chart idea completely and just do basic horoscope??
