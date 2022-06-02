@@ -11,8 +11,6 @@ function Home({ dailyHoro, dailyLove }) {
 
     <div className='lr-cont'>
     <div className='left'>
-    <Link to={'/matches'}><button> Matches</button></Link>
-    <Link to={'/messages'}><button>Messages</button></Link>
     
     <DailyMatches />
 
