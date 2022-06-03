@@ -19,12 +19,12 @@ const DisplayMatchesDash = ({users, login, getUsers}) => {
   const swipeUsers = usersDB
   // console.log('swiped users array:', swipeUsers)  //now DB is a new variable to pass to backend
 
-  const loginUserId = login.user_id
+  const loginUserId = login._id
   console.log('the login user id:', loginUserId)  //getting the logged in user's user_id 
 
   const [lastDirection, setLastDirection] = useState()
-   const [userGender, setUserGender] = useState(users) 
-  //--f(or filtering users by params: gender Id, interested in, and zodiac sign.)
+  const [userGender, setUserGender] = useState(users) 
+  //--(for filtering users by params: gender Id, interested in, and zodiac sign.)
  
 
   // console.log(users)
@@ -45,8 +45,8 @@ const DisplayMatchesDash = ({users, login, getUsers}) => {
   }
  // {login}, userGender, these could be a useeffect dependency array...but it does the forever console logging when in there. 
   useEffect(()=> {
-    getUserGender()
-    getUsers()
+    getUserGender();
+    getUsers();
   }, [])
  
 
@@ -121,9 +121,14 @@ const updateLoginMatches = async (matchedLoginIds) => {
     
 
     //tinder card swipe functions
+
+const [swipedCard, setSwipedCard] = useState(null) //had to make a state to hold the swiped card ID
+const [swipedRight, setSwipedRight] = useState(false)
+
   const swiped = (direction, cardSwiped) => {
       if (direction === 'right') {
-        updateLoginMatches(cardSwiped)
+        setSwipedCard(cardSwiped)
+        updateLoginMatches(swipedCard)
       }
       console.log('removing: ' + cardSwiped)
       setLastDirection(direction)
@@ -133,6 +138,7 @@ const updateLoginMatches = async (matchedLoginIds) => {
       console.log(name + ' left the screen!')
     }
 
+
   if(!(users && login)) {
     return(<>nothing</>)
   }
@@ -140,6 +146,7 @@ const updateLoginMatches = async (matchedLoginIds) => {
   console.log('gendered users', userGender) 
   console.log(login)
   console.log(users)
+  console.log(swipedCard)
 
 //This will need to be used to map info and pass into my matches.js file; but I need the matches: {user_id} on the logged in user (login) to be pushed properly. Then should be a breeze.Currenlty all matches are pushing to Bob's matches.
   const matchedLoginIds = login?.matches.map(({user_id}) => user_id).concat(loginUserId)

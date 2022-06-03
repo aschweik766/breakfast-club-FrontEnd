@@ -338,7 +338,6 @@ const zodiac = login.zodiacSign
         <Route path="/users" element={<Users users={users} />} />
         <Route path="/horoscope" element={loggedIn === false ? <Splash users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login} loggedIn={loggedIn} noMatch={noMatch} /> : <Horoscope dailyHoro={dailyHoro} dailyLove={dailyLove} weeklyHoro={weeklyHoro} weeklyLove={weeklyLove} monthlyHoro={monthlyHoro} monthlyLove={monthlyLove} dailyCareer={dailyCareer} weeklyCareer={weeklyCareer} monthlyCareer={monthlyCareer}/> } />
         <Route path="/matches" element={loggedIn === false ? <Splash users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login} loggedIn={loggedIn} noMatch={noMatch} /> : <DisplayMatchesDash users={users} login={login} getUsers={getUsers}/>}/>
-        <Route path='/horoscope' element={<Horoscope dailyHoro={dailyHoro} dailyLove={dailyLove} weeklyHoro={weeklyHoro} weeklyLove={weeklyLove} monthlyHoro={monthlyHoro} monthlyLove={monthlyLove} dailyCareer={dailyCareer} weeklyCareer={weeklyCareer} monthlyCareer={monthlyCareer}/> } />
         <Route path="/match-container" element={loggedIn === false ? <Splash users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login} loggedIn={loggedIn} noMatch={noMatch} /> : <Matches users={users} login={login}/>}/>
       </Routes>
       <Footer />
