@@ -26,7 +26,7 @@ import DailyMatchesDash from "./Pages/DisplayMatchesDash";
 
 function App() {
   const [users, setUsers] = useState(null);
-  const url = "https://horoscopedatingapp-backend.herokuapp.com/users";
+  const url = "http://localhost:3001/users";
   const createUrl = `http://localhost:3001/signup`
 
   const [dailyHoro, setDailyHoro] = useState(null)
@@ -272,7 +272,6 @@ const handleSubmit = (event) => {
     setNoMatch(true)
   } 
   )
-  // useNavigate('/')
 }
 
 const zodiac = login.zodiacSign
@@ -308,6 +307,7 @@ console.log(zodiac)
       <Routes>
         {/* <Route path='/app' element={<App users={users}/>} /> */}
         <Route path="/" element={ loggedIn === false ? <Splash users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login} loggedIn={loggedIn} noMatch={noMatch} /> : <Navigate to='/home' />} />
+        
         <Route path="/home" element={loggedIn === false ? <Splash users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login} loggedIn={loggedIn} noMatch={noMatch} /> : <Home dailyHoro={dailyHoro} dailyLove={dailyLove} login={login}/>} />
         <Route path="/myaccount" element={loggedIn === false ? <Splash users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login} loggedIn={loggedIn} noMatch={noMatch} /> : <MyAccount users={users} login={login}/>} />
         <Route path="/signup" element={<SignUp users={users} getUsers={getUsers} createUsers={createUsers}/>} />
@@ -315,8 +315,8 @@ console.log(zodiac)
         <Route path="/login" element={<Login users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login} loggedIn={loggedIn} noMatch={noMatch}/>} />
         <Route path="/users" element={<Users users={users} />} />
         <Route path="/horoscope" element={loggedIn === false ? <Splash users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login} loggedIn={loggedIn} noMatch={noMatch} /> : <Horoscope dailyHoro={dailyHoro} dailyLove={dailyLove} weeklyHoro={weeklyHoro} weeklyLove={weeklyLove} monthlyHoro={monthlyHoro} monthlyLove={monthlyLove} dailyCareer={dailyCareer} weeklyCareer={weeklyCareer} monthlyCareer={monthlyCareer}/> } />
+        
         <Route path="/matches" element={<DailyMatchesDash users={users} setUsers={setUsers} getUsers={getUsers} />}/>
-        <Route path='/horoscope' element={<Horoscope dailyHoro={dailyHoro} dailyLove={dailyLove} weeklyHoro={weeklyHoro} weeklyLove={weeklyLove} monthlyHoro={monthlyHoro} monthlyLove={monthlyLove} dailyCareer={dailyCareer} weeklyCareer={weeklyCareer} monthlyCareer={monthlyCareer}/> } />
 
       </Routes>
       <Footer />
