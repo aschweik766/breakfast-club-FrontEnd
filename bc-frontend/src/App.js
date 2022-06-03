@@ -13,7 +13,8 @@ import Users from './Pages/Users'
 import Horoscope from "./Pages/Horoscope";
 import Footer from "./components/Footer";
 import Splash from "./Pages/Splash";
-import DailyMatchesDash from "./Pages/DisplayMatchesDash";
+import Matches from "./components/Matches";
+import DisplayMatchesDash from "./Pages/DisplayMatchesDash";
 /* eslint-disable */
 
 //structure:
@@ -268,6 +269,7 @@ const handleSubmit = (event) => {
           setLoggedIn(true);
           localStorage.setItem("username", login.username)
           localStorage.setItem("password", login.password)
+          
       }
     setNoMatch(true)
   } 
@@ -276,7 +278,27 @@ const handleSubmit = (event) => {
 }
 
 const zodiac = login.zodiacSign
-console.log(zodiac)
+// console.log(zodiac)
+
+
+// const sendLoginId = () => {
+//   users.map((user) => {
+//     if ((login.username === user.username) && (login.password === user.password)) {
+//       setLogin(user);
+//       setLoggedIn(true);
+//       localStorage.setItem("username", login.username)
+//       localStorage.setItem("password", login.password)
+//       const loginId = login._id
+//       console.log(loginId)
+//       return(
+//         <div> loginId is here: <h3>{loginId}</h3> </div>
+//         )
+//     }
+//   })
+// }
+
+// const loginId = login._id
+// console.log(loginId)
 // console.log(logData)
 // console.log(noMatch)
 
@@ -293,6 +315,7 @@ console.log(zodiac)
     weeklyCareerHoro("aries")
     monthlyCareerHoro("aries")
     getUsers()
+    // sendLoginId()
   }, [])
 
 
@@ -315,9 +338,9 @@ console.log(zodiac)
         <Route path="/login" element={<Login users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login} loggedIn={loggedIn} noMatch={noMatch}/>} />
         <Route path="/users" element={<Users users={users} />} />
         <Route path="/horoscope" element={loggedIn === false ? <Splash users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login} loggedIn={loggedIn} noMatch={noMatch} /> : <Horoscope dailyHoro={dailyHoro} dailyLove={dailyLove} weeklyHoro={weeklyHoro} weeklyLove={weeklyLove} monthlyHoro={monthlyHoro} monthlyLove={monthlyLove} dailyCareer={dailyCareer} weeklyCareer={weeklyCareer} monthlyCareer={monthlyCareer}/> } />
-        <Route path="/matches" element={<DailyMatchesDash users={users} setUsers={setUsers} getUsers={getUsers} />}/>
+        <Route path="/matches" element={loggedIn === false ? <Splash users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login} loggedIn={loggedIn} noMatch={noMatch} /> : <DisplayMatchesDash users={users} login={login} getUsers={getUsers}/>}/>
         <Route path='/horoscope' element={<Horoscope dailyHoro={dailyHoro} dailyLove={dailyLove} weeklyHoro={weeklyHoro} weeklyLove={weeklyLove} monthlyHoro={monthlyHoro} monthlyLove={monthlyLove} dailyCareer={dailyCareer} weeklyCareer={weeklyCareer} monthlyCareer={monthlyCareer}/> } />
-
+        <Route path="/match-container" element={loggedIn === false ? <Splash users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login} loggedIn={loggedIn} noMatch={noMatch} /> : <Matches users={users} login={login}/>}/>
       </Routes>
       <Footer />
     </div>
