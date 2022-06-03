@@ -2,7 +2,6 @@ import React, { useEffect } from 'react'
 import TinderCard from 'react-tinder-card';
 import { useState } from 'react';
 import MatchContainer from '../components/MatchContainer';
-import axios from 'axios'
 
 //props being passed: the user that is logged in, and the users data (all users in the arry of objects from user-model in backend)
 
@@ -88,17 +87,17 @@ const DisplayMatchesDash = ({users, login, getUsers}) => {
 
 
 //get matches pushed to array for viewing.
-const updateLoginMatches = async (matchedLoginIds) => {
-  try {
-      await axios.put(addMatchUrl, {
-          loginUserId,
-          matchedLoginIds
-      })
-      getUsers()
-  } catch (err) {
-      console.log(err)
-  }
-}
+// const updateLoginMatches = async (matchedLoginIds) => {
+//   try {
+//       await axios.put(addMatchUrl, {
+//           loginUserId,
+//           matchedLoginIds
+//       })
+//       getUsers()
+//   } catch (err) {
+//       console.log(err)
+//   }
+// }
  // const updateLoginMatches = async (matchedLoginIds, loginUserId) => {
   //     try {
   //       await fetch(addMatchUrl, {
@@ -123,7 +122,7 @@ const updateLoginMatches = async (matchedLoginIds) => {
     //tinder card swipe functions
   const swiped = (direction, cardSwiped) => {
       if (direction === 'right') {
-        updateLoginMatches(cardSwiped)
+        // updateLoginMatches(cardSwiped)
       }
       console.log('removing: ' + cardSwiped)
       setLastDirection(direction)
