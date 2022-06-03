@@ -8,9 +8,11 @@ import MatchContainer from '../components/MatchContainer';
 
 //remember: _id is object id; the user_id is an object item that each user has, this is used to match/is passed to the matches nested array/object.
 
+const genderURL = 'https://horoscopedatingapp-backend.herokuapp.com/users-gender-identity'
+const addMatchUrl = 'https://horoscopedatingapp-backend.herokuapp.com/update-matches'
 
-const genderURL = 'http://localhost:3001/users-gender-identity'
-const addMatchUrl = 'http://localhost:3001/update-matches'
+// const genderURL = 'http://localhost:3001/users-gender-identity'
+// const addMatchUrl = 'http://localhost:3001/update-matches'
 
 const DisplayMatchesDash = ({users, login, getUsers}) => {
   const usersDB = users
@@ -117,7 +119,7 @@ const updateLoginMatches = async (matchedUsername) => {
   //     } catch (error) {
   //       console.log(error)
   //     }
-  // } Tried with fetch, but had issues, switched to axios becuase it makes more sense, but if you can figure out fetch, *chefs kiss*
+  // } Tried with fetch, but had issues, switched to becuase it makes more sense, but if you can figure out fetch, *chefs kiss*
 
 
  
