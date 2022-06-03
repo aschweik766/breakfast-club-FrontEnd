@@ -47,7 +47,7 @@ function SignUp({ users, getUsers, createUsers }) {
     useEffect(() => {
         getUsers()
         createUsers()
-    }, [])
+    }, )
 
 
     console.log(userSignUp)

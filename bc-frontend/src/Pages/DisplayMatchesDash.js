@@ -17,7 +17,7 @@ const DisplayMatchesDash = ({users, getUsers}) => {
 
   console.log('passed the props as', users)
   // const [users, setUsers] = useState(null)
-  const [userGender, setUserGender] = useState(null)
+  // const [userGender, setUserGender] = useState(null)
   const [lastDirection, setLastDirection] = useState()
 
 
@@ -45,7 +45,7 @@ const DisplayMatchesDash = ({users, getUsers}) => {
     const getUserGender = () => {
       fetch(genderURL)
         .then((res) => res.json())
-        .then((res) => setUserGender(res))
+        // .then((res) => setUserGender(res))
         .catch(console.error);
     }
     // console.log('users', users)
@@ -56,7 +56,7 @@ const DisplayMatchesDash = ({users, getUsers}) => {
       
       getUserGender()
     
-    }, [])
+    },)
 
 
     // const updateUserMatches = async (matchedIds) => {

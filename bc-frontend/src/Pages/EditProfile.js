@@ -148,7 +148,7 @@ console.log(updateForm)
             // placeholder='Reset password'
             ></input>
           <br></br>
-<img src={login.image}></img>
+<img src={login.image} alt="profile"></img>
           <label htmlFor='image'> Update Profile Picture: </label>
           <input
           type='text'
