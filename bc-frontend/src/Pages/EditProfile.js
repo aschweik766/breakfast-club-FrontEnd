@@ -1,55 +1,53 @@
-// import React, { useEffect, useState } from 'react'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+// import React, { useState } from 'react'
 import { useParams, useNavigate} from 'react-router-dom'
 import './EditProfile.css'
 
-const EditProfile = ({login, setLogin, users , updateUsers}) => {
+const EditProfile = ({login, setUsers, users , updateUsers}) => {
 
-  console.log(login)
   const history = useNavigate()
   const { id } = useParams()
-console.log(users)  
 // const loggedInUser = users.find(data => data._id === id)
 
 
-  const [updateForm, setUpdateForm] = useState("")
-
-  const url = `https://horoscopedatingapp-backend.herokuapp.com/users/${id}`
+  const [updateForm, setUpdateForm] = useState(login)
+const url = `http://localhost:3001/users/${id}`
+  // const url = `https://horoscopedatingapp-backend.herokuapp.com/users/${id}`
 
   function getUser () {
       fetch(url)
       .then((res) => res.json())
-      .then((res) => setLogin(
-        {
-          firstName: res.firstName,
-          lastName: res.lastName,
-          location: res.location,
-          email: res.email,
-          username: res.username,
-          password: res.password,
-          image: res.image,
-          interestedIn: res.interestedIn,
-          relationshipStatus: res.relationshipStatus,
-          lookingFor: res.lookingFor,
-          bio: res.bio,
-          interests: res.interests
-      }))
+      .then((data) => setUsers(data))
+      //   {
+      //     firstName: res.firstName,
+      //     lastName: res.lastName,
+      //     location: res.location,
+      //     email: res.email,
+      //     username: res.username,
+      //     password: res.password,
+      //     image: res.image,
+      //     interestedIn: res.interestedIn,
+      //     relationshipStatus: res.relationshipStatus,
+      //     lookingFor: res.lookingFor,
+      //     bio: res.bio,
+      //     interests: res.interests
+      // }))
       .catch(console.error) 
   }
 
-  const updateUser = async (user, id) => {
-    await fetch(url, {
+  const updateUser = async (login, id) => {
+    await fetch(url + id, {
       method: 'put',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(user),
+      body: JSON.stringify(login),
     });
     getUser();
   };
 
   const handleChange = event => {
-      setUpdateForm({ ...setUpdateForm, [event.target.name]: event.target.value })  
+      setUpdateForm({ ...updateForm, [event.target.name]: event.target.value })  
   }
 
   // const handleChange = (event) => {
@@ -69,7 +67,10 @@ console.log(users)
       history('/home')
   }
 
-// useEffect(() => getUser(),[])
+  useEffect(() => {
+    getUser()
+    updateUser()
+}, )
 
 console.log(updateForm)  
 
