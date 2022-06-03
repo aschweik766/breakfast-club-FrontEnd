@@ -1,51 +1,63 @@
 import React, { useState } from 'react'
 import { useEffect } from "react";
 
-const Matches = ({ matches, setClickedUser, userGender}) => {
-  const [matchedAccounts, setMatchedAccounts] = useState(null);
 
-  const userMatchedId = matches.map(({ user_id }) => user_id);
-  const userId = userGender._id
-  console.log(userId)
+const Matches = () => {
 
-  const getUserMatches = async () => {
-    try {
-      const res = await fetch("http://localhost:8000/users", {
-        params: { userIds: JSON.stringify(userMatchedId) },
-      });
-      setMatchedAccounts(res.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
-  useEffect(() => {
-    getUserMatches();
-  }, [matches]);
 
-    const filterMatchedAccounts = matchedAccounts?.filter(
-        (matchedAccount) =>
-          matchedAccount.matches.filter((account) => account.props.user_id == userId)
-            .length > 0
-      );
-    return (
-        <div className="show-matches">
-        {filterMatchedAccounts?.map((match, _index) => (
-        <div
-            key={_index}
-            className="match-card"
-            onClick={() => setClickedUser(match)}>
-            <div className="image-container">
-            <img src={match?.url} alt={match?.firstName + " Account"} />
-            </div>
-            <h3>{match?.firstName}</h3>
-        </div>
-        ))}
-    </div>
-    )  
-};
+  return (
+    <div>Matches</div>
+  )
+}
+
+
+export default Matches;
+// const Matches = ({ matches, setClickedUser, userGender}) => {
+//   const [matchedAccounts, setMatchedAccounts] = useState(null);
+
+//   const userMatchedId = matches.map(({ user_id }) => user_id);
+//   const userId = userGender._id
+//   console.log(userId)
+
+//   const getUserMatches = async () => {
+//     try {
+//       const res = await fetch("http://localhost:8000/users", {
+//         params: { userIds: JSON.stringify(userMatchedId) },
+//       });
+//       setMatchedAccounts(res.data);
+//     } catch (error) {
+//       console.log(error);
+//     }
+//   };
+
+//   useEffect(() => {
+//     getUserMatches();
+//   }, [matches]);
+
+//     const filterMatchedAccounts = matchedAccounts?.filter(
+//         (matchedAccount) =>
+//           matchedAccount.matches.filter((account) => account.props.user_id == userId)
+//             .length > 0
+//       );
+//     return (
+//         <div className="show-matches">
+//         {filterMatchedAccounts?.map((match, _index) => (
+//         <div
+//             key={_index}
+//             className="match-card"
+//             onClick={() => setClickedUser(match)}>
+//             <div className="image-container">
+//             <img src={match?.url} alt={match?.firstName + " Account"} />
+//             </div>
+//             <h3>{match?.firstName}</h3>
+//         </div>
+//         ))}
+//     </div>
+//     )  
+// };
   
-export default Matches
+// export default Matches
 
 
 // will have to define how users/signup and dating preferences link; preferrably one DB or decide so I can update backend with that collection

@@ -1,196 +1,213 @@
 import React, { useEffect } from 'react'
 import TinderCard from 'react-tinder-card';
 import { useState } from 'react';
-// import Users from './Users';
-// import { useParams } from 'react-router-dom';
-// import MatchContainer from '../components/MatchContainer';
-// import { useCookies } from 'react-cookie'
-// const { id } = useParams()
+import MatchContainer from '../components/MatchContainer';
+import axios from 'axios'
+
+//props being passed: the user that is logged in, and the users data (all users in the arry of objects from user-model in backend)
+
+//remember: _id is object id; the user_id is an object item that each user has, this is used to match/is passed to the matches nested array/object.
+
 
 const genderURL = 'http://localhost:3001/users-gender-identity'
-// const userURL = 'http://localhost:3001/users/'
-// const addMatchUrl = 'http://localhost:3001/update-matches'
+const addMatchUrl = 'http://localhost:3001/update-matches'
 
-const DisplayMatchesDash = ({users, getUsers}) => {
-  console.log(users)
+const DisplayMatchesDash = ({users, login, getUsers}) => {
+  const usersDB = users
+  // console.log(usersDB) //the array of users objects from user-model
 
+  const swipeUsers = usersDB
+  // console.log('swiped users array:', swipeUsers)  //now DB is a new variable to pass to backend
 
-  console.log('passed the props as', users)
-  // const [users, setUsers] = useState(null)
-  // const [userGender, setUserGender] = useState(null)
+  const loginUserId = login.user_id
+  console.log('the login user id:', loginUserId)  //getting the logged in user's user_id 
+
   const [lastDirection, setLastDirection] = useState()
+   const [userGender, setUserGender] = useState(users) 
+  //--f(or filtering users by params: gender Id, interested in, and zodiac sign.)
+ 
+
+  // console.log(users)
+  // console.log(login)
+  // console.log(login.firstName)
+
+  // console.log('passed the props as', login)
 
 
+  // find users that identify as male and display results
+  const getUserGender = () => {
+    const res = fetch(genderURL, {
+      params: {gender: login?.interestedIn}
+    })
+      .then((res) => res.json())
+      .then((res) => setUserGender(res))
+      .catch(console.error);
+  }
+ // {login}, userGender, these could be a useeffect dependency array...but it does the forever console logging when in there. 
+  useEffect(()=> {
+    getUserGender()
+    getUsers()
+  }, [])
+ 
 
-  // const userId = () => {
-    // return users.map((user) => (
-    //     <div key={user._id} className='user'>
-    //             <h1>{user._id}</h1>
-    //     </div>
-    //     )
-  //     )
-  //   }
-  
-  // console.log('the user id is', userId)
+//add logic for match by zodiacSign for filtering.
 
-    // }
-    // const getUsers = () => {
-    //   fetch(userURL)
-    //     .then((res) => res.json())
-    //     .then((res) => setUsers(res))
-    //     .catch(console.error);
-       
-    // }
-    //find users that identify as male and display results
-    const getUserGender = () => {
-      fetch(genderURL)
-        .then((res) => res.json())
-        // .then((res) => setUserGender(res))
-        .catch(console.error);
-    }
-    // console.log('users', users)
-    // console.log('gendered users', userGender)
 
-    useEffect(()=> {
-      getUsers()
-      
-      getUserGender()
+// const getMatch = () => {
+//   if(login.zodiacSign === 'Cancer' && userGender.zodiacSign === 'Taurus'|| userGender.zodiacSign === 'Pisces' ) {
+//     getUserGender()
+//   } else if(login.zodiacSign === 'Aquarius' && userGender.zodiacSign === 'Aries'|| userGender.zodiacSign === 'Pisces') {
+//     getUserGender()
+//   } else if(login.zodiacSign === 'Aries' && userGender.zodiacSign === 'Libra'|| userGender.zodiacSign === 'Saggitarius') {
+//     getUserGender()
+//   } else if(login.zodiacSign === 'Leo' && userGender.zodiacSign === 'Saggitarius'|| userGender.zodiacSign === 'Aquarius') {
+//     getUserGender()
+//   } else if(login.zodiacSign === 'Gemini' && userGender.zodiacSign === 'Libra'|| userGender.zodiacSign === 'Pisces') {
+//     getUserGender()
+//   } else if(login.zodiacSign === 'Taurus' && userGender.zodiacSign === 'Pisces'|| userGender.zodiacSign === 'Cancer') {
+//     getUserGender()
+//   } else if(login.zodiacSign === 'Virgo' && userGender.zodiacSign === 'Scorpio'|| userGender.zodiacSign === 'Pisces') {
+//     getUserGender()
+//   } else if(login.zodiacSign === 'Pisces' && userGender.zodiacSign === 'Virgo'|| userGender.zodiacSign === 'Scorpio') {
+//     getUserGender()
+//   } else if(login.zodiacSign === 'Capricorn' && userGender.zodiacSign === 'Taurus'|| userGender.zodiacSign === 'Cancer') {
+//     getUserGender()
+//   } else if(login.zodiacSign === 'Saggitarius' && userGender.zodiacSign === 'Aries'|| userGender.zodiacSign === 'Leo') {
+//     getUserGender()
+//   } else if(login.zodiacSign === 'Libra' && userGender.zodiacSign === 'Gemini'|| userGender.zodiacSign === 'Aquarius') {
+//     getUserGender()
+//   } else if(login.zodiacSign === 'Scorpio' && userGender.zodiacSign === 'Cancer'|| userGender.zodiacSign === 'Pisces') {
+//     getUserGender()
+//   }else {
+//     return (<>nothing</>)
+//   }
     
-    },)
+// }
 
 
-    // const updateUserMatches = async (matchedIds) => {
-    //     await fetch(addMatchUrl, {
-    //       method: "put",
-    //       headers: {
-    //         "Content-Type": "application/json",
-    //       },
-    //       body: JSON.stringify(req.params.id, matchedIds)
-    //     })
-    //     getUsers()
-              
-    // }
-        
 
-    const swiped = (direction, swipeUserID) => {
+
+//get matches pushed to array for viewing.
+const updateLoginMatches = async (matchedLoginIds) => {
+  try {
+      await axios.put(addMatchUrl, {
+          loginUserId,
+          matchedLoginIds
+      })
+      getUsers()
+  } catch (err) {
+      console.log(err)
+  }
+}
+ // const updateLoginMatches = async (matchedLoginIds, loginUserId) => {
+  //     try {
+  //       await fetch(addMatchUrl, {
+  //         loginUserId,
+  //         matchedLoginIds,
+  //         method: "put",
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //         },
+  //         body: JSON.stringify(login),
+  //       })
+  //       getUsers()
+  //     } catch (error) {
+  //       console.log(error)
+  //     }
+  // } Tried with fetch, but had issues, switched to axios becuase it makes more sense, but if you can figure out fetch, *chefs kiss*
+
+
+ 
+    
+
+    //tinder card swipe functions
+  const swiped = (direction, cardSwiped) => {
       if (direction === 'right') {
-        console.log( ' right of the screen!')
-        // updateUserMatches(swipeUserID)
-        //user.matches.push()
+        updateLoginMatches(cardSwiped)
       }
-      console.log('removing: ' + swipeUserID)
+      console.log('removing: ' + cardSwiped)
       setLastDirection(direction)
     }
-  
+
     const outOfFrame = (name) => {
       console.log(name + ' left the screen!')
     }
 
-    // const matchedIds = users?.matches.map((users._id) => user_id).concat(userId)
-    //user.matches.push(user_id)
+  if(!(users && login)) {
+    return(<>nothing</>)
+  }
+  // console.log(getMatch())
+  console.log('gendered users', userGender) 
+  console.log(login)
+  console.log(users)
 
-    // const filterUserGender = userGender?.filter(userGender => !matchedIds.includes(userGender.user_id))
-    // console.log('filterUserGender', filterUserGender)
-    // console.log('the gendered users are', userGender)
-    // console.log('the users are', users)
-   
-    if(!users) {
-      return (
-        <h1>Loading...</h1>
-      )
-    }  
-    
-    const userId = {} 
-    return (
-      users.map((user) => (
-     
+//This will need to be used to map info and pass into my matches.js file; but I need the matches: {user_id} on the logged in user (login) to be pushed properly. Then should be a breeze.Currenlty all matches are pushing to Bob's matches.
+  const matchedLoginIds = login?.matches.map(({user_id}) => user_id).concat(loginUserId)
 
-        <div key={userId} className='user'>
-        <div className="dashboard">
-          {/* <MatchContainer users={users} /> */}
-          <div className="swipe-container">
-            <div className="card-container">
-            <TinderCard 
-                      className='swipe'
-                      key={user._id}
-                      onSwipe={(dir) => swiped(dir, user.firstName)}
-                      onCardLeftScreen={() => outOfFrame(user.firstName)}>
-                         <div className='card'>
-                              <h3>{user.firstName}</h3>
-                              <h5>user ID: {user._id}</h5> 
-                              <h5>user Gender Identification: {user.genderIdentity}</h5>
-                              <h5>user interested in: {user.interestedIn}</h5>
-                              <img src={user.image} alt='profile headshot' height='100' width='90'/>
-                        </div>
-                  </TinderCard>
-                  <div className="swipe-info">
-                    {lastDirection ? <p>You swiped {lastDirection}</p> : <p/>}
-                </div>
+  const filterUsersGender = userGender?.filter(userGender => !matchedLoginIds.includes(userGender.user_id))
+
+
+
+  return (
+    <>
+    {login &&
+      <div className='dashboard'>
+            <MatchContainer login={login} />
+            <div className='swipe-container'>
+            <h1>Display Matches Dashboard</h1>
+             <div className='match-container' >
+             {/* {filterUsersGender?.map((userGender) => */}
+             {/* {swipeUsers?.map((swiper) => */}
+              {filterUsersGender?.map((swiper) =>
+                <TinderCard className='swipe' key={swiper.user_id} onSwipe={(dir) => swiped(dir, swiper.user_id)} onCardLeftScreen={() => outOfFrame(swiper.firstName)}>
+                  <div style={{ backgroundImage: 'url(' + swiper.image + ')'  }} className='card'>
+                    <h3>{swiper.firstName}</h3>
+                    <h5>{swiper._id}</h5>
+                    <h5>{swiper.zodiacSign}</h5>
+                  </div>
+                </TinderCard>
+              )}
             </div> 
-          </div> 
-         </div>
+            {lastDirection ? <h2 className='infoText'>You swiped {lastDirection}</h2> : <h2 className='infoText' />} 
         </div>
-      ))
-    );
+      </div>
+    }
+    </>
+    )
 }
 
-export default DisplayMatchesDash
+export default DisplayMatchesDash;
+//scratch work//
+ //match info map for user logged in does work:
+ /* <div className='acctInfo'> 
+            <h2>Anika's Mathcing Info:</h2>
+            <h3>{login.firstName}, {login._id} - {login.location}</h3>
+            <h4>Zodiac Sign: {login.zodiacSign}</h4>
+            <h4>Interested in dating: {login.interestedIn.map((interest) => {
+                return(interest+" ")
+              })}</h4>
+        </div>
+            <div> {users? swipedUserId() : <>noting</>} </div> */
 
-
-    //return
-    //// <div>
-      //     <h2>Welcome to your Match Dash</h2>
-          /* <h4>{displayMatchUsers()}</h4> */
-          
-          // <div className='dashboard'>
-            /* <MatchContiner users={users}/> */
-            /* <div className='swipe-container'> */
-              // <div className='card-container'> 
-               
-                /* {filterUserGender?.map((user)=>
-                  <TinderCard 
-                      className='swipe'
-                      key={user._id}
-                      onSwipe={(dir) => swiped(dir, user.firstName)}
-                      onCardLeftScreen={() => outOfFrame(user.firstName)}>
-                         <div className='card'>
-                              <h3>{userGender.name}</h3>
-                        </div>
-                  </TinderCard>
-                )}
-                <div className='swipe-info'>{lastDirection ? <p>You swiped {lastDirection}</p> : <p/>}</div> */
-            //   </div>
-            // </div>
-
-      // </div>
-
-
-
-
-      // userGender.map((user) => (
-      //   <div key={users._id} className='user'>
-      //     <div className="dashboard">
-      //       {/* <MatchContainer userGender={userGender} /> */}
-      //       <div className="swipe-container">
-      //         <div className="card-container">
-      //         <TinderCard 
-      //                   className='swipe'
-      //                   key={user._id}
-      //                   onSwipe={(dir) => swiped(dir, user.firstName)}
-      //                   onCardLeftScreen={() => outOfFrame(user.firstName)}>
-      //                      <div className='card'>
-      //                           <h3>{user.firstName}</h3>
-      //                           <h5>user ID: {user._id}</h5> 
-      //                           <h5>user Gender Identification: {user.genderIdentity}</h5>
-      //                           <h5>user interested in: {user.interestedIn}</h5>
-      //                           <img src={user.image} alt='profile headshot' height='100' width='90'/>
-      //                     </div>
-      //               </TinderCard>
-      //               <div className="swipe-info">
-      //                 {lastDirection ? <p>You swiped {lastDirection}</p> : <p/>}
-      //             </div>
-      //         </div> 
-      //       </div> 
-      //      </div>
-      //     </div>
-      //   ))
+//working swipe user map (all)
+/* <>
+    {login &&
+      <div className='dashboard'>
+          <h1>Display Matches Dashboard</h1>
+            <MatchContainer login={login} />
+          <div className='match-container' >
+            {swipeUsers.map((swiper) =>
+              <TinderCard className='swipe' key={swiper.user_id} onSwipe={(dir) => swiped(dir, swiper.firstName)} onCardLeftScreen={() => outOfFrame(swiper.firstName)}>
+                <div style={{ backgroundImage: 'url(' + swiper.image + ')'  }} className='card'>
+                  <h3>{swiper.firstName}</h3>
+                  <h5>{swiper._id}</h5>
+                  <h5>{swiper.zodiacSign}</h5>
+                </div>
+              </TinderCard>
+            )}
+          </div> 
+          {lastDirection ? <h2 className='infoText'>You swiped {lastDirection}</h2> : <h2 className='infoText' />} 
+      </div>
+    }
+    </> */
+     
