@@ -44,6 +44,7 @@ function MyAccount({ users, login }) {
       </div>
       <br/><br/><br/>
       <Link to={`/users/${login._id}`} > <button>Update Preferences </button> </Link>
+      <Link to ={`/myaccount/${login._id}`} > <button>Delete Account</button></Link>
     </div>
   )
 }
