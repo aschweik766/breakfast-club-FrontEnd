@@ -37,7 +37,6 @@ const DisplayMatchesDash = ({users, login, getUsers}) => {
     getUsers();
   }, [])
  
-
     //tinder card swipe functions
     const updateLoginMatches = async (swipeCard) => {
     try {
@@ -51,7 +50,6 @@ const DisplayMatchesDash = ({users, login, getUsers}) => {
         console.log(err)
     }
   }
-
 
   const swiped = (direction, cardSwiped) => {
       if (direction === 'right') {
@@ -85,12 +83,8 @@ const DisplayMatchesDash = ({users, login, getUsers}) => {
   console.log(users)
   console.log(swipedCard)
 
-
-
-  const matchedLoginIds = login?.matches.map(({_id}) => _id).concat(loginUserId)
-
+  const matchedLoginIds = login?.matches.map(({_id}) => _id)
   const filterUsersGender = userGender?.filter(swipedCard => !matchedLoginIds.includes(swipedCard))
-
 
   console.log('filterUsersGender ', filterUsersGender)
   console.log('matched ids to login are now in array as:', matchedLoginIds)
@@ -98,7 +92,7 @@ const DisplayMatchesDash = ({users, login, getUsers}) => {
     <>
     {login &&
       <div className='dashboard'>
-            <MatchContainer matches={login.matches} login={login} users={users} getUserGender={getUserGender} userGender={userGender} swipeUsers={swipeUsers} />
+            <MatchContainer matches={login.matches} login={login} users={users} getUserGender={getUserGender} userGender={userGender} swipeUsers={swipeUsers} filterUsersGender={filterUsersGender} />
             <div className='swipe-container'>
             <h1>Display Matches Dashboard</h1>
              <div className='match-container' >

@@ -7,12 +7,12 @@ const Matches = ({matches, login, users, userGender, swipeUsers}) => {
   const matchedLoginIds = matches.map(({_id}) => _id)
   const loginUserId = login._id
   // console.log(loginUserId)
-  console.log(matchedLoginIds)
-  console.log(swipeUsers)
-  console.log(users)
-  console.log(login)
-  console.log(userGender)
-  console.log(matches)
+  // console.log(matchedLoginIds)
+  // console.log(swipeUsers)
+  // console.log(users)
+  // console.log(login)
+  // console.log(userGender)
+  // console.log(matches)
 
   useEffect(() => {
     
