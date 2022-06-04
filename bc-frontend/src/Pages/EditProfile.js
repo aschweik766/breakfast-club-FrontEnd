@@ -13,7 +13,7 @@ const url = `http://localhost:3001/users/${id}`
   // const url = `https://horoscopedatingapp-backend.herokuapp.com/users/${id}`
  
 
-  const updateUser = async (login, id) => {
+  const updateUser = async (login) => {
     await fetch(url, {
       method: 'put',
       headers: {
