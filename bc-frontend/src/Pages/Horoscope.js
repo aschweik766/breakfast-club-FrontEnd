@@ -33,9 +33,10 @@ function Horoscope({
 
   if (!dailyHoro) {
     return (
-      <div className="">
+      <div className="horobody">
         <h2>Horoscopes</h2>
         <div className="horonav">
+          
           <h3
             className="horolink"
             onClick={handleClick}
@@ -84,7 +85,7 @@ function Horoscope({
         </div>
         <br/><br/>
         <p>Just a moment for your horoscopes...</p>
-      </div>
+        </div>
     );
   }
   return (

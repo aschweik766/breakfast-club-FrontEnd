@@ -28,7 +28,7 @@ body {
 
 .border {
   background-image: url("https://images.theconversation.com/files/233003/original/file-20180822-149484-cs44to.jpg?ixlib=rb-1.1.0&rect=0%2C587%2C3600%2C1800&q=45&auto=format&w=1356&h=668&fit=crop");
-  height: 40px;
+  height: 30px;
   width: 100%;
 }
 
@@ -40,15 +40,15 @@ body {
 .page-title {
   text-align: center;
 font-family: 'Rubik Moonrocks', cursive;
-font-size: 90px;
+font-size: 80px;
 /* margin-bottom: -40px; */
 }
 
 .subtitle {
-  margin-top: -60px;
+  margin-top: -50px;
   font-family: 'Averia Serif Libre', cursive;
   /* font-family: 'Montserrat', sans-serif; */
-  font-size: 20px;
+  font-size: 18px;
 }
 
 p {
@@ -57,7 +57,7 @@ p {
 
 nav {
   width: 40%;
-  font-size: 16px;
+  font-size: 15px;
   margin-top: 33px;
   font-weight: 600;
 }
@@ -67,8 +67,6 @@ nav {
   display: flex;
   justify-content: space-between;
 }
-
-
 
 h1, h2, h3, h4, h5, h6 {
  font-family: 'Averia Serif Libre', cursive;
@@ -87,30 +85,16 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0 auto;
 }
 
-/* 
-.lr-cont {
-  display: flex;
-  justify-content: space-evenly;
-  gap: 30px;
-}
-
-.right {
-  width: 40%;
-}
-
-.left {
-width: 60%;
-} */
-
 .comp-title, .love-title, .horo-title {
   text-align: center;
   font-size: 20px;
 }
 
 .love-horo, .daily-horo {
-  width: 80%;
+  width: 60%;
   margin: 0 auto;
   padding-bottom: 20px;
+  text-align: justify;
 }
 
 .dm-body {
@@ -123,7 +107,7 @@ width: 60%;
 .daily-matches {
 display: flex;
 justify-content: space-around;
-width: 80%;
+width: 60%;
 margin: 0 auto;
 }
 
@@ -146,6 +130,8 @@ margin: 0 auto;
   display: flex;
   justify-content: space-evenly;
   background-color: white;
+  width: 90%;
+  margin: 0 auto;
 }
 
 .horolink {
@@ -153,7 +139,9 @@ margin: 0 auto;
 }
 
 .footer {
+  margin-top: 50px;
   height: 100px;
+  background-image: url("https://images.theconversation.com/files/233003/original/file-20180822-149484-cs44to.jpg?ixlib=rb-1.1.0&rect=0%2C587%2C3600%2C1800&q=45&auto=format&w=1356&h=668&fit=crop");
 }
 
 .swipe {
@@ -237,7 +225,7 @@ margin: 0 auto;
 @media only screen and (max-width : 1024px) {
   
   .border {
-    height: 40px;
+    /* height: 40px; */
   }
 
   .lr-cont {
@@ -248,7 +236,6 @@ margin: 0 auto;
   }
 
   .daily-horo {
-    width: 85%;
     margin: 0 auto;
     text-align: justify;
     display: flex;

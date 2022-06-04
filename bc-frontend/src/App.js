@@ -259,7 +259,7 @@ const loginInitialState = {
 const [login, setLogin] = useState(loginInitialState);
 const [loggedIn, setLoggedIn] = useState(false)
 const [logData, setLogData] = useState(loginInitialState)
-const [noMatch, setNoMatch] = useState(false)
+const [noMatch, setNoMatch] = useState(false) //<<< LOGIN incorrect on map
 
 const handleChange = (event) => {
   setLogin({ ...login, [event.target.id]: event.target.value });
@@ -280,7 +280,6 @@ const handleSubmit = (event) => {
     setNoMatch(true)
   } 
   )
-  // useNavigate('/')
 }
 
 const zodiac = login.zodiacSign
@@ -337,6 +336,7 @@ const zodiac = login.zodiacSign
       <Routes>
         {/* <Route path='/app' element={<App users={users}/>} /> */}
         <Route path="/" element={ loggedIn === false ? <Splash users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login} loggedIn={loggedIn} noMatch={noMatch} /> : <Navigate to='/home' />} />
+        
         <Route path="/home" element={loggedIn === false ? <Splash users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login} loggedIn={loggedIn} noMatch={noMatch} /> : <Home dailyHoro={dailyHoro} dailyLove={dailyLove} login={login}/>} />
         <Route path="/myaccount" element={loggedIn === false ? <Splash users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login} loggedIn={loggedIn} noMatch={noMatch} /> : <MyAccount users={users} login={login} deleteUsers={deleteUsers}/>} />
         <Route path="/signup" element={<SignUp users={users} getUsers={getUsers} createUsers={createUsers}/>} />
@@ -345,7 +345,6 @@ const zodiac = login.zodiacSign
         <Route path="/users" element={<Users users={users} />} />
         <Route path="/horoscope" element={loggedIn === false ? <Splash users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login} loggedIn={loggedIn} noMatch={noMatch} /> : <Horoscope dailyHoro={dailyHoro} dailyLove={dailyLove} weeklyHoro={weeklyHoro} weeklyLove={weeklyLove} monthlyHoro={monthlyHoro} monthlyLove={monthlyLove} dailyCareer={dailyCareer} weeklyCareer={weeklyCareer} monthlyCareer={monthlyCareer}/> } />
         <Route path="/matches" element={loggedIn === false ? <Splash users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login} loggedIn={loggedIn} noMatch={noMatch} /> : <DisplayMatchesDash users={users} login={login} getUsers={getUsers}/>}/>
-        <Route path='/horoscope' element={<Horoscope dailyHoro={dailyHoro} dailyLove={dailyLove} weeklyHoro={weeklyHoro} weeklyLove={weeklyLove} monthlyHoro={monthlyHoro} monthlyLove={monthlyLove} dailyCareer={dailyCareer} weeklyCareer={weeklyCareer} monthlyCareer={monthlyCareer}/> } />
         <Route path="/match-container" element={loggedIn === false ? <Splash users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login} loggedIn={loggedIn} noMatch={noMatch} /> : <Matches users={users} login={login}/>}/>
       </Routes>
       <Footer />

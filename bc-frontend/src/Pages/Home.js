@@ -2,7 +2,7 @@ import React from 'react'
 import DailyMatches from '../components/DailyMatches'
 import DailyHoroscope from '../components/DailyHoroscope'
 import DailyLove from '../components/DailyLove'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 
 function Home({ dailyHoro, dailyLove }) {
   return (
@@ -11,8 +11,6 @@ function Home({ dailyHoro, dailyLove }) {
 
     <div className='lr-cont'>
     <div className='left'>
-    <Link to={'/matches'}><button> Matches</button></Link>
-    <Link to={'/messages'}><button>Messages</button></Link>
     
     <DailyMatches />
 
