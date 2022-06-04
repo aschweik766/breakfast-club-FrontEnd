@@ -8,6 +8,9 @@ This application is part 1 of 2 of a full stack working MVP team project. Togeth
 
 ## Development Tools
 ### React.js, JSX, JavaScript, CSS, HTML
+#### npm react-tinder-card 
+##### 
+* tinder clone module developed by Git User: 3DJakob 
 
 ## Backend Link
 ### Deployed on heroku [Align Heroku Backend](https://horoscopedatingapp-backend.herokuapp.com/users)
