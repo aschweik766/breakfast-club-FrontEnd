@@ -39,10 +39,11 @@ This application is part 1 of 2 of a full stack working MVP team project. Togeth
 * Connecting users as matches based on nested objects of matched IDs.
 * Filtering user's dating interests and matches based on queries with matched zocdiac identificaiton and dating preferences.
 
-
+### Authors
+Ashley Schweikahrd @Charnaye Grier & Jaclene Sini
 
 #### Resources
-###
+####
 * https://rapidapi.com/search/astrology
 https://github.com/kubowania/tinder-clone/
 * stackoverflow
