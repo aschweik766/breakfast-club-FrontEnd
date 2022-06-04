@@ -49,40 +49,40 @@ const DisplayMatchesDash = ({users, login, getUsers}) => {
     getUsers();
   }, [])
  
-
+console.log(userGender)
 //add logic for match by zodiacSign for filtering.
 
 
-// const getMatch = () => {
-//   if(login.zodiacSign === 'Cancer' && userGender.zodiacSign === 'Taurus'|| userGender.zodiacSign === 'Pisces' ) {
-//     getUserGender()
-//   } else if(login.zodiacSign === 'Aquarius' && userGender.zodiacSign === 'Aries'|| userGender.zodiacSign === 'Pisces') {
-//     getUserGender()
-//   } else if(login.zodiacSign === 'Aries' && userGender.zodiacSign === 'Libra'|| userGender.zodiacSign === 'Saggitarius') {
-//     getUserGender()
-//   } else if(login.zodiacSign === 'Leo' && userGender.zodiacSign === 'Saggitarius'|| userGender.zodiacSign === 'Aquarius') {
-//     getUserGender()
-//   } else if(login.zodiacSign === 'Gemini' && userGender.zodiacSign === 'Libra'|| userGender.zodiacSign === 'Pisces') {
-//     getUserGender()
-//   } else if(login.zodiacSign === 'Taurus' && userGender.zodiacSign === 'Pisces'|| userGender.zodiacSign === 'Cancer') {
-//     getUserGender()
-//   } else if(login.zodiacSign === 'Virgo' && userGender.zodiacSign === 'Scorpio'|| userGender.zodiacSign === 'Pisces') {
-//     getUserGender()
-//   } else if(login.zodiacSign === 'Pisces' && userGender.zodiacSign === 'Virgo'|| userGender.zodiacSign === 'Scorpio') {
-//     getUserGender()
-//   } else if(login.zodiacSign === 'Capricorn' && userGender.zodiacSign === 'Taurus'|| userGender.zodiacSign === 'Cancer') {
-//     getUserGender()
-//   } else if(login.zodiacSign === 'Saggitarius' && userGender.zodiacSign === 'Aries'|| userGender.zodiacSign === 'Leo') {
-//     getUserGender()
-//   } else if(login.zodiacSign === 'Libra' && userGender.zodiacSign === 'Gemini'|| userGender.zodiacSign === 'Aquarius') {
-//     getUserGender()
-//   } else if(login.zodiacSign === 'Scorpio' && userGender.zodiacSign === 'Cancer'|| userGender.zodiacSign === 'Pisces') {
-//     getUserGender()
-//   }else {
-//     return (<>nothing</>)
-//   }
+const getMatch = () => {
+  if(login.zodiacSign === 'Cancer' && userGender.zodiacSign === 'Taurus'|| userGender.zodiacSign === 'Pisces' ) {
+    getUserGender()
+  // } else if(login.zodiacSign === 'Aquarius' && userGender.zodiacSign === 'Aries'|| userGender.zodiacSign === 'Pisces') {
+  //   getUserGender()
+  // } else if(login.zodiacSign === 'Aries' && userGender.zodiacSign === 'Libra'|| userGender.zodiacSign === 'Saggitarius') {
+  //   getUserGender()
+  // } else if(login.zodiacSign === 'Leo' && userGender.zodiacSign === 'Saggitarius'|| userGender.zodiacSign === 'Aquarius') {
+  //   getUserGender()
+  // } else if(login.zodiacSign === 'Gemini' && userGender.zodiacSign === 'Libra'|| userGender.zodiacSign === 'Pisces') {
+  //   getUserGender()
+  // } else if(login.zodiacSign === 'Taurus' && userGender.zodiacSign === 'Pisces'|| userGender.zodiacSign === 'Cancer') {
+  //   getUserGender()
+  // } else if(login.zodiacSign === 'Virgo' && userGender.zodiacSign === 'Scorpio'|| userGender.zodiacSign === 'Pisces') {
+  //   getUserGender()
+  // } else if(login.zodiacSign === 'Pisces' && userGender.zodiacSign === 'Virgo'|| userGender.zodiacSign === 'Scorpio') {
+  //   getUserGender()
+  // } else if(login.zodiacSign === 'Capricorn' && userGender.zodiacSign === 'Taurus'|| userGender.zodiacSign === 'Cancer') {
+  //   getUserGender()
+  // } else if(login.zodiacSign === 'Saggitarius' && userGender.zodiacSign === 'Aries'|| userGender.zodiacSign === 'Leo') {
+  //   getUserGender()
+  // } else if(login.zodiacSign === 'Libra' && userGender.zodiacSign === 'Gemini'|| userGender.zodiacSign === 'Aquarius') {
+  //   getUserGender()
+  // } else if(login.zodiacSign === 'Scorpio' && userGender.zodiacSign === 'Cancer'|| userGender.zodiacSign === 'Pisces') {
+  //   getUserGender()
+  }else {
+    return (<>nothing</>)
+  }
     
-// }
+}
 
 
 
@@ -283,36 +283,36 @@ export default DisplayMatchesDash;
 // //add logic for match by zodiacSign for filtering.
 
 
-// // const getMatch = () => {
-// //   if(login.zodiacSign === 'Cancer' && userGender.zodiacSign === 'Taurus'|| userGender.zodiacSign === 'Pisces' ) {
-// //     getUserGender()
-// //   } else if(login.zodiacSign === 'Aquarius' && userGender.zodiacSign === 'Aries'|| userGender.zodiacSign === 'Pisces') {
-// //     getUserGender()
-// //   } else if(login.zodiacSign === 'Aries' && userGender.zodiacSign === 'Libra'|| userGender.zodiacSign === 'Saggitarius') {
-// //     getUserGender()
-// //   } else if(login.zodiacSign === 'Leo' && userGender.zodiacSign === 'Saggitarius'|| userGender.zodiacSign === 'Aquarius') {
-// //     getUserGender()
-// //   } else if(login.zodiacSign === 'Gemini' && userGender.zodiacSign === 'Libra'|| userGender.zodiacSign === 'Pisces') {
-// //     getUserGender()
-// //   } else if(login.zodiacSign === 'Taurus' && userGender.zodiacSign === 'Pisces'|| userGender.zodiacSign === 'Cancer') {
-// //     getUserGender()
-// //   } else if(login.zodiacSign === 'Virgo' && userGender.zodiacSign === 'Scorpio'|| userGender.zodiacSign === 'Pisces') {
-// //     getUserGender()
-// //   } else if(login.zodiacSign === 'Pisces' && userGender.zodiacSign === 'Virgo'|| userGender.zodiacSign === 'Scorpio') {
-// //     getUserGender()
-// //   } else if(login.zodiacSign === 'Capricorn' && userGender.zodiacSign === 'Taurus'|| userGender.zodiacSign === 'Cancer') {
-// //     getUserGender()
-// //   } else if(login.zodiacSign === 'Saggitarius' && userGender.zodiacSign === 'Aries'|| userGender.zodiacSign === 'Leo') {
-// //     getUserGender()
-// //   } else if(login.zodiacSign === 'Libra' && userGender.zodiacSign === 'Gemini'|| userGender.zodiacSign === 'Aquarius') {
-// //     getUserGender()
-// //   } else if(login.zodiacSign === 'Scorpio' && userGender.zodiacSign === 'Cancer'|| userGender.zodiacSign === 'Pisces') {
-// //     getUserGender()
-// //   }else {
-// //     return (<>nothing</>)
-// //   }
+// const getMatch = () => {
+//   if(login.zodiacSign === 'Cancer' && userGender.zodiacSign === 'Taurus'|| userGender.zodiacSign === 'Pisces' ) {
+//     getUserGender()
+//   } else if(login.zodiacSign === 'Aquarius' && userGender.zodiacSign === 'Aries'|| userGender.zodiacSign === 'Pisces') {
+//     getUserGender()
+//   } else if(login.zodiacSign === 'Aries' && userGender.zodiacSign === 'Libra'|| userGender.zodiacSign === 'Saggitarius') {
+//     getUserGender()
+//   } else if(login.zodiacSign === 'Leo' && userGender.zodiacSign === 'Saggitarius'|| userGender.zodiacSign === 'Aquarius') {
+//     getUserGender()
+//   } else if(login.zodiacSign === 'Gemini' && userGender.zodiacSign === 'Libra'|| userGender.zodiacSign === 'Pisces') {
+//     getUserGender()
+//   } else if(login.zodiacSign === 'Taurus' && userGender.zodiacSign === 'Pisces'|| userGender.zodiacSign === 'Cancer') {
+//     getUserGender()
+//   } else if(login.zodiacSign === 'Virgo' && userGender.zodiacSign === 'Scorpio'|| userGender.zodiacSign === 'Pisces') {
+//     getUserGender()
+//   } else if(login.zodiacSign === 'Pisces' && userGender.zodiacSign === 'Virgo'|| userGender.zodiacSign === 'Scorpio') {
+//     getUserGender()
+//   } else if(login.zodiacSign === 'Capricorn' && userGender.zodiacSign === 'Taurus'|| userGender.zodiacSign === 'Cancer') {
+//     getUserGender()
+//   } else if(login.zodiacSign === 'Saggitarius' && userGender.zodiacSign === 'Aries'|| userGender.zodiacSign === 'Leo') {
+//     getUserGender()
+//   } else if(login.zodiacSign === 'Libra' && userGender.zodiacSign === 'Gemini'|| userGender.zodiacSign === 'Aquarius') {
+//     getUserGender()
+//   } else if(login.zodiacSign === 'Scorpio' && userGender.zodiacSign === 'Cancer'|| userGender.zodiacSign === 'Pisces') {
+//     getUserGender()
+//   }else {
+//     return (<>nothing</>)
+//   }
     
-// // }
+// }
 
 
 

@@ -39,6 +39,8 @@ deleteUser()
   }
  console.log(getAge(birthdateString))
 
+ const age = getAge(birthdateString)
+
   return (
     <div className=''>
       <div className='page-cont'>
@@ -47,7 +49,7 @@ deleteUser()
         
           <div className='myacct-cont'>
           <img src={login.image} alt="profile-img" className='default-img' />
-          <div className='acctInfo'> <h3>{login.firstName}, {login.DOBmonth}/{login.DOBday}/{login.DOByear} - {login.location}</h3>
+          <div className='acctInfo'> <h3>{login.firstName}, {age} - {login.location}</h3>
           <h4>Zodiac Sign: {login.zodiacSign}</h4>
           <h4>Likes: {login.interests.map((interest) => {
             return(interest+" ")
@@ -75,7 +77,7 @@ deleteUser()
       </div>
       <br/><br/><br/>
       <Link to={`/users/${login._id}`} > <button>Update Preferences </button> </Link>
-      <Link to={`/delete/${login._id}`} > <button onClick={deleteUser}>Delete Account</button> </Link>
+      <Link to={`/delete/${login._id}`} > <button onClick={deleteUser}>Delete Account</button> </Link> 
     </div>
   )
 }
