@@ -22,7 +22,9 @@ This application is part 1 of 2 of a full stack working MVP team project. Togeth
 * Users delight in a bright and lighthearted UI that intices and engaged users.
 * Users can rely on align not only for their hearts, but for various daily and weekly horoscopes.
 
-![
+![profile](account.png)
+
+![align](align.png)
 
  ## Stretch Goals and Hurdles
 * Displaying additional chat feature between users.
