@@ -1,10 +1,24 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import './MyAccount.css'
 import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+
 
 function MyAccount({ users, login, deleteUsers}) {
   console.log(login)
   console.log(login.firstName)
+  // const history = useNavigate()
+
+  const deleteUser = () => {
+    deleteUsers(login._id)
+    // history("/")
+  }
+
+
+  useEffect(() => {
+deleteUser()  
+}, [])
+
   if (!(users && login)) {
     return(<>nothing</>)
   }
@@ -15,7 +29,7 @@ function MyAccount({ users, login, deleteUsers}) {
         <h2>My Account</h2>
         
           <div className='myacct-cont'>
-          <img src="https://thispersondoesnotexist.com/image" alt="profile-img" className='default-img' />
+          <img src={login.image} alt="profile-img" className='default-img' />
           <div className='acctInfo'> <h3>{login.firstName}, {login.DOBmonth}/{login.DOBday}/{login.DOByear} - {login.location}</h3>
           <h4>Zodiac Sign: {login.zodiacSign}</h4>
           <h4>Likes: {login.interests.map((interest) => {
@@ -44,7 +58,7 @@ function MyAccount({ users, login, deleteUsers}) {
       </div>
       <br/><br/><br/>
       <Link to={`/users/${login._id}`} > <button>Update Preferences </button> </Link>
-      <button onClick={deleteUsers}>Delete Account</button>
+      <Link to={`/delete/${login._id}`} > <button onClick={deleteUser}>Delete Account</button> </Link>
     </div>
   )
 }

@@ -14,6 +14,7 @@ import Footer from "./components/Footer";
 import Splash from "./Pages/Splash";
 import Matches from "./components/Matches";
 import DisplayMatchesDash from "./Pages/DisplayMatchesDash";
+import Delete from "./Pages/Delete";
 /* eslint-disable */
 
 //structure:
@@ -28,10 +29,10 @@ function App() {
   const [users, setUsers] = useState(null);
   // const url = "https://horoscopedatingapp-backend.herokuapp.com/users"
   // const createUrl = `https://horoscopedatingapp-backend.herokuapp.com/signup`
-  const deleteUrl = `http://localhost:3001/myaccount/`
+  const deleteUrl = "http://localhost:3001/delete/"
 
   const url = "http://localhost:3001/users"
-  const createUrl = `http://localhost:3001/signup`
+  const createUrl = "http://localhost:3001/signup"
  
 
 
@@ -346,6 +347,7 @@ const zodiac = login.zodiacSign
         <Route path="/horoscope" element={loggedIn === false ? <Splash users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login} loggedIn={loggedIn} noMatch={noMatch} /> : <Horoscope dailyHoro={dailyHoro} dailyLove={dailyLove} weeklyHoro={weeklyHoro} weeklyLove={weeklyLove} monthlyHoro={monthlyHoro} monthlyLove={monthlyLove} dailyCareer={dailyCareer} weeklyCareer={weeklyCareer} monthlyCareer={monthlyCareer}/> } />
         <Route path="/matches" element={loggedIn === false ? <Splash users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login} loggedIn={loggedIn} noMatch={noMatch} /> : <DisplayMatchesDash users={users} login={login} getUsers={getUsers}/>}/>
         <Route path="/match-container" element={loggedIn === false ? <Splash users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login} loggedIn={loggedIn} noMatch={noMatch} /> : <Matches users={users} login={login}/>}/>
+        <Route path="/delete/:id" element={<Delete />} />
       </Routes>
       <Footer />
     </div>
