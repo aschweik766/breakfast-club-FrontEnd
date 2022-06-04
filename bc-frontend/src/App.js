@@ -26,8 +26,15 @@ import DisplayMatchesDash from "./Pages/DisplayMatchesDash";
 
 function App() {
   const [users, setUsers] = useState(null);
-  const url = "https://horoscopedatingapp-backend.herokuapp.com/users";
+  const url = "https://horoscopedatingapp-backend.herokuapp.com/users"
   const createUrl = `https://horoscopedatingapp-backend.herokuapp.com/signup`
+  const deleteUrl = `http://localhost:3001/myaccount/`
+
+  // const url = "http://localhost:3001/users"
+  // const createUrl = `http://localhost:3001/signup`
+ 
+
+
 
   const [dailyHoro, setDailyHoro] = useState(null)
   const [dailyLove, setDailyLove] = useState(null)
@@ -86,7 +93,7 @@ function App() {
   };
 
   const deleteUsers = async (id) => {
-    await fetch(url + id, {
+    await fetch(deleteUrl + id, {
       method: "delete",
     });
     getUsers();
@@ -331,7 +338,7 @@ const zodiac = login.zodiacSign
         <Route path="/" element={ loggedIn === false ? <Splash users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login} loggedIn={loggedIn} noMatch={noMatch} /> : <Navigate to='/home' />} />
         
         <Route path="/home" element={loggedIn === false ? <Splash users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login} loggedIn={loggedIn} noMatch={noMatch} /> : <Home dailyHoro={dailyHoro} dailyLove={dailyLove} login={login}/>} />
-        <Route path="/myaccount" element={loggedIn === false ? <Splash users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login} loggedIn={loggedIn} noMatch={noMatch} /> : <MyAccount users={users} login={login}/>} />
+        <Route path="/myaccount" element={loggedIn === false ? <Splash users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login} loggedIn={loggedIn} noMatch={noMatch} /> : <MyAccount users={users} login={login} deleteUsers={deleteUsers}/>} />
         <Route path="/signup" element={<SignUp users={users} getUsers={getUsers} createUsers={createUsers}/>} />
         <Route path="/users/:id" element={<EditProfile updateUsers={updateUsers} deleteUsers={deleteUsers} login={login} setLogin={setLogin} users={users} /> } />
         <Route path="/login" element={<Login users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login} loggedIn={loggedIn} noMatch={noMatch}/>} />
