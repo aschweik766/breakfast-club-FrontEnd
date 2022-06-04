@@ -2,7 +2,7 @@ import React from 'react'
 import './MyAccount.css'
 import { Link } from 'react-router-dom'
 
-function MyAccount({ users, login }) {
+function MyAccount({ users, login, deleteUsers}) {
   console.log(login)
   console.log(login.firstName)
   if (!(users && login)) {
@@ -44,7 +44,7 @@ function MyAccount({ users, login }) {
       </div>
       <br/><br/><br/>
       <Link to={`/users/${login._id}`} > <button>Update Preferences </button> </Link>
-      <Link to ={`/myaccount/${login._id}`} > <button>Delete Account</button></Link>
+      <button onClick={deleteUsers}>Delete Account</button>
     </div>
   )
 }
