@@ -1,17 +1,14 @@
 import React, {useEffect} from 'react'
 import './MyAccount.css'
 import { Link } from 'react-router-dom'
-import { useNavigate } from 'react-router-dom'
 
 
 function MyAccount({ users, login, deleteUsers}) {
   console.log(login)
   console.log(login.firstName)
-  // const history = useNavigate()
 
   const deleteUser = () => {
     deleteUsers(login._id)
-    // history("/")
   }
 
 

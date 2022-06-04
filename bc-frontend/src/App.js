@@ -17,29 +17,19 @@ import DisplayMatchesDash from "./Pages/DisplayMatchesDash";
 import Delete from "./Pages/Delete";
 /* eslint-disable */
 
-//structure:
-//app
-//head
-//main state: users
-//routes
-//route path: / <User props: user, createUser>
-//route path: /user/:id <Show props: user, updateuser, deleteUser>
-
 function App() {
   const [users, setUsers] = useState(null);
   // const url = "https://horoscopedatingapp-backend.herokuapp.com/users"
   // const createUrl = `https://horoscopedatingapp-backend.herokuapp.com/signup`
-  const deleteUrl = "http://localhost:3001/delete/"
+  // const deleteUrl = "https://horoscopedatingapp-backend.herokuapp.com/delete/"
 
   const url = "http://localhost:3001/users"
   const createUrl = "http://localhost:3001/signup"
- 
-
+  const deleteUrl = "http://localhost:3001/delete/"
 
 
   const [dailyHoro, setDailyHoro] = useState(null)
   const [dailyLove, setDailyLove] = useState(null)
-  const [compatibility, setCompatibility] =useState(null)
   const [weeklyHoro, setWeeklyHoro] = useState(null)
   const [weeklyLove, setWeeklyLove] = useState(null)
   const [monthlyHoro, setMonthlyHoro] = useState(null)
@@ -56,21 +46,7 @@ function App() {
       .catch(console.error);
   }
 
-  // const createUsers = async (user) => {
-  //   // make post request to create people
-  //   await fetch(url, {
-  //     method: "post",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify(user),
-  //   });
-  //   // update list of users
-  //   getUsers();
-  // };
-
   const createUsers = async (user) => {
-    // make post request to create people
     await fetch(createUrl, {
         method: "post",
         headers: {
@@ -78,7 +54,6 @@ function App() {
         },
         body: JSON.stringify(user),
     });
-    // update list of users
     getUsers();
 };
 
@@ -129,20 +104,6 @@ function dailyLoveHoro(userSign) {
     .catch(err => console.error(err));
 }
 
-//trying my hand at a love match function that we could pull in the dating part
-function matchCompatibility() {
-  const options = {
-    method: 'GET',
-    headers: {
-      'X-RapidAPI-Host': 'devbrewer-horoscope.p.rapidapi.com',
-      'X-RapidAPI-Key': 'e5003d0b92msha0898f0c18e9287p1c5a94jsn9e9de59e6eb3'
-    }
-  };
-  fetch(`https://devbrewer-horoscope.p.rapidapi.com/match/Aries/Leo`, options)
-  .then(response => response.json())
-  .then(response => setCompatibility(response))
-  .catch(err => console.error(err));
-}
 
 function weeklyHoroscope(userSign) {
   const options = {
@@ -287,26 +248,6 @@ const zodiac = login.zodiacSign
 // console.log(zodiac)
 
 
-// const sendLoginId = () => {
-//   users.map((user) => {
-//     if ((login.username === user.username) && (login.password === user.password)) {
-//       setLogin(user);
-//       setLoggedIn(true);
-//       localStorage.setItem("username", login.username)
-//       localStorage.setItem("password", login.password)
-//       const loginId = login._id
-//       console.log(loginId)
-//       return(
-//         <div> loginId is here: <h3>{loginId}</h3> </div>
-//         )
-//     }
-//   })
-// }
-
-// const loginId = login._id
-// console.log(loginId)
-// console.log(logData)
-// console.log(noMatch)
 
 //END LOGIN STUFF
 

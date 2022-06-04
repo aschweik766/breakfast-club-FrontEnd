@@ -1,3 +1,44 @@
+//old from App.js
+//trying my hand at a love match function that we could pull in the dating part
+
+// const [compatibility, setCompatibility] =useState(null)
+
+// function matchCompatibility() {
+//   const options = {
+//     method: 'GET',
+//     headers: {
+//       'X-RapidAPI-Host': 'devbrewer-horoscope.p.rapidapi.com',
+//       'X-RapidAPI-Key': 'e5003d0b92msha0898f0c18e9287p1c5a94jsn9e9de59e6eb3'
+//     }
+//   };
+//   fetch(`https://devbrewer-horoscope.p.rapidapi.com/match/Aries/Leo`, options)
+//   .then(response => response.json())
+//   .then(response => setCompatibility(response))
+//   .catch(err => console.error(err));
+// }
+//old Login Stuff on App.js
+// const sendLoginId = () => {
+//   users.map((user) => {
+//     if ((login.username === user.username) && (login.password === user.password)) {
+//       setLogin(user);
+//       setLoggedIn(true);
+//       localStorage.setItem("username", login.username)
+//       localStorage.setItem("password", login.password)
+//       const loginId = login._id
+//       console.log(loginId)
+//       return(
+//         <div> loginId is here: <h3>{loginId}</h3> </div>
+//         )
+//     }
+//   })
+// }
+
+// const loginId = login._id
+// console.log(loginId)
+// console.log(logData)
+// console.log(noMatch)
+
+
 ///old from EditProfile.js///
 // const EditProfile = ({user, getUser}) => {
 //   const history = useNavigate()
