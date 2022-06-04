@@ -1,70 +1,51 @@
-# Getting Started with Create React App
+# Align FrontEnd App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project Description
 
-## Available Scripts
+This application is part 1 of 2 of a full stack working MVP team project. Together as a team of 3, we developed online dating and personalized horoscope platform inspired by our own desires to connect with others in new ways. As the stars align, so can users on our Align App for a dose of daily love horoscopes and online dating.
 
-In the project directory, you can run:
+![Align Homepage](https://user-images.githubusercontent.com/97924485/171994333-e94adca5-aa10-4ac7-9aea-686d9371f34b.png)
 
-### `npm start`
+## Development Tools
+### React.js, JSX, JavaScript, CSS, HTML
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Backend Link
+### [Github Backend]()
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Features
+###
+* Users that sign up can access thier very own Zodiac information, and a variety of weekly and love-predicting horoscopes.
+* A 3rd party API sends Zodiac information and horoscopes to the front end.
+* Users interested in meeting other users can align and match with each other based on zodiac criteria, personal user dating preferences and more.
+* Accounts are matched and featured as compatability for the week.
+* A user can swipe on compatabile user account cards to match and view.
+* Users delight in a bright and lighthearted UI that intices and engaged users.
+* Users can rely on align not only for their hearts, but for various daily and weekly horoscopes.
 
-### `npm test`
+![
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+ ## Stretch Goals and Hurdles
+* Displaying additional chat feature between users.
+* Pushing more personalized dating preferences to the profile.
+* An authorized user login encryption with signout.
+* Allowing users to message matched user accounts as a chat feature. This remains a goal to complete in the future as we dedicate additional time to this project.
+* Passing params such as dates and IDs from the 3 Party API in fetch request and responses.
+* Pulling star chart information from a 3rd party API and populating more information to a user's account.
+* Utilize stronger and more descriptive dating algorithims.
+* Clicking through a user's profile based on a card match.
+* Developing a logout Modal
+* Connecting users as matches based on nested objects of matched IDs.
+* Filtering user's dating interests and matches based on queries with matched zocdiac identificaiton and dating preferences.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### Resources
+###
+* https://rapidapi.com/search/astrology
+https://github.com/kubowania/tinder-clone/
+* stackoverflow
+* npm react-tinder-card
+* his project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
