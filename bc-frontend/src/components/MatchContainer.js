@@ -6,10 +6,10 @@ const MatchContainer = ({ login }) => {
   const [ clickedUser, setClickedUser ] = useState(null)
   return (
     <div className='match-container'>
-        <div>
+        {/* <div>
             <button className="option" onClick={() => setClickedUser(null)}>Matches</button>
-        </div>
-        {!clickedUser && <Matches  setClickedUser={setClickedUser}/>}
+        </div> */}
+        {/* {!clickedUser && <Matches  setClickedUser={setClickedUser}/>} */}
     </div>
   )
 }

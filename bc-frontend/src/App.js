@@ -35,17 +35,16 @@ function App() {
  
 
 
-
+  const [compatibility, setCompatibility] =useState(null)
   const [dailyHoro, setDailyHoro] = useState(null)
   const [dailyLove, setDailyLove] = useState(null)
-  const [compatibility, setCompatibility] =useState(null)
-  const [weeklyHoro, setWeeklyHoro] = useState(null)
-  const [weeklyLove, setWeeklyLove] = useState(null)
-  const [monthlyHoro, setMonthlyHoro] = useState(null)
-  const [monthlyLove, setMonthlyLove] = useState(null)
-  const [dailyCareer, setDailyCareer] = useState(null)
-  const [weeklyCareer, setWeeklyCareer] = useState(null)
-  const [monthlyCareer, setMonthlyCareer] = useState(null)
+  const [weeklyHoro, setWeeklyHoro] = useState("aries")
+  const [weeklyLove, setWeeklyLove] = useState("aries")
+  const [monthlyHoro, setMonthlyHoro] = useState("aries")
+  const [monthlyLove, setMonthlyLove] = useState("aries")
+  const [dailyCareer, setDailyCareer] = useState("aries")
+  const [weeklyCareer, setWeeklyCareer] = useState("aries")
+  const [monthlyCareer, setMonthlyCareer] = useState("aries")
   
   
   function getUsers() {
@@ -282,9 +281,8 @@ const handleSubmit = (event) => {
   )
 }
 
-const zodiac = login.zodiacSign
-// console.log(zodiac)
 
+// console.log(zodiac.toLowerCase())
 
 // const sendLoginId = () => {
 //   users.map((user) => {
@@ -309,27 +307,37 @@ const zodiac = login.zodiacSign
 
 //END LOGIN STUFF
 
-  useEffect(() => {
-    dailyHoroscope()
-    dailyLoveHoro("aries")
-    weeklyHoroscope("aries")
-    weeklyLoveHoro("aries")
-    monthlyHoroscope("aries")
-    monthlyLoveHoro("aries")
-    dailyCareerHoro("aries")
-    weeklyCareerHoro("aries")
-    monthlyCareerHoro("aries")
-    getUsers()
-    // sendLoginId()
-  }, [])
-
-
   // if (!users) {
   //   return <h1></h1>;
   // }
   // console.log('these are the users:', users);
 
+  const [userZod, setUserZod] = useState(null)
+
+ 
+
+useEffect(() => {
+  getUsers()
+  // if (loggedIn) {
+  //   setUserZod(login.zodiacSign)
+  //   dailyHoroscope()
+  //   dailyLoveHoro(userZod.toLowerCase())
+  //   weeklyHoroscope(userZod.toLowerCase())
+  //   weeklyLoveHoro(userZod.toLowerCase())
+  //   monthlyHoroscope(userZod.toLowerCase())
+  //   monthlyLoveHoro(userZod.toLowerCase())
+  //   dailyCareerHoro(userZod.toLowerCase())
+  //   weeklyCareerHoro(userZod.toLowerCase())
+  //   monthlyCareerHoro(userZod.toLowerCase())
+  // } 
+}, [])
+
+// if (!userZod) { <></> } else { console.log( userZod )  }
+
+
+
   return (
+    
     <div className="App">
       
       <Header loggedIn={loggedIn}/>
@@ -337,15 +345,18 @@ const zodiac = login.zodiacSign
         {/* <Route path='/app' element={<App users={users}/>} /> */}
         <Route path="/" element={ loggedIn === false ? <Splash users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login} loggedIn={loggedIn} noMatch={noMatch} /> : <Navigate to='/home' />} />
         
-        <Route path="/home" element={loggedIn === false ? <Splash users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login} loggedIn={loggedIn} noMatch={noMatch} /> : <Home dailyHoro={dailyHoro} dailyLove={dailyLove} login={login}/>} />
+        <Route path="/home" element={
+          loggedIn === false ? <Splash users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login} loggedIn={loggedIn} noMatch={noMatch} /> : 
+          <Home dailyHoro={dailyHoro} dailyLove={dailyLove} loggedIn={loggedIn} login={login} dh={dailyHoroscope} dl={dailyLoveHoro} userZod={userZod} setUserZod={setUserZod} />} />
         <Route path="/myaccount" element={loggedIn === false ? <Splash users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login} loggedIn={loggedIn} noMatch={noMatch} /> : <MyAccount users={users} login={login} deleteUsers={deleteUsers}/>} />
         <Route path="/signup" element={<SignUp users={users} getUsers={getUsers} createUsers={createUsers}/>} />
         <Route path="/users/:id" element={<EditProfile updateUsers={updateUsers} deleteUsers={deleteUsers} login={login} setUsers={setUsers} /> } />
         <Route path="/login" element={<Login users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login} loggedIn={loggedIn} noMatch={noMatch}/>} />
         <Route path="/users" element={<Users users={users} />} />
-        <Route path="/horoscope" element={loggedIn === false ? <Splash users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login} loggedIn={loggedIn} noMatch={noMatch} /> : <Horoscope dailyHoro={dailyHoro} dailyLove={dailyLove} weeklyHoro={weeklyHoro} weeklyLove={weeklyLove} monthlyHoro={monthlyHoro} monthlyLove={monthlyLove} dailyCareer={dailyCareer} weeklyCareer={weeklyCareer} monthlyCareer={monthlyCareer}/> } />
+        <Route path="/horoscope" element={loggedIn === false ? <Splash users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login} loggedIn={loggedIn} noMatch={noMatch} /> : <Horoscope dailyHoro={dailyHoro} dailyLove={dailyLove} weeklyHoro={weeklyHoro} weeklyLove={weeklyLove} monthlyHoro={monthlyHoro} monthlyLove={monthlyLove} dailyCareer={dailyCareer} weeklyCareer={weeklyCareer} monthlyCareer={monthlyCareer} userZod={userZod} setUserZod={setUserZod} login={login} dh={dailyHoroscope} dl={dailyLoveHoro} wh={weeklyHoroscope} wl={weeklyLoveHoro} mh={monthlyHoroscope} ml={monthlyLoveHoro} dc={dailyCareerHoro} wc={weeklyCareerHoro} mc={monthlyCareerHoro} /> } />
         <Route path="/matches" element={loggedIn === false ? <Splash users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login} loggedIn={loggedIn} noMatch={noMatch} /> : <DisplayMatchesDash users={users} login={login} getUsers={getUsers}/>}/>
         <Route path="/match-container" element={loggedIn === false ? <Splash users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login} loggedIn={loggedIn} noMatch={noMatch} /> : <Matches users={users} login={login}/>}/>
+
       </Routes>
       <Footer />
     </div>
