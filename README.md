@@ -43,7 +43,8 @@ This application is part 1 of 2 of a full stack working MVP team project. Togeth
 * Filtering user's dating interests and matches based on queries with matched zocdiac identificaiton and dating preferences.
 
 ### Authors
-Ashley Schweikahrd @Charnaye Grier & Jaclene Sini
+Jaclene Sini, Ashley Schweikhard, & Charnaye Grier
+
 
 #### Resources
 ####
