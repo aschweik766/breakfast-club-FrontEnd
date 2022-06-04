@@ -22,10 +22,10 @@ This application is part 1 of 2 of a full stack working MVP team project. Togeth
 * Users delight in a bright and lighthearted UI that intices and engaged users.
 * Users can rely on align not only for their hearts, but for various daily and weekly horoscopes.
 
-Account
+###Account
 ![account](https://user-images.githubusercontent.com/98440887/171994942-8b0f4235-e86c-466d-beb9-cd5de5b652d2.png)
 
-Login
+###Login
 ![login](https://user-images.githubusercontent.com/98440887/171994952-3d93dc83-0555-4869-884e-21a08ae395d6.png)
 
 
