@@ -52,7 +52,8 @@ Jaclene Sini, Ashley Schweikhard, & Charnaye Grier
 #### Resources
 ####
 * [Astro API](https://rapidapi.com/search/astrology)
-* [3DJakob Git](https://github.com/kubowania/tinder-clone/)
+* [3DJakob Git](https://github.com/3DJakob/react-tinder-card-demo))
+* [Ania Youtube Tutorial React Tinder Clone](https://www.youtube.com/watch?v=Q70IMS-Qnjk)
 * stackoverflow
 * npm react-tinder-card
 * This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app)
