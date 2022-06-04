@@ -23,9 +23,9 @@ function App() {
   // const createUrl = `https://horoscopedatingapp-backend.herokuapp.com/signup`
   // const deleteUrl = "https://horoscopedatingapp-backend.herokuapp.com/delete/"
 
-  const url = "http://localhost:3001/users"
-  const createUrl = "http://localhost:3001/signup"
-  const deleteUrl = "http://localhost:3001/delete/"
+  // const url = "http://localhost:3001/users"
+  // const createUrl = "http://localhost:3001/signup"
+  // const deleteUrl = "http://localhost:3001/delete/"
 
 
   const [dailyHoro, setDailyHoro] = useState(null)
