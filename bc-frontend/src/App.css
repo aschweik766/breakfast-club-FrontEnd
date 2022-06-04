@@ -1,7 +1,7 @@
 body {
   /* background-color: rgb(250, 246, 255); */
   /* background-color: rgb(244, 241, 252); */
-  background-color: rgb(241, 244, 252);
+  background-color: rgb(246, 241, 252);
 }
 
 .App {
@@ -51,6 +51,20 @@ font-size: 80px;
   font-size: 18px;
 }
 
+.login {
+  background-color: white;
+  padding: 20px;
+  width: 350px;
+  margin: 0 auto;
+  border: 1px solid black;
+}
+
+.matchgreet {
+  display: flex;
+  justify-content: center;
+  margin-top: -20px;
+}
+
 p {
   font-family: 'Montserrat', sans-serif;
 }
@@ -79,7 +93,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .lr-cont {
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   align-items: center;
   width: 100%;
   margin: 0 auto;
@@ -98,16 +112,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .dm-body {
-  background-color: white;
   padding-top: 5px;
   padding-bottom: 5px;
   width: 100%;
+  margin-top: 20px;
 }
 
 .daily-matches {
 display: flex;
 justify-content: space-around;
 width: 60%;
+gap: 50px;
 margin: 0 auto;
 }
 
@@ -116,10 +131,16 @@ margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
+  border: 1px solid grey;
+  border-radius: 5%;
+  padding-top: 20px;
+  background-color: white;
 }
 
 .dm-img {
-  width: 70%;
+height: 200px;
+width: 70%;
+object-fit: cover
 }
 
 .dm-bio {

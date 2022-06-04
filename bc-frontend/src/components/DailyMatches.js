@@ -1,9 +1,10 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
+import Matches from './Matches'
 
 function DailyMatches() {
   return (
     <div className='dm-body'>
-        <h3 className='comp-title'>Today's Compatibility</h3>
     <div className='daily-matches'>
      <div className='daily-match'>
        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTj5olWjirTVdEJTss1QfCE3JKF77gYE3C39A&usqp=CAU" alt="match1" className='dm-img'/>

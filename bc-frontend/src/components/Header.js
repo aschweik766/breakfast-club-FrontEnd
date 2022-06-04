@@ -16,7 +16,6 @@ function Header({ loggedIn }) {
         </Link>
         <nav style={loggedIn === false ? {display: "none"} : null}> 
           <div className="nav-cont">   <Link to={'/matches'}><p>Matches</p></Link>  <Link to="/horoscope"><p>Check Your Horoscope</p></Link>
-          <Link to="/users"><p>Display Users</p></Link>
           <Link to="/myaccount"><p>My Account</p></Link>
          </div>
        
@@ -33,7 +32,6 @@ function Header({ loggedIn }) {
 
         <nav style={loggedIn === false ? {display: "none"} : null}> 
           <div className="nav-cont">    <Link to={'/matches'}><p>Matches</p></Link>  <Link to="/horoscope"><p>Check Your Horoscope</p></Link>
-          {/* <Link to="/users"><p>Display Users</p></Link> */}
           <Link to="/myaccount"><p>My Account</p></Link>
           </div>
         </nav>
