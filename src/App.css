@@ -1,0 +1,386 @@
+body {
+  /* background-color: rgb(250, 246, 255); */
+  /* background-color: rgb(244, 241, 252); */
+  background-color: rgb(246, 241, 252);
+}
+
+.App {
+  text-align: center;
+}
+
+.body {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.notmobile {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: -40px;
+  /* background-color: rgb(213, 201, 238); */
+  /* border-bottom: 3px solid white; */
+}
+
+.mobile {
+  display: none;
+}
+
+.border {
+  background-image: url("https://images.theconversation.com/files/233003/original/file-20180822-149484-cs44to.jpg?ixlib=rb-1.1.0&rect=0%2C587%2C3600%2C1800&q=45&auto=format&w=1356&h=668&fit=crop");
+  height: 30px;
+  width: 100%;
+}
+
+.logo-cont {
+  display: flex;
+  flex-direction: column;
+}
+
+.page-title {
+  text-align: center;
+font-family: 'Rubik Moonrocks', cursive;
+font-size: 80px;
+/* margin-bottom: -40px; */
+}
+
+.subtitle {
+  margin-top: -50px;
+  font-family: 'Averia Serif Libre', cursive;
+  /* font-family: 'Montserrat', sans-serif; */
+  font-size: 18px;
+}
+
+.login {
+  background-color: white;
+  padding: 20px;
+  width: 350px;
+  margin: 0 auto;
+  border: 1px solid black;
+}
+
+.matchgreet {
+  display: flex;
+  justify-content: center;
+  margin-top: -20px;
+}
+
+p {
+  font-family: 'Montserrat', sans-serif;
+}
+
+nav {
+  width: 40%;
+  font-size: 15px;
+  margin-top: 33px;
+  font-weight: 600;
+}
+
+.nav-cont { 
+  /* text-align: center; */
+  display: flex;
+  justify-content: space-between;
+}
+
+h1, h2, h3, h4, h5, h6 {
+ font-family: 'Averia Serif Libre', cursive;
+}
+
+.homeLink {
+  text-decoration: none;
+  color: black;
+}
+
+.lr-cont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.comp-title, .love-title, .horo-title {
+  text-align: center;
+  font-size: 20px;
+}
+
+.love-horo, .daily-horo {
+  width: 60%;
+  margin: 0 auto;
+  padding-bottom: 20px;
+  text-align: justify;
+}
+
+.dm-body {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.daily-matches {
+display: flex;
+justify-content: space-around;
+width: 60%;
+gap: 50px;
+margin: 0 auto;
+}
+
+.daily-match {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid grey;
+  border-radius: 5%;
+  padding-top: 20px;
+  background-color: white;
+}
+
+.dm-img {
+height: 200px;
+width: 70%;
+object-fit: cover
+}
+
+.dm-bio {
+  text-align: center;
+}
+
+.horonav {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: white;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.horolink {
+  cursor: pointer;
+}
+
+.footer {
+  margin-top: 50px;
+  height: 100px;
+  background-image: url("https://images.theconversation.com/files/233003/original/file-20180822-149484-cs44to.jpg?ixlib=rb-1.1.0&rect=0%2C587%2C3600%2C1800&q=45&auto=format&w=1356&h=668&fit=crop");
+}
+
+.swipe {
+  position: absolute;
+}
+
+.dashboard {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dashboard .swipe-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: plum;
+}
+
+.swipe {
+  position: absolute;
+}
+
+ .match-container {
+  width: 100px;
+  max-width: 260px;
+  height: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+.match-button {
+  background-color: blueviolet;
+  color:#fff;
+}
+
+
+.card {
+  align-items: center;
+  position: relative;
+  background-color: #fff;
+  width: 150vw;
+  max-width: 260px;
+  height: 400px;
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.10);
+  border-radius: 7px;
+  border: solid rebeccapurple 5px;
+  background-size: cover;
+  background-position: center;
+}
+
+.cardContent {
+  width: 100%;
+  height: 100%;
+}
+
+
+.card h3 {
+  position: absolute;
+  bottom: 0;
+  margin: 10px;
+  color: #fff;
+  
+}
+
+.card h5 {
+  align-items:flex-start;
+  color:#fff;
+}
+
+@media only screen and (max-width : 1350px) {
+
+  .nav-cont { 
+   flex-wrap: wrap;
+   justify-content: center;
+   align-items: center;
+   gap: 20px;
+   row-gap: 0px;
+  }
+
+}
+
+
+/* iPads (portrait) ----------- */
+@media only screen and (max-width : 1024px) {
+  
+  .border {
+    /* height: 40px; */
+  }
+
+  .lr-cont {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-evenly;
+    gap: 10px;
+  }
+
+  .daily-horo {
+    margin: 0 auto;
+    text-align: justify;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .horo-title, .love-title {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .daily-matches {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .love-horo {
+    width: 85%;
+    margin: 0 auto;
+    text-align: justify;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+
+/* Big smartphones (portrait) (ie: Galaxy 3 has 360)*/
+@media only screen and (max-width : 450px) {
+
+  .mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 3px solid white;
+  }
+
+  .notmobile {
+    display: none;
+  }
+
+  .page-title {
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 10%;
+  }
+
+  .subtitle {
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  nav {
+    font-size: 15px;
+    margin-bottom: 5%;
+    width: 80%;
+  }
+
+  .nav-cont { 
+   gap: 5%;
+   }
+
+  .horo-title, .love-title {
+    margin-bottom: 5px;
+  }
+
+  .daily-horo, .love-horo {
+    text-align: justify;
+  }
+
+  .lr-cont {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-evenly;
+    gap: 0px;
+  }
+
+  .right {
+    /* margin: 0 auto; */
+    width: 100%;
+  }
+
+  .daily-matches {
+    gap: 20px;
+    width: 95%;
+    }
+
+
+  .dm-img {
+    width: 100%;
+  }
+
+  .dm-bio {
+    width: 100%;
+    font-size: 10px;
+  }
+
+}
+
+/* Smartphones (portrait) (ie: Galaxy 1) */
+@media only screen and (max-width : 300px) {
+  .page-title {
+    font-size: 25px;
+  }
+
+  nav {
+    font-size: 12px;
+}
+
+.horo-title, .love-title {
+  font-size: 15px;
+}
+
+.daily-horo, .love-horo {
+  font-size: 13px;
+}
+
+}
+

@@ -1,0 +1,24 @@
+.signUpForm {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-content: space-between;
+    font-family: 'Averia Serif Libre', cursive;
+    width: 200px;
+    margin: 0 auto;
+    background-color: white;
+}
+
+
+#password, #username {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.submitButton {
+    width: 100px;
+    margin: 0 auto;
+    font-family: 'Montserrat', sans-serif;
+}
+
+

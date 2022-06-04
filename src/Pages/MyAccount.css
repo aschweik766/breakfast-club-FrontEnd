@@ -1,0 +1,52 @@
+.page-cont {
+    display: flex;
+    gap: 30px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+
+.default-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-top: 20px;
+    object-fit: cover;
+}
+
+.acctInfo {
+    margin-top: 20px;
+}
+
+.myacct-cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10%;
+    background-color: white;
+    padding-bottom: 20px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.photos {
+    display: flex;
+    gap:10px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.profile-img {
+    width: 90%;
+}
+
+.bioprefCont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.acctBio {
+    margin: 0 auto;
+    width: 60%;
+}
