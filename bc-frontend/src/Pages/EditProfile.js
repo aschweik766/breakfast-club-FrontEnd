@@ -35,7 +35,7 @@ const url = `http://localhost:3001/users/${id}`
   //     .catch(console.error) 
   // }
 
-  const updateUser = async (login, id) => {
+  const updateUser = async (login) => {
     await fetch(url, {
       method: 'put',
       headers: {
@@ -62,9 +62,9 @@ const url = `http://localhost:3001/users/${id}`
   // handlesubmit for form
   const handleSubmit = (event) => {
       event.preventDefault()
-      updateUser(updateForm, id)
+      updateUser(updateForm)
       // redirect people back to index
-      history('/home')
+      history('/myaccount')
   }
 
   useEffect(() => {
