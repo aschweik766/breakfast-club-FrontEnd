@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import DailyHoroscope from "../components/DailyHoroscope";
 import LoveHoroscope from "../components/LoveHoroscope";
 import MonthlyHoro from "../components/MonthlyHoro";
@@ -18,7 +18,11 @@ function Horoscope({
   monthlyLove,
   dailyCareer,
   weeklyCareer,
-  monthlyCareer
+  monthlyCareer,
+  login,
+  userZod, 
+  setUserZod,
+  dh, dl, wh, mh, wl, ml, dc, wc, mc
 }) {
   const [isActive, setIsActive] = useState("Daily");
 
@@ -31,11 +35,33 @@ function Horoscope({
     // console.log('clicked', isActive)
   };
 
-  if (!dailyHoro) {
+  console.log(userZod)
+
+  useEffect(() => {
+    setUserZod(login.zodiacSign.toLowerCase());
+    if (!userZod) { return ( console.log ('sorry'))} 
+    dh();
+    dl(userZod)
+    wh(userZod)
+    mh(userZod)
+    wl(userZod)
+    ml(userZod)
+    dc(userZod)
+    wc(userZod)
+    mc(userZod)
+
+}, [userZod])
+
+  console.log(userZod)
+  console.log(dailyLove)
+  console.log('done render')
+
+  if (!(dailyLove && dailyHoro && weeklyHoro && weeklyLove && monthlyHoro && monthlyLove && dailyCareer && weeklyCareer && monthlyCareer)) {
     return (
-      <div className="">
+      <div className="horobody">
         <h2>Horoscopes</h2>
         <div className="horonav">
+          
           <h3
             className="horolink"
             onClick={handleClick}
@@ -84,9 +110,12 @@ function Horoscope({
         </div>
         <br/><br/>
         <p>Just a moment for your horoscopes...</p>
-      </div>
+        </div>
     );
-  }
+  } 
+  
+  console.log(weeklyHoro, dailyCareer)
+  
   return (
     <div className="">
       <h2>Horoscopes</h2>
@@ -144,7 +173,7 @@ function Horoscope({
             display: isActive === "Daily" ? "block" : "none",
           }}
         >
-          <DailyHoroscope dailyHoro={dailyHoro} />
+          <DailyHoroscope dailyHoro={dailyHoro} zodiac={userZod} login={login}/>
         </div>
 
         <div
@@ -152,28 +181,28 @@ function Horoscope({
             display: isActive === "Weekly" ? "block" : "none",
           }}
         >
-          <WeeklyHoro weeklyHoro={weeklyHoro} />
+          <WeeklyHoro weeklyHoro={weeklyHoro} userZod={userZod} login={login}/>
         </div>
         <div
           style={{
             display: isActive === "Monthly" ? "block" : "none",
           }}
         >
-          <MonthlyHoro monthlyHoro={monthlyHoro} />
+          <MonthlyHoro monthlyHoro={monthlyHoro} userZod={userZod} login={login}/>
         </div>
         <div
           style={{
             display: isActive === "Love" ? "block" : "none",
           }}
         >
-          <LoveHoroscope dailyLove={dailyLove} weeklyLove={weeklyLove} monthlyLove={monthlyLove} />
+          <LoveHoroscope dailyLove={dailyLove} weeklyLove={weeklyLove} monthlyLove={monthlyLove} userZod={userZod} login={login}/>
         </div>
         <div
           style={{
             display: isActive === "Career" ? "block" : "none",
           }}
         >
-          <CareerHoro dailyCareer={dailyCareer} weeklyCareer={weeklyCareer} monthlyCareer={monthlyCareer} />
+          <CareerHoro dailyCareer={dailyCareer} weeklyCareer={weeklyCareer} monthlyCareer={monthlyCareer} userZod={userZod} login={login}/>
         </div>
       </div>
     </div>

@@ -80,6 +80,11 @@ const DisplayMatchesDash = ({users, login, getUsers}) => {
   // console.log(login)
   console.log('all users:', users)
   console.log('swiped card is:', swipedCard)
+  console.log('gendered users', userGender) 
+  // console.log(login)
+  console.log(users)
+  console.log(swipedCard)
+
 
 
   const matchedLoginIds = login?.matches.map(({_id}) => _id).concat(loginUserId)

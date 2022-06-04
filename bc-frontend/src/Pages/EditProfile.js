@@ -1,77 +1,42 @@
-// import React, { useEffect, useState } from 'react'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams, useNavigate} from 'react-router-dom'
 import './EditProfile.css'
 
-const EditProfile = ({login, setLogin, users , updateUsers}) => {
+const EditProfile = ({login}) => {
 
-  console.log(login)
   const history = useNavigate()
-  const { id } = useParams()
-console.log(users)  
-// const loggedInUser = users.find(data => data._id === id)
+  const  id  = useParams().id
 
 
-  const [updateForm, setUpdateForm] = useState("")
+  const [updateForm, setUpdateForm] = useState(login)
+const url = `http://localhost:3001/users/${id}`
+  // const url = `https://horoscopedatingapp-backend.herokuapp.com/users/${id}`
+ 
 
-  const url = `https://horoscopedatingapp-backend.herokuapp.com/users/${id}`
-
-  function getUser () {
-      fetch(url)
-      .then((res) => res.json())
-      .then((res) => setLogin(
-        {
-          firstName: res.firstName,
-          lastName: res.lastName,
-          location: res.location,
-          email: res.email,
-          username: res.username,
-          password: res.password,
-          image: res.image,
-          interestedIn: res.interestedIn,
-          relationshipStatus: res.relationshipStatus,
-          lookingFor: res.lookingFor,
-          bio: res.bio,
-          interests: res.interests
-      }))
-      .catch(console.error) 
-  }
-
-  const updateUser = async (user, id) => {
+  const updateUser = async (login) => {
     await fetch(url, {
       method: 'put',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(user),
+      body: JSON.stringify(login),
     });
-    getUser();
   };
 
   const handleChange = event => {
-      setUpdateForm({ ...setUpdateForm, [event.target.name]: event.target.value })  
+      setUpdateForm({ ...updateForm, [event.target.name]: event.target.value })  
   }
 
-  // const handleChange = (event) => {
-  //   const name = event.target.name;
-  //   const value = event.target.value;
-  //   setUser(values => ({...values, [name]: value}))
-  // }
-
-
-
-
-  // handlesubmit for form
   const handleSubmit = (event) => {
       event.preventDefault()
       updateUser(updateForm, id)
-      // redirect people back to index
       history('/home')
   }
 
-// useEffect(() => getUser(),[])
+  useEffect(() => {
+    updateUser()
+} )
 
-console.log(updateForm)  
 
 
   if(!login) {
@@ -94,7 +59,6 @@ console.log(updateForm)
             name='firstName'
             onChange={handleChange}
             value={updateForm.firstName}
-            // placeholder='name'
             ></input>
           <br></br>
 
@@ -104,7 +68,6 @@ console.log(updateForm)
             name='lastName'
             onChange={handleChange}
             value={updateForm.lastName}
-            // placeholder='last name'
             ></input>
           <br></br>
 
@@ -114,7 +77,6 @@ console.log(updateForm)
             name='location'
             onChange={handleChange}
             value={updateForm.location}
-            // placeholder='location'
             ></input>
           <br></br>
 
@@ -124,7 +86,6 @@ console.log(updateForm)
             name='email'
             onChange={handleChange}
             value={updateForm.email}
-            // placeholder='edit email'
             ></input>
             <br></br>
 
@@ -135,7 +96,6 @@ console.log(updateForm)
             name='username'
             onChange={handleChange}
             value={updateForm.username}
-            // placeholder='edit username'
             ></input>
           <br></br>
           
@@ -145,7 +105,6 @@ console.log(updateForm)
             name='password'
             onChange={handleChange}
             value={updateForm.password}
-            // placeholder='Reset password'
             ></input>
           <br></br>
 <img src={login.image} alt="profile"></img>
@@ -155,7 +114,6 @@ console.log(updateForm)
           name='image'
           onChange={handleChange}
           value={updateForm.image}
-          // placeholder='Update profile picture'
           ></input>
           <br></br>
 
@@ -203,7 +161,6 @@ console.log(updateForm)
         name='bio'
         onChange={handleChange}
         value={updateForm.bio}
-        // placeholder='edit bio'
         ></textarea>          
         <br></br>
     
@@ -212,8 +169,6 @@ console.log(updateForm)
           name='interests'
           onChange={handleChange}
           value={updateForm.interests}
-          // placeholder='edit interest'
-
           >
             <option value="Cooking">Cooking</option>
                     <option value="Gardening">Gardening</option>
@@ -249,87 +204,8 @@ console.log(updateForm)
 
         <button onClick={handleSubmit}>Submit</button>
       </form>
-       {/* <button id='delete' onClick={props.deleteUser}> Delete </button> */}
     </div>
   )
 }
 
 export default EditProfile
-
-
-
-
-
-
-///old///
-// const EditProfile = ({user, getUser}) => {
-//   const history = useNavigate()
-//   const id = useParams().id
-// //   console.log(id)
-//   const editUser = user.find(e => e._id === id)
-// //   console.log(editUser)
-
-// //   const [initialState] = {editUser}
-
-
-// const updateUser = (a, id) => {ß
-   
-//   const putURL = 'http://localhost:3001/myaccount/'
-//   fetch (putURL + id, {
-//     method: 'PUT',
-//     headers: {'Content-Type': 'application/json'},
-//     body: JSON.stringify({firstName: ''})
-//   })
-  
-// }
-//   const [editFormState, setEditFormState] = useState(editUser)
-
-//   const handleChange = event => {
-//     setEditFormState({ ...editFormState, id, [event.target.firstName]: event.target.value })
-//     event.preventDefault()
-//   }
-
-//   const handleSubmit = event => {
-//     event.preventDefault();
-//     console.log(editFormState);
-//     updateUser(editFormState, id)
-//     history('/')
-//   }
-
-
-// // useEffect( () => {
-// //     updateUser(editFormState, id)
-// // }, [])
-
-
-//   // const deleteUser = () => {
-//   //   props.deleteUser(id)
-//   //   history('/')
-//   // }
-
-//   useEffect(() => {
-//     updateUser()
-//     }, [])
-    
-   
-
-//   return(
-//    <div className='selectedUser'>
-//      <h1>{editUser.firstName}</h1>
-//     
-//     <form onSubmit={handleSubmit}>
-//       <label htmlFor='firstName'>First Name:</label>
-//       <input value={editFormState.firstName} 
-//        type='text' 
-//        placeholder=''
-//        onChange={handleChange} />
-//       <button type='submit'>Edit Name</button>
-//     </form>
-//    </div>
-//   );
-// }
-
-
-
-
-
