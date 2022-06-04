@@ -2,7 +2,6 @@ import React, { useEffect } from 'react'
 import DailyMatches from '../components/DailyMatches'
 import DailyHoroscope from '../components/DailyHoroscope'
 import DailyLove from '../components/DailyLove'
-// import { Link } from 'react-router-dom'
 /*eslint-disable*/
 
 function Home({ dailyHoro, dailyLove, dh, dl, userZod, setUserZod, login, loggedIn }) {

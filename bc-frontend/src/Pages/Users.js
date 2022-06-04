@@ -56,8 +56,3 @@ const handleSubmit = (event) => {
 }
 
 export default Users
-
-
-
-
-

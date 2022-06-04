@@ -14,28 +14,19 @@ import Footer from "./components/Footer";
 import Splash from "./Pages/Splash";
 import Matches from "./components/Matches";
 import DisplayMatchesDash from "./Pages/DisplayMatchesDash";
+import Delete from "./Pages/Delete";
 /* eslint-disable */
-
-//structure:
-//app
-//head
-//main state: users
-//routes
-//route path: / <User props: user, createUser>
-//route path: /user/:id <Show props: user, updateuser, deleteUser>
 
 function App() {
   const [users, setUsers] = useState(null);
-  // const url = "https://horoscopedatingapp-backend.herokuapp.com/users"
-  // const createUrl = `https://horoscopedatingapp-backend.herokuapp.com/signup`
-  const deleteUrl = `http://localhost:3001/myaccount/`
+  const url = "https://horoscopedatingapp-backend.herokuapp.com/users"
+  const createUrl = `https://horoscopedatingapp-backend.herokuapp.com/signup`
+  const deleteUrl = "https://horoscopedatingapp-backend.herokuapp.com/delete/"
 
-  const url = "http://localhost:3001/users"
-  const createUrl = `http://localhost:3001/signup`
- 
+  // const url = "http://localhost:3001/users"
+  // const createUrl = "http://localhost:3001/signup"
+  // const deleteUrl = "http://localhost:3001/delete/"
 
-
-  const [compatibility, setCompatibility] =useState(null)
   const [dailyHoro, setDailyHoro] = useState(null)
   const [dailyLove, setDailyLove] = useState(null)
   const [weeklyHoro, setWeeklyHoro] = useState("aries")
@@ -54,21 +45,7 @@ function App() {
       .catch(console.error);
   }
 
-  // const createUsers = async (user) => {
-  //   // make post request to create people
-  //   await fetch(url, {
-  //     method: "post",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify(user),
-  //   });
-  //   // update list of users
-  //   getUsers();
-  // };
-
   const createUsers = async (user) => {
-    // make post request to create people
     await fetch(createUrl, {
         method: "post",
         headers: {
@@ -76,7 +53,6 @@ function App() {
         },
         body: JSON.stringify(user),
     });
-    // update list of users
     getUsers();
 };
 
@@ -127,20 +103,6 @@ function dailyLoveHoro(userSign) {
     .catch(err => console.error(err));
 }
 
-//trying my hand at a love match function that we could pull in the dating part
-function matchCompatibility() {
-  const options = {
-    method: 'GET',
-    headers: {
-      'X-RapidAPI-Host': 'devbrewer-horoscope.p.rapidapi.com',
-      'X-RapidAPI-Key': 'e5003d0b92msha0898f0c18e9287p1c5a94jsn9e9de59e6eb3'
-    }
-  };
-  fetch(`https://devbrewer-horoscope.p.rapidapi.com/match/Aries/Leo`, options)
-  .then(response => response.json())
-  .then(response => setCompatibility(response))
-  .catch(err => console.error(err));
-}
 
 function weeklyHoroscope(userSign) {
   const options = {
@@ -284,26 +246,6 @@ const handleSubmit = (event) => {
 
 // console.log(zodiac.toLowerCase())
 
-// const sendLoginId = () => {
-//   users.map((user) => {
-//     if ((login.username === user.username) && (login.password === user.password)) {
-//       setLogin(user);
-//       setLoggedIn(true);
-//       localStorage.setItem("username", login.username)
-//       localStorage.setItem("password", login.password)
-//       const loginId = login._id
-//       console.log(loginId)
-//       return(
-//         <div> loginId is here: <h3>{loginId}</h3> </div>
-//         )
-//     }
-//   })
-// }
-
-// const loginId = login._id
-// console.log(loginId)
-// console.log(logData)
-// console.log(noMatch)
 
 //END LOGIN STUFF
 
@@ -356,7 +298,7 @@ useEffect(() => {
         <Route path="/horoscope" element={loggedIn === false ? <Splash users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login} loggedIn={loggedIn} noMatch={noMatch} /> : <Horoscope dailyHoro={dailyHoro} dailyLove={dailyLove} weeklyHoro={weeklyHoro} weeklyLove={weeklyLove} monthlyHoro={monthlyHoro} monthlyLove={monthlyLove} dailyCareer={dailyCareer} weeklyCareer={weeklyCareer} monthlyCareer={monthlyCareer} userZod={userZod} setUserZod={setUserZod} login={login} dh={dailyHoroscope} dl={dailyLoveHoro} wh={weeklyHoroscope} wl={weeklyLoveHoro} mh={monthlyHoroscope} ml={monthlyLoveHoro} dc={dailyCareerHoro} wc={weeklyCareerHoro} mc={monthlyCareerHoro} /> } />
         <Route path="/matches" element={loggedIn === false ? <Splash users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login} loggedIn={loggedIn} noMatch={noMatch} /> : <DisplayMatchesDash users={users} login={login} getUsers={getUsers}/>}/>
         <Route path="/match-container" element={loggedIn === false ? <Splash users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login} loggedIn={loggedIn} noMatch={noMatch} /> : <Matches users={users} login={login}/>}/>
-
+        <Route path="/delete/:id" element={<Delete />} />
       </Routes>
       <Footer />
     </div>
