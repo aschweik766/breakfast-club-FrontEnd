@@ -6,44 +6,44 @@ import './EditProfile.css'
 const EditProfile = ({login, setUsers, users , updateUsers}) => {
 
   const history = useNavigate()
-  const { id } = useParams()
+  const  id  = useParams().id
 // const loggedInUser = users.find(data => data._id === id)
 
 
   const [updateForm, setUpdateForm] = useState(login)
 const url = `http://localhost:3001/users/${id}`
   // const url = `https://horoscopedatingapp-backend.herokuapp.com/users/${id}`
-
-  function getUser () {
-      fetch(url)
-      .then((res) => res.json())
-      .then((data) => setUsers(data))
-      //   {
-      //     firstName: res.firstName,
-      //     lastName: res.lastName,
-      //     location: res.location,
-      //     email: res.email,
-      //     username: res.username,
-      //     password: res.password,
-      //     image: res.image,
-      //     interestedIn: res.interestedIn,
-      //     relationshipStatus: res.relationshipStatus,
-      //     lookingFor: res.lookingFor,
-      //     bio: res.bio,
-      //     interests: res.interests
-      // }))
-      .catch(console.error) 
-  }
+// console.log(id)
+  // function getUser () {
+  //     fetch(url)
+  //     .then((res) => res.json())
+  //     .then((data) => setUsers(data))
+  //     //   {
+  //     //     firstName: res.firstName,
+  //     //     lastName: res.lastName,
+  //     //     location: res.location,
+  //     //     email: res.email,
+  //     //     username: res.username,
+  //     //     password: res.password,
+  //     //     image: res.image,
+  //     //     interestedIn: res.interestedIn,
+  //     //     relationshipStatus: res.relationshipStatus,
+  //     //     lookingFor: res.lookingFor,
+  //     //     bio: res.bio,
+  //     //     interests: res.interests
+  //     // }))
+  //     .catch(console.error) 
+  // }
 
   const updateUser = async (login, id) => {
-    await fetch(url + id, {
+    await fetch(url, {
       method: 'put',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(login),
     });
-    getUser();
+    // getUser();
   };
 
   const handleChange = event => {
@@ -68,11 +68,11 @@ const url = `http://localhost:3001/users/${id}`
   }
 
   useEffect(() => {
-    getUser()
+    // getUser()
     updateUser()
-}, )
+} )
 
-console.log(updateForm)  
+// console.log(updateForm)  
 
 
   if(!login) {
