@@ -51,11 +51,11 @@ Jaclene Sini, Ashley Schweikhard, & Charnaye Grier
 
 #### Resources
 ####
-* https://rapidapi.com/search/astrology
-https://github.com/kubowania/tinder-clone/
+* [Astro API](https://rapidapi.com/search/astrology)
+* [3DJakob Git](https://github.com/kubowania/tinder-clone/)
 * stackoverflow
 * npm react-tinder-card
-* his project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+* This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app)
 
 
 
