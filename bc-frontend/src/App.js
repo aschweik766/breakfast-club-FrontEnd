@@ -26,12 +26,12 @@ import DisplayMatchesDash from "./Pages/DisplayMatchesDash";
 
 function App() {
   const [users, setUsers] = useState(null);
-  const url = "https://horoscopedatingapp-backend.herokuapp.com/users"
-  const createUrl = `https://horoscopedatingapp-backend.herokuapp.com/signup`
+  // const url = "https://horoscopedatingapp-backend.herokuapp.com/users"
+  // const createUrl = `https://horoscopedatingapp-backend.herokuapp.com/signup`
   const deleteUrl = `http://localhost:3001/myaccount/`
 
-  // const url = "http://localhost:3001/users"
-  // const createUrl = `http://localhost:3001/signup`
+  const url = "http://localhost:3001/users"
+  const createUrl = `http://localhost:3001/signup`
  
 
 
@@ -340,7 +340,7 @@ const zodiac = login.zodiacSign
         <Route path="/home" element={loggedIn === false ? <Splash users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login} loggedIn={loggedIn} noMatch={noMatch} /> : <Home dailyHoro={dailyHoro} dailyLove={dailyLove} login={login}/>} />
         <Route path="/myaccount" element={loggedIn === false ? <Splash users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login} loggedIn={loggedIn} noMatch={noMatch} /> : <MyAccount users={users} login={login} deleteUsers={deleteUsers}/>} />
         <Route path="/signup" element={<SignUp users={users} getUsers={getUsers} createUsers={createUsers}/>} />
-        <Route path="/users/:id" element={<EditProfile updateUsers={updateUsers} deleteUsers={deleteUsers} login={login} setLogin={setLogin} users={users} /> } />
+        <Route path="/users/:id" element={<EditProfile updateUsers={updateUsers} deleteUsers={deleteUsers} login={login} setUsers={setUsers} /> } />
         <Route path="/login" element={<Login users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login} loggedIn={loggedIn} noMatch={noMatch}/>} />
         <Route path="/users" element={<Users users={users} />} />
         <Route path="/horoscope" element={loggedIn === false ? <Splash users={users} handleChange={handleChange} handleSubmit={handleSubmit} login={login} loggedIn={loggedIn} noMatch={noMatch} /> : <Horoscope dailyHoro={dailyHoro} dailyLove={dailyLove} weeklyHoro={weeklyHoro} weeklyLove={weeklyLove} monthlyHoro={monthlyHoro} monthlyLove={monthlyLove} dailyCareer={dailyCareer} weeklyCareer={weeklyCareer} monthlyCareer={monthlyCareer}/> } />
