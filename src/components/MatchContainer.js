@@ -2,11 +2,11 @@ import React, { useEffect } from 'react'
 import Matches from './Matches'
 
 
-const MatchContainer = ({matches, login, users, userGender, swipeUsers, getUserGender}) => {
-console.log(userGender)
+const MatchContainer = ({matches, login, users, userGender, swipeUsers, getUserGender, matchedLoginIds, filterUsersGender}) => {
+// console.log(userGender)
 
 // const seeMatches = matches.map(({firstName}) => firstName)
-console.log(matches)
+// console.log(matches)
 useEffect(() => {
   getUserGender()
  
@@ -17,14 +17,14 @@ useEffect(() => {
         <div>
             <button className="match-button">Matches</button>
             <h1>Match List</h1>
-            {matches.map((match) => (
+            {filterUsersGender?.map((match) => (
               <div key={match._id} className='matches'>
                 <h2>{match.firstName}</h2>
                 <h4>{match.zodiacSign}</h4>
             </div>
            ))}
         </div>
-         <Matches matches={login.matches} swipeUsers={swipeUsers} login={login} users={users} userGender={userGender}/>
+         <Matches matches={login.matches} swipeUsers={swipeUsers} login={login} users={users} userGender={userGender} matchedLoginIds={matchedLoginIds}/>
     </div>
   )
 }
