@@ -4,8 +4,10 @@ import { useState } from 'react';
 import MatchContainer from '../components/MatchContainer';
 import axios from 'axios'
 
-const genderURL = 'http://localhost:3001/users-gender-identity'
-const addMatchUrl = 'http://localhost:3001/update-matches'
+const genderURL = "https://horoscopedatingapp-backend.herokuapp.com/users-gender-identity"
+const addMatchUrl = "https://horoscopedatingapp-backend.herokuapp.com/update-matches"
+// const genderURL = 'http://localhost:3001/users-gender-identity'
+// const addMatchUrl = 'http://localhost:3001/update-matches'
 
 const DisplayMatchesDash = ({users, login, getUsers}) => {
   const usersDB = users
