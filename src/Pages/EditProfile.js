@@ -9,8 +9,8 @@ const EditProfile = ({login}) => {
 
 
   const [updateForm, setUpdateForm] = useState(login)
-const url = `http://localhost:3001/users/${id}`
-  // const url = `https://horoscopedatingapp-backend.herokuapp.com/users/${id}`
+// const url = `http://localhost:3001/users/${id}`
+  const url = `https://horoscopedatingapp-backend.herokuapp.com/users/${id}`
  
 
   const updateUser = async (login) => {
